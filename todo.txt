@@ -1,0 +1,103 @@
+Hi,
+
+
+
+well, show command just corresponds with configuration commands: hw subrack, hw slot, hw fan and hw non-sfp-dataplane. E.g. in my environment:
+
+
+
+hw subrack 16-slots
+
+hw slot 3 card ce8
+
+hw slot 4 card ce8
+
+hw slot 5 card rj45-cei
+
+hw slot 6 card sfp-cei
+
+hw slot 7 card power-48v-be
+
+hw slot 11 card tu-eth
+
+hw slot 12 card tu-e1
+
+hw fan dual
+
+hw non-sfp-dataplane 1
+
+
+
+On the Active CE side ideally every unit is correctly on place and all units become eventually up to Operational state. If not, then is an error somewhere…
+
+
+
+What to test is basically testing that allowed HW card combinations are working and unallowed combinations reporting understandable error information into syslog (show syslog) and/or console.
+
+
+
+In addition to this “show hw” likely covers also auto-detection and auto-configuration of a new card in the subrack. E.g. previously free state slot is inserted Ethernet tributary unit.
+
+
+
+Additionally negation configuration commands should be tested. E.g. no hw slot 5, which does
+
+-          reset of card present in the subrack
+
+-          removes the card from the configuration if HW is not in the slot. In this case, there exists a cleanup effort to run default settings for the Ethernet tributary interfaces on the slot.
+
+o   testing no hw slot 11 for existing Ethernet tributary card by Standby CE side something to test. It must not wipe out configuration of interfaces…
+
+o   I assume this behaviour may require further consideration
+
+
+
+Testing should be done by both 6 slot and 16 slot subracks. Hopefully 2 Power units could be tested too.
+
+
+
+Allowed card combinations are:
+
+-          CEI card (SFP or RJ-45) is allowed only by Units 5 and 6.
+
+-          Ethernet tributary must not be located on Units 3 – 6.
+
+-          CE trunk units are located on Units 3 and 4.
+
+-          CE standalone unit can be located on any other unit than 3 and 4.
+
+
+
+And this possibles e.g. combination of 16 slot subrack when Powers are located on slots 9 + 10. This is not a typical use-case, but something Antti has considered for some environments. The typical case is obviously Power units HW slots 7 and 8.
+
+
+
+Slots numbering is understandable on 16 slot subrack, Unit 1 is the most left-hand side slot and 16 the most right-hand one.
+
+
+
+Slot IDs of 6 slot subrack are descript by the table of http://twiki.e.dnwpartners.com/do/view/Main/RuntimeActivities#UC:%20creation%20of%20ports%20to%20runtime:
+
+
+
+Slot 1 = UNIT_5
+
+Slot 4 = UNIT_8
+
+Slot 2 = UNIT_4
+
+Slot 5 = UNIT_7
+
+Slot 3 = UNIT_3
+
+Slot 6 = UNIT_6
+
+
+
+Hopefully this provides more information and something to start with. So, testing show command equals testing configuration commands and verifing that end-result makes sense. Unfortunately, we don’t have any specific designs from this topic (typical case in our company). So, the implementation is based on our understanding how things should work in most cases. This may lead into interesting findings since we are engineers (meaning not logical humans sometimes).
+
+
+
+Br,
+
+--juha
