@@ -5,7 +5,8 @@ import shutil
 if __name__ == '__main__':
     print('PyCharm')
 
-    p = os.system(r"robot -d Results .\Tests\web-th.robot")
+    # p = os.system(r"robot -d Results .\Tests\web-th.robot")
+    p = os.system(r"robot -d Results .\Tests\th-web.robot")
     print(p)
 
     parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
