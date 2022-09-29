@@ -44,4 +44,5 @@ Open and click
     Welcome Page Should Be Open
     Set Selenium Timeout    5
     # Click Link    xpath="ping4.htm"
-    Click Element    name="ping4.htm"
+    ${elem} =	Get WebElement	id:ping4.htm
+    Click Element    ${elem}
