@@ -10,12 +10,12 @@ ${BROWSER}          Chrome
 
 *** Keywords ***
 Open Browser To Login Page
-    Open Browser        ${LOGIN URL}        ${BROWSER}
+    Open Browser        ${LOGIN URL}        ${BROWSER}      alias=tab1
     Title Should Be    Login
 
 Open Browser To Ping Page
-    Open Browser        ${PING URL}        ${BROWSER}
-    Title Should Be    Ping
+    Open Browser        ${PING URL}        ${BROWSER}       alias=tab2
+    # Title Should Be    Ping
 
 Input Username
     [Arguments]     ${username}
@@ -29,18 +29,22 @@ Submit Credentials
     Click Button    Login
 
 Welcome Page Should Be Open
-    Title Should Be    Dyna Wiz
+    # Title Should Be    Dyna Wiz
+    Title Should Be    Connection Master
 
 Ping Page Should Be Open
     Title Should Be    Login
 
 *** Test Cases ***
-#Valid login
-#    Open Browser To Login Page
-#    Input Username      admin
+Valid login
+    Open Browser To Login Page
+    Input Username      admin
 #    Input Password
-#    Submit Credentials
-#    Welcome Page Should Be Open
+    Submit Credentials
+    Welcome Page Should Be Open
+    Open Browser To Ping Page
+    Switch browser  tab2
+    Title Should Be    Ping
 
 Valid Ping
     Open Browser To Ping Page
@@ -48,5 +52,4 @@ Valid Ping
     Submit Credentials
     Input Text ${ip_addr} ${192.168.0.4}
     Click Element	name:Start
-
 
