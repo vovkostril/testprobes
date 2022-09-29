@@ -6,7 +6,8 @@ if __name__ == '__main__':
     print('PyCharm')
 
     # p = os.system(r"robot -d Results .\Tests\web-th.robot")
-    p = os.system(r"robot -d Results .\Tests\th-web.robot")
+    # p = os.system(r"robot -d Results .\Tests\th-web.robot")
+    p = os.system(r"robot -d Results .\Tests\test-ckick.robot")
     print(p)
 
     parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
@@ -27,7 +28,7 @@ if __name__ == '__main__':
     #     if os.path.isfile(s):
     #         shutil.move(s, d)
     #         print("Moved! --- " + s)
-
+    # TODO new location for screenshots
     old_locations = ["log.html",
                      "output.xml",
                      "report.html"]
