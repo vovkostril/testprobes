@@ -35,6 +35,10 @@ Welcome Page Should Be Open
 
 Ping Page Should Be Open
     Title Should Be    Login
+# Click the refresh button
+#     Click Button    css:#refreshbar > form > input[type=button]:nth-child(5)
+    # #refreshbar > form > input[type=button]:nth-child(5)
+    # document.querySelector('#refreshbar > form > input[type=button]:nth-child(5)');
 
 *** Test Cases ***
 Open and click
@@ -46,7 +50,11 @@ Open and click
     Page Should Contain    HW Inventory
     Maximize Browser Window
     Sleep    10
-    Wait Until Element Is Visible    id="autorefresh"
+    Set Focus To Element    css:#refreshbar > [type=button]:nth-child(5)
+    # Click Image    xpath=(//*[@id="slot_div"]/div[1]/img)
+    # Wait Until Element Is Visible    xpath://*[@id="refreshbar"]/form/label    timeout=3
+    # Press Keys    xpath://*[@id="refreshbar"]/form/label    SPACE
+    # //*[@id="refreshbar"]/form/label
     # Set Focus To Element    xpath=//input[@id='hwiButton']
     # //*[@id="autorefresh"]
     # Wait Until Element Is Visible    xpath://*[@id="hwiButton"]/input
