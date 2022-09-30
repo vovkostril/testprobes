@@ -50,6 +50,7 @@ Open and click
     Page Should Contain    HW Inventory
     Maximize Browser Window
     Sleep    10
+    Wait Until Page Contains Element    css:#refreshbar > [type=button]:nth-child(5)    timeout=30
     Set Focus To Element    css:#refreshbar > [type=button]:nth-child(5)
     # Click Image    xpath=(//*[@id="slot_div"]/div[1]/img)
     # Wait Until Element Is Visible    xpath://*[@id="refreshbar"]/form/label    timeout=3
