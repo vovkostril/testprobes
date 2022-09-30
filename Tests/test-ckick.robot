@@ -2,6 +2,7 @@
 Documentation       New test by web
 Library             SeleniumLibrary
 Suite Teardown      Close Browser
+Test Timeout        1 minute
 
 *** Variables ***
 ${LOGIN URL}        http://192.168.0.3/
@@ -34,6 +35,10 @@ Welcome Page Should Be Open
 
 Ping Page Should Be Open
     Title Should Be    Login
+# Click the refresh button
+#     Click Button    css:#refreshbar > form > input[type=button]:nth-child(5)
+    # #refreshbar > form > input[type=button]:nth-child(5)
+    # document.querySelector('#refreshbar > form > input[type=button]:nth-child(5)');
 
 *** Test Cases ***
 Open and click
@@ -42,7 +47,34 @@ Open and click
     Input Username      admin
     Submit Credentials
     Welcome Page Should Be Open
-    Set Selenium Timeout    5
-    # Click Link    xpath="ping4.htm"
-    ${elem} =	Get WebElement	id:ping4.htm
-    Click Element    ${elem}
+    Page Should Contain    HW Inventory
+    Maximize Browser Window
+    Sleep    10
+    Wait Until Page Contains Element    css:#refreshbar > [type=button]:nth-child(5)    timeout=30
+    Set Focus To Element    css:#refreshbar > [type=button]:nth-child(5)
+    # Click Image    xpath=(//*[@id="slot_div"]/div[1]/img)
+    # Wait Until Element Is Visible    xpath://*[@id="refreshbar"]/form/label    timeout=3
+    # Press Keys    xpath://*[@id="refreshbar"]/form/label    SPACE
+    # //*[@id="refreshbar"]/form/label
+    # Set Focus To Element    xpath=//input[@id='hwiButton']
+    # //*[@id="autorefresh"]
+    # Wait Until Element Is Visible    xpath://*[@id="hwiButton"]/input
+    # Click Element    xpath://*[@id="refreshbar"]/form/input[2]
+    # Click Element    xpath://*[@id="hwiButton"]
+#    ${e} Get WebElement //*[@id="hwiButton"]
+#    [Return] ${e}
+    # Input Text    xpath://*[@id="hwiButton"]/input    RETURN
+    # Wait Until Element Is Visible    id:"hwiButton"
+    # Click Button    xpath://*[@id="hwiButton"]
+    # Wait Until Element Is Visible    xpath://*[@id="hwiButton"]/input
+    # Wait Until Element Is Visible    id=hwiButton
+    # /html/body/div[2]/form/div/input
+    # #hwiButton > input[type=button]
+    # //*[@id="hwiButton"]
+    # /html/body/div[2]/form/div //*[@id="hwiButton"]
+    # Wait Until Element Is Visible    value:"HW Inventory"
+    # Click Link    xpath="ping4.htm" //*[@id="hwiButton"]
+    # ${elem} =	Get WebElement	id:ping4.htm
+    # ${elem} =	Get WebElement	name:"ptp.htm"
+    # Click Element    ${elem}
+    # Click Button    value:"HW Inventory"
