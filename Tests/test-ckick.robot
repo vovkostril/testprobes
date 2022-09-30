@@ -2,6 +2,7 @@
 Documentation       New test by web
 Library             SeleniumLibrary
 Suite Teardown      Close Browser
+Test Timeout        1 minute
 
 *** Variables ***
 ${LOGIN URL}        http://192.168.0.3/
@@ -42,7 +43,20 @@ Open and click
     Input Username      admin
     Submit Credentials
     Welcome Page Should Be Open
-    Set Selenium Timeout    5
-    # Click Link    xpath="ping4.htm"
-    ${elem} =	Get WebElement	id:ping4.htm
-    Click Element    ${elem}
+    Page Should Contain    HW Inventory
+    Maximize Browser Window
+    Input Text    xpath://*[@id="hwiButton"]/input    RETURN
+    # Wait Until Element Is Visible    id:"hwiButton"
+    # Click Button    xpath://*[@id="hwiButton"]
+    # Wait Until Element Is Visible    xpath://*[@id="hwiButton"]/input
+    # Wait Until Element Is Visible    id=hwiButton
+    # /html/body/div[2]/form/div/input
+    # #hwiButton > input[type=button]
+    # //*[@id="hwiButton"]
+    # /html/body/div[2]/form/div //*[@id="hwiButton"]
+    # Wait Until Element Is Visible    value:"HW Inventory"
+    # Click Link    xpath="ping4.htm" //*[@id="hwiButton"]
+    # ${elem} =	Get WebElement	id:ping4.htm
+    # ${elem} =	Get WebElement	name:"ptp.htm"
+    # Click Element    ${elem}
+    # Click Button    value:"HW Inventory"
