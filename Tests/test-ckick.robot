@@ -45,7 +45,13 @@ Open and click
     Welcome Page Should Be Open
     Page Should Contain    HW Inventory
     Maximize Browser Window
-    Input Text    xpath://*[@id="hwiButton"]/input    RETURN
+    Set Focus To Element    xpath://*[@id="state_1"]
+    Wait Until Element Is Visible    xpath://*[@id="state_1"]
+    # Click Element    xpath://*[@id="refreshbar"]/form/input[2]
+    # Click Element    xpath://*[@id="hwiButton"]
+#    ${e} Get WebElement //*[@id="hwiButton"]
+#    [Return] ${e}
+    # Input Text    xpath://*[@id="hwiButton"]/input    RETURN
     # Wait Until Element Is Visible    id:"hwiButton"
     # Click Button    xpath://*[@id="hwiButton"]
     # Wait Until Element Is Visible    xpath://*[@id="hwiButton"]/input
