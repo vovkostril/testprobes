@@ -19,5 +19,4 @@ Open and click
     [Documentation]    Try to use locators
     Open Browser        ${URL}        ${BROWSER}      alias=tab1
     Sleep    10
-    # Wait Until Page Contains Element    //*[@id="hostName"]    timeout=30
     Wait Until Page Contains Element    css:body > header > div > nav > ol > li:nth-child(3) > a   timeout=50
