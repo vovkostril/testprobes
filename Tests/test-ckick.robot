@@ -2,7 +2,7 @@
 Documentation       New test by web
 Library             SeleniumLibrary
 Suite Teardown      Close Browser
-Test Timeout        1 minute
+Test Timeout        2 minute
 
 *** Variables ***
 ${LOGIN URL}        http://192.168.0.3/
@@ -50,8 +50,9 @@ Open and click
     Page Should Contain    HW Inventory
     Maximize Browser Window
     Sleep    10
-    Wait Until Page Contains Element    css:#refreshbar > [type=button]:nth-child(5)    timeout=30
-    Set Focus To Element    css:#refreshbar > [type=button]:nth-child(5)
+    # Wait Until Page Contains Element    css:#refreshbar > [type=button]:nth-child(5)    timeout=30
+    Wait Until Page Contains Element    css:#hwiButton > input[type=button]    timeout=50
+    Set Focus To Element    css:#hwiButton > input[type=button]
     # Click Image    xpath=(//*[@id="slot_div"]/div[1]/img)
     # Wait Until Element Is Visible    xpath://*[@id="refreshbar"]/form/label    timeout=3
     # Press Keys    xpath://*[@id="refreshbar"]/form/label    SPACE
