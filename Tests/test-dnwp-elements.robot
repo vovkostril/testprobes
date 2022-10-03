@@ -36,4 +36,4 @@ Open and click
     Submit Credentials
     Welcome Page Should Be Open
     Sleep    20
-    Wait Until Page Contains Element    css:hwiButton > input[type=button]   timeout=50
+    Wait Until Page Contains Element    css:#logotext     timeout=30

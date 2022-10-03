@@ -19,3 +19,5 @@ kera1#
 
 body > header > div > nav > ol > li:nth-child(3) > a
 #hwiButton > input[type=button]
+body > h1
+body > toprow > ul > li:nth-child(3) > div > a:nth-child(1) > img
