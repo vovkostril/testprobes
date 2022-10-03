@@ -15,3 +15,7 @@ Replication state: Idle Active
 HW Mon: Slot-10 new state Operational
 
 kera1#
+
+
+body > header > div > nav > ol > li:nth-child(3) > a
+#hwiButton > input[type=button]
