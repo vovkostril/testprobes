@@ -7,7 +7,9 @@ if __name__ == '__main__':
 
     # p = os.system(r"robot -d Results .\Tests\web-th.robot")
     # p = os.system(r"robot -d Results .\Tests\th-web.robot")
-    p = os.system(r"robot -d Results .\Tests\test-ckick.robot")
+    # p = os.system(r"robot -d Results .\Tests\test-ckick.robot")
+    # p = os.system(r"robot -d Results .\Tests\test-locators.robot")
+    p = os.system(r"robot -d Results .\Tests\test-dnwp-elements.robot")
     print(p)
 
     parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"

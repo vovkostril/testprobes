@@ -50,8 +50,8 @@ Open and click
     Page Should Contain    HW Inventory
     Maximize Browser Window
     Sleep    10
-    Wait Until Page Contains Element    //*[@id="hostName"]    timeout=30
-    # Wait Until Page Contains Element    css:#hwiButton > input[type=button]    timeout=50
+    # Wait Until Page Contains Element    //*[@id="hostName"]    timeout=30
+    Wait Until Page Contains Element    css:#headlineHostname   timeout=50
     # Wait Until Page Contains Element    css:#hwiButton > input[type=button]    timeout=50
     # Click Element    //*[@id="hwiButton"]
     # Wait Until Page Contains Element    xpath://input[@id="hwiButton"]    timeout=50
