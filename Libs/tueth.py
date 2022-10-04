@@ -6,6 +6,8 @@ def sh_hw(comport):
     print("----------------------------------------------------")
     set_cmd = ["do sh hw"]
     result = serial_ssh.send_command(comport, set_cmd)
+    for i in result:
+        print(result)
     print("----------------------------------------------------")
 
     if 'Ethernet' in result:
