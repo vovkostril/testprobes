@@ -1,1 +1,2 @@
 https://linuxhint.com/python_command_line_parsing_tutorial/
+https://smartbear.com/blog/automate-login-with-selenium/
