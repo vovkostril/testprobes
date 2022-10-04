@@ -1,5 +1,7 @@
  configure terminal
+
 kera1(config)#  do sh hw
+
 
 Connection Master Installation
 
@@ -18,8 +20,8 @@ Slot Card       Configured   Part Number    Serial Number   Oper State    Temp(C
  7   PWR 48VBE  PWR 48VBE    T32008.11...06 HP151961268     Operational *  30     4.A   -    
  8   PWR 48VBE  PWR 48VBE    T32008.11...06 HP153260010     Operational    30     4.A   -    
  9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational    43     17.D  -    
-10   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    36     17.D  -    
-11                                                          Free           -      -     -    
+10   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    40     17.D  -    
+11   Ethernet   Ethernet     T32002.01 A4   4H114615305     Operational    36     17.D  -    
 12                                                          Free           -      -     -    
 13                                                          Free           -      -     -    
 14                                                          Free           -      -     -    

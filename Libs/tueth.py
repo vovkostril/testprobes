@@ -3,9 +3,10 @@ import serial_ssh
 
 def sh_hw(comport):
     ret = None
-    state = ["Operational"]
+    state = ["Operational", "Free"]
     rets = ["9   Ethernet   Ethernet     T32002.01...AH HP210670147     " + state[0],
-            "10   Ethernet   Ethernet     T32002.01...AB HP154160239     " + state[0]]
+            "10   Ethernet   Ethernet     T32002.01...AB HP154160239     " + state[0],
+            "11   Ethernet   Ethernet     T32002.01 A4   4H114615305     " + state[0]]
     sourceFile = open('log.txt', 'w')
     print("----------------------------------------------------")
     set_cmd = ["do sh hw"]
@@ -18,7 +19,7 @@ def sh_hw(comport):
         # lines = f.readlines()
         # [print(line) for line in f.readlines()]
         for line in f.readlines():
-            if rets[0] and rets[1] in line:
+            if rets[0] or rets[1] or rets[2] in line:
                 print("PASS!!")
                 ret = "PASS"
 #             else:
