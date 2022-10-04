@@ -6,9 +6,9 @@ from Libs import probe_gui
 
 if __name__ == '__main__':
 
-    p = None
+    p = 'is'
 
-    p1 = probe_gui.first_view("http://192.168.0.3/index.htm")
+    # p1 = probe_gui.first_view("http://192.168.0.3/index.htm")
 
     # p = os.system(r"robot -d Results .\Tests\web-th.robot")
     # p = os.system(r"robot -d Results .\Tests\th-web.robot")
@@ -18,13 +18,14 @@ if __name__ == '__main__':
     # p = os.system(r"robot -d Results .\Tests\th-mylib.robot")
 
     if p:
-        p = os.system(r"robot -d Results .\Tests\th-mylib.robot")
+        # p = os.system(r"robot -d Results .\Tests\th-mylib.robot")
+        p = os.system(r"robot -d Results .\Tests\button.robot")
         print(p)
 
         parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
 
         # new_one_dir = r"test-out" + str(random.randint(1, 2078)) + "/"
-        new_one_dir = r"test-th-mylib" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"test-button" + str(random.randint(1, 2078)) + "/"
 
         new_dir = os.path.join(parent_dir, new_one_dir)
 
