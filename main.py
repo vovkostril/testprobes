@@ -2,10 +2,14 @@ import random
 import os
 import shutil
 # import tueth
+from Libs import probe_gui
 
 if __name__ == '__main__':
 
-    p = 'is'
+    p = None
+
+    p1 = probe_gui.first_view("http://192.168.0.3/index.htm")
+
     # p = os.system(r"robot -d Results .\Tests\web-th.robot")
     # p = os.system(r"robot -d Results .\Tests\th-web.robot")
     # p = os.system(r"robot -d Results .\Tests\test-ckick.robot")
