@@ -3,3 +3,4 @@ https://smartbear.com/blog/automate-login-with-selenium/
 https://dev.solita.fi/2020/08/24/how-to-stay-sane-with-robot-framework.html
 https://www.sergiofreire.com/post/robotframework-browser-architecture
 https://etherealmind.com/whats-happening-inside-an-ethernet-switch-or-network-switches-for-virtualization-people/
+https://stackoverflow.com/questions/55100567/find-locator-with-contains-text-robotframework
