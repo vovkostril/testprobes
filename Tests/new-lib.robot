@@ -18,19 +18,21 @@ Click HW
     Click    \#hwiButton > input[type=button]
 
 Get HW
-    # Get Element    \#hwiButton > input[type=button]
-    Get Element    body > toprow > ul > li:nth-child(1) > div > img
+    # Get Element    css=.class > \body > toprow > ul > li:nth-child(1) > div
+    # Get Element    css=.class > #int_port_div > div
+    # Get Element    css=.class > #hwiButton
+    Click    "HW Inventory" >> xpath=//*[@id="hwiButton"]/input
+    # Click    "Login" >> xpath=../input
+    # Get Element    body > toprow > ul > li:nth-child(1) > div > img
+    # #hwiButton body > toprow > ul > li:nth-child(1) > div
+
+Get Text For
+    Get Text    HW Inventory
 
 *** Test Cases ***
 Open and run
     New Page        ${URL}
-    # Type Text    input#user    admin
     Type Text    body > form > input:nth-child(1)    admin
-    # body > form > input:nth-child(1)
-    # Click    button=submit
-    # #refreshbar > form > input[type=button]:nth-child(5)
     Submit Form
     Sleep    20
-    # Click HW
-    Get HW
-    # #alarmStatus > tr > td #alarmStatus > tr > a > img body > toprow > ul > li:nth-child(1) > div > img
+    Get Text For
