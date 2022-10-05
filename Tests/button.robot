@@ -6,7 +6,9 @@ Test Timeout        2 minute
 
 *** Variables ***
 ${URL}        http://192.168.0.3/index.htm
+# ${URL}        https://stackoverflow.com/
 ${BROWSER}          Chrome
+${selector1}        xpath://*[@id="hwiButton"]/input
 
 *** Keywords ***
 Open Browser To Login Page
@@ -27,9 +29,13 @@ Submit Credentials
 Welcome Page Should Be Open
     # Title Should Be    Dyna Wiz
     Title Should Be    Connection Master
-    
+    # Title Should Be    Stack Overflow - Where Developers Learn, Share, & Build Careers
+
 Click Button HW
-    Click Element At Coordinates    hwiButton    ${96.75}    ${21}
+    Click Element At Coordinates    ${selector1}    ${1}    ${6}
+
+Get element by
+    Get WebElement   id:hwiButton
 
 *** Test Cases ***
 Open and click
@@ -39,4 +45,6 @@ Open and click
     Submit Credentials
     Welcome Page Should Be Open
     Sleep    20
-    Click Button HW
+    # Click Button HW
+    Wait Until Element Is Visible    ${selector1}       timeout=10
+    # Get element by
