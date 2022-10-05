@@ -6,7 +6,8 @@ from Libs import probe_gui
 
 if __name__ == '__main__':
 
-    p = 'is'
+    p = None
+    p2 = os.system(r"robot -d Results .\Tests\new-lib.robot")
 
     # p1 = probe_gui.first_view("http://192.168.0.3/index.htm")
 
