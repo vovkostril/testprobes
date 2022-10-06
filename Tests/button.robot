@@ -71,4 +71,18 @@ Open and click
     Sleep    20
     Test the iframes
     Sleep    5
+
+Test Ping Finally
     Test side left
+    Select Frame    name:main
+    Current Frame Should Contain    main
+    Sleep   5
+    Input Text    //*[@id="ip_addr"]    192.168.0.4
+    Sleep    5
+    # Click Element    body > form > p > input[type=submit]
+    Click Button    Start
+    Sleep    15
+    Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
+    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+
+
