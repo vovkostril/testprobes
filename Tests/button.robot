@@ -9,6 +9,7 @@ ${URL}        http://192.168.0.3/index.htm
 # ${URL}        https://stackoverflow.com/
 ${BROWSER}          Chrome
 ${selector1}        xpath://*[@id="hwiButton"]/input
+${locator}          html > frameset > frameset > frame:nth-child(2)
 
 *** Keywords ***
 Open Browser To Login Page
@@ -35,7 +36,13 @@ Click Button HW
     Click Element At Coordinates    ${selector1}    ${1}    ${6}
 
 Get element by
-    Get WebElement   id:hwiButton
+    Get WebElement   ${locator}
+
+Label Locator Strategy
+    [Arguments]  ${browser}  ${locator}
+    ${id} =  get element attribute  xpath=//label[text()='${locator}']  for
+    ${element} =  get webelement  id=${id}
+    [Return]	${element}
 
 *** Test Cases ***
 Open and click
@@ -46,5 +53,6 @@ Open and click
     Welcome Page Should Be Open
     Sleep    20
     # Click Button HW
-    Wait Until Element Is Visible    ${selector1}       timeout=10
-    # Get element by
+    # Wait Until Element Is Visible    ${selector1}       timeout=10
+    Get element by
+    # Label Locator Strategy      ${browser}  ${locator}
