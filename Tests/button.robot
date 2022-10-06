@@ -52,6 +52,16 @@ Test the iframes
     Sleep    20
     Page Should Contain    Hardware Inventory
 
+Test side left
+    Select Frame    name:content
+    Current Frame Should Contain    content
+    Wait Until Element Is Visible   //*[@id="menu"]/tbody/tr[2]/td/ul/li[3]/details/summary
+    Click Element    //*[@id="menu"]/tbody/tr[2]/td/ul/li[3]/details/summary
+    Sleep    5
+    Click Element    //*[@id="ping4.htm"]
+    Sleep    15
+    Page Should Contain    Ping (IPv4)
+
 *** Test Cases ***
 Open and click
     [Documentation]    Try to use locators
@@ -61,3 +71,5 @@ Open and click
     Welcome Page Should Be Open
     Sleep    20
     Test the iframes
+    Sleep    5
+    Test side left
