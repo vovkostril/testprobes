@@ -1,6 +1,7 @@
 import random
 from fileinput import filename
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -21,13 +22,18 @@ def first_view(site):
 
     driver.find_element(By.XPATH, "/html/body/form/button").click()
 
-    sleep(10)
+    # sleep(10)
 
     print("------------------------------ FIND TO TRY ------------------------------")
 
     # driver.find_element(By.XPATH, '//*[@id="hwiButton"]/input').click()
-    driver.find_element(By.CSS_SELECTOR, "#hwiButton > input[type=button]")\
-        # .click()
+    # driver.find_element(By.CSS_SELECTOR, "#hwiButton > input[type=button]")\
+    # driver.implicitly_wait(20)
+    WebDriverWait(driver, 30).until(
+        EC.element_to_be_clickable((By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > input[type=image]")))\
+        .click()
+    # driver.find_element(By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > input[type=image]")
+    # .click()
 
     with open('out' + str(random.randint(1, 2078)) + '.txt', 'w') as f:
         print('Filename:', filename, file=f)
