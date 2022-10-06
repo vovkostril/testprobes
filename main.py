@@ -6,12 +6,12 @@ from Libs import probe_gui, test_scrapy
 
 if __name__ == '__main__':
 
-    p = "is"
+    p = None
     # p2 = os.system(r"robot -d Results .\Tests\new-lib.robot")
 
     # result_scra = test_scrapy.relax("http://192.168.0.3/index.htm")
 
-    # p1 = probe_gui.first_view("http://192.168.0.3/index.htm")
+    p1 = probe_gui.first_view("http://192.168.0.3/index.htm")
 
     # p = os.system(r"robot -d Results .\Tests\web-th.robot")
     # p = os.system(r"robot -d Results .\Tests\th-web.robot")
