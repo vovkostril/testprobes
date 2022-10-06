@@ -6,12 +6,12 @@ from Libs import probe_gui, test_scrapy
 
 if __name__ == '__main__':
 
-    p = None
+    p = "is"
     # p2 = os.system(r"robot -d Results .\Tests\new-lib.robot")
 
-    result_scra = test_scrapy.relax("http://192.168.0.3/index.htm")
+    # result_scra = test_scrapy.relax("http://192.168.0.3/index.htm")
 
-    p1 = probe_gui.first_view("http://192.168.0.3/index.htm")
+    # p1 = probe_gui.first_view("http://192.168.0.3/index.htm")
 
     # p = os.system(r"robot -d Results .\Tests\web-th.robot")
     # p = os.system(r"robot -d Results .\Tests\th-web.robot")
@@ -28,7 +28,7 @@ if __name__ == '__main__':
         parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
 
         # new_one_dir = r"test-out" + str(random.randint(1, 2078)) + "/"
-        new_one_dir = r"test-button" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"test-button-frame" + str(random.randint(1, 2078)) + "/"
 
         new_dir = os.path.join(parent_dir, new_one_dir)
 

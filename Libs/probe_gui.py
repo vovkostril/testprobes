@@ -26,8 +26,11 @@ def first_view(site):
 
     print("------------------------------ FIND TO TRY ------------------------------")
     main_frame = "main"
-    WebDriverWait(driver, 10). \
+    WebDriverWait(driver, 20). \
         until(EC.frame_to_be_available_and_switch_to_it((By.NAME, main_frame)))
+    driver.implicitly_wait(20)
+    print("Find button?")
+    driver.find_element(By.CSS_SELECTOR, "#hwiButton > input[type=button]").click()
 
     # driver.find_element(By.XPATH, '//*[@id="hwiButton"]/input').click()
     # driver.find_element(By.CSS_SELECTOR, "#hwiButton > input[type=button]")\

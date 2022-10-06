@@ -44,6 +44,14 @@ Label Locator Strategy
     ${element} =  get webelement  id=${id}
     [Return]	${element}
 
+Test the iframes 
+    Select Frame    name:main
+    Current Frame Should Contain    main
+    Wait Until Element Is Visible    //*[@id="hwiButton"]/input
+    Click Element    //*[@id="hwiButton"]/input
+    Sleep    20
+    Page Should Contain    Hardware Inventory
+
 *** Test Cases ***
 Open and click
     [Documentation]    Try to use locators
@@ -52,7 +60,4 @@ Open and click
     Submit Credentials
     Welcome Page Should Be Open
     Sleep    20
-    # Click Button HW
-    # Wait Until Element Is Visible    ${selector1}       timeout=10
-    Get element by
-    # Label Locator Strategy      ${browser}  ${locator}
+    Test the iframes
