@@ -6,10 +6,7 @@ Test Timeout        2 minute
 
 *** Variables ***
 ${URL}        http://192.168.0.3/index.htm
-# ${URL}        https://stackoverflow.com/
 ${BROWSER}          Chrome
-${selector1}        xpath://*[@id="hwiButton"]/input
-${locator}          html > frameset > frameset > frame:nth-child(2)
 
 *** Keywords ***
 Open Browser To Login Page
@@ -32,19 +29,7 @@ Welcome Page Should Be Open
     Title Should Be    Connection Master
     # Title Should Be    Stack Overflow - Where Developers Learn, Share, & Build Careers
 
-Click Button HW
-    Click Element At Coordinates    ${selector1}    ${1}    ${6}
-
-Get element by
-    Get WebElement   ${locator}
-
-Label Locator Strategy
-    [Arguments]  ${browser}  ${locator}
-    ${id} =  get element attribute  xpath=//label[text()='${locator}']  for
-    ${element} =  get webelement  id=${id}
-    [Return]	${element}
-
-Test the iframes 
+Test the iframes
     Select Frame    name:main
     Current Frame Should Contain    main
     Wait Until Element Is Visible    //*[@id="hwiButton"]/input
@@ -60,6 +45,11 @@ Test side left
     Click Element    //*[@id="ping4.htm"]
     Sleep    15
     Page Should Contain    Ping (IPv4)
+
+Click on Main Page
+
+Parse HW
+
 
 *** Test Cases ***
 Open and click
@@ -79,10 +69,7 @@ Test Ping Finally
     Sleep   5
     Input Text    //*[@id="ip_addr"]    192.168.0.4
     Sleep    5
-    # Click Element    body > form > p > input[type=submit]
     Click Button    Start
     Sleep    15
     Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
     Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
-
-
