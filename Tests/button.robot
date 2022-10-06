@@ -53,8 +53,7 @@ Test the iframes
     Page Should Contain    Hardware Inventory
 
 Test side left
-    Select Frame    name:content
-    Current Frame Should Contain    content
+    Select Frame    name:contents
     Wait Until Element Is Visible   //*[@id="menu"]/tbody/tr[2]/td/ul/li[3]/details/summary
     Click Element    //*[@id="menu"]/tbody/tr[2]/td/ul/li[3]/details/summary
     Sleep    5
