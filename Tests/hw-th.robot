@@ -51,7 +51,7 @@ Click on Main Page
     Current Frame Should Contain    top
     # Click Element       /html/body/toprow/ul/li[3]/div/a[1]
     # Click Element    /html/body/toprow/ul/li[3]/div/a[1]
-    Click Element    /html/body/toprow/ul/li[3]/div/a[1]
+    Set Focus To Element    body > toprow > ul > li:nth-child(3) > div > a:nth-child(1)
     #               /html/body/toprow/ul/li[3]/div/a[1]
     Sleep    10
 
