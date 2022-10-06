@@ -25,17 +25,20 @@ def first_view(site):
     # sleep(10)
 
     print("------------------------------ FIND TO TRY ------------------------------")
+    main_frame = "main"
+    WebDriverWait(driver, 10). \
+        until(EC.frame_to_be_available_and_switch_to_it((By.NAME, main_frame)))
 
     # driver.find_element(By.XPATH, '//*[@id="hwiButton"]/input').click()
     # driver.find_element(By.CSS_SELECTOR, "#hwiButton > input[type=button]")\
     # driver.implicitly_wait(20)
-    WebDriverWait(driver, 30).until(
-        EC.element_to_be_clickable((By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > input[type=image]")))\
-        .click()
+    # WebDriverWait(driver, 30).until(
+    #     EC.element_to_be_clickable((By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > input[type=image]")))\
+    #     .click()
     # driver.find_element(By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > input[type=image]")
     # .click()
 
-    with open('out' + str(random.randint(1, 2078)) + '.txt', 'w') as f:
-        print('Filename:', filename, file=f)
+    # with open('out' + str(random.randint(1, 2078)) + '.txt', 'w') as f:
+    #     print('Filename:', filename, file=f)
 
     print("------------------------------ FOUND ------------------------------")
