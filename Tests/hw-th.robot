@@ -47,8 +47,15 @@ Test side left
     Page Should Contain    Ping (IPv4)
 
 Click on Main Page
+    Select Frame    name:top
+    Current Frame Should Contain    top
+    # Click Element       /html/body/toprow/ul/li[3]/div/a[1]
+    # Click Element    /html/body/toprow/ul/li[3]/div/a[1]
+    Click Element    /html/body/toprow/ul/li[3]/div/a[1]
+    #               /html/body/toprow/ul/li[3]/div/a[1]
+    Sleep    10
 
-Parse HW
+#Parse HW
 
 
 *** Test Cases ***
@@ -62,14 +69,20 @@ Open and click
     Test the iframes
     Sleep    5
 
-Test Ping Finally
-    Test side left
-    Select Frame    name:main
-    Current Frame Should Contain    main
-    Sleep   5
-    Input Text    //*[@id="ip_addr"]    192.168.0.4
-    Sleep    5
-    Click Button    Start
-    Sleep    15
-    Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
-    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+# Test Ping Finally
+#    Test side left
+#    Select Frame    name:main
+#    Current Frame Should Contain    main
+#    Sleep   5
+#    Input Text    //*[@id="ip_addr"]    192.168.0.4
+#    Sleep    5
+#    Click Button    Start
+#    Sleep    15
+#    Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
+#    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+#    Page Should Contain    Ping session completed.
+
+Test go to main page
+    Click on Main Page
+    Welcome Page Should Be Open
+    Page Should Contain    Connection Master Carrier Ethernet
