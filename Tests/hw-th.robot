@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation       New test by web
 Library             SeleniumLibrary
+# Library             ../Libs/probe_gui.py
 Suite Teardown      Close Browser
 Test Timeout        2 minute
 
@@ -47,16 +48,18 @@ Test side left
     Page Should Contain    Ping (IPv4)
 
 Click on Main Page
+    Sleep    10
     Select Frame    name:top
     Current Frame Should Contain    top
-    # Click Element       /html/body/toprow/ul/li[3]/div/a[1]
-    # Click Element    /html/body/toprow/ul/li[3]/div/a[1]
-    Set Focus To Element    body > toprow > ul > li:nth-child(3) > div > a:nth-child(1)
-    #               /html/body/toprow/ul/li[3]/div/a[1]
+    Element Should Be Visible   //*[@id="logotext"]
+    # Element Should Be Visible   //ul/li[3]
+    Element Should Be Focused   //ul/li[3]
+    Click Element   //ul/li[3]
+    #               /html/body/toprow/ul
+    #               //ul/li[3]
     Sleep    10
 
 #Parse HW
-
 
 *** Test Cases ***
 Open and click
@@ -84,5 +87,6 @@ Open and click
 
 Test go to main page
     Click on Main Page
+    Sleep    10
     Welcome Page Should Be Open
     Page Should Contain    Connection Master Carrier Ethernet

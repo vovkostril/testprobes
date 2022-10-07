@@ -1,11 +1,11 @@
 import random
+from time import sleep
 from fileinput import filename
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from time import sleep
 
 
 def first_view(site):
@@ -22,7 +22,7 @@ def first_view(site):
 
     driver.find_element(By.XPATH, "/html/body/form/button").click()
 
-    # sleep(10)
+    sleep(10)
 
     print("------------------------------ FIND TO TRY ------------------------------")
     main_frame = "top"
@@ -31,9 +31,13 @@ def first_view(site):
     driver.implicitly_wait(20)
     print("Find button?")
     # driver.find_element(By.CSS_SELECTOR, "#hwiButton > input[type=button]").click()
-    myImgBtn = driver.find_element(By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > a:nth-child(1)");
-    myImgBtn.click()
-    sleep(15)
+    # myImgBtn = driver.find_element(By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > a:nth-child(1)");
+    # myImgBtn.click()
+    find_right_way = driver.find_element(By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > a:nth-child(""1) > img")
+    sleep(5)
+    find_right_way.click()
+    sleep(5)
+    print(find_right_way)
     print("Yes?")
     # driver.find_element(By.XPATH, '//*[@id="hwiButton"]/input').click()
     # driver.find_element(By.CSS_SELECTOR, "#hwiButton > input[type=button]")\
