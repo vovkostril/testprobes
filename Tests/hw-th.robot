@@ -55,12 +55,12 @@ Click on Main Page
     Element Should Be Visible   //ul/li[3]
     Element Should Be Visible   //ul/li[3]/div/a[1]
     Click Element   //ul/li[3]/div/a[1]
-    # /html/body/toprow/ul/li[3]/div/a[1]
-    #               /html/body/toprow/ul
-    #               //ul/li[3]
     Sleep    10
 
-#Parse HW
+Parse HW
+    Select Frame    name:main
+    Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
+    # //*[@id="unitTableContentTbody"]/tr/td[1]
 
 *** Test Cases ***
 Open and click
@@ -94,3 +94,7 @@ Test go to main page
     Page Should Contain    Connection Master Carrier Ethernet
     Sleep    10
     Test the iframes
+
+Test parse Hw
+    Parse HW
+    Sleep    15
