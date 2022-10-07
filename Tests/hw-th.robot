@@ -7,11 +7,16 @@ Test Timeout        2 minute
 
 *** Variables ***
 ${URL}        http://192.168.0.3/index.htm
+${URL2}        http://192.168.0.4/index.htm
 ${BROWSER}          Chrome
 
 *** Keywords ***
 Open Browser To Login Page
     Open Browser        ${URL}        ${BROWSER}      alias=tab1
+    Title Should Be    Login
+
+Open Browser To Login Page 2
+    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
     Title Should Be    Login
 
 Input Username
@@ -59,48 +64,76 @@ Click on Main Page
 
 Parse HW
     Select Frame    name:main
-    ${loc}        Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
-    # //*[@id="unitTableContentTbody"]/tr/td[1]
-    # Should Contain    ${loc}    16 Slot Subrack
-    # //*[@id="unitTableContentTbody"]/tr/td[1]
-    # #unitTableContentTbody > tr > td:nth-child(1)
-    ${id}=	Get Element Attribute	//*[@id="unitTableContentTbody"]/tr/td[1]	text()
-    
+    Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
+    ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
+    Should Contain    ${loc}    16 Slot Subrack
+
+Parse slots
+    # //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    # //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    # //*[@id="slotTableContentTbody"]/tr[3]/td[3]
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    Should Contain    ${card1}    CE8+
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[3]
+    ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[3]
+    Should Contain    ${card2}    CE8+
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    Should Contain    ${card3}    Operational
 
 *** Test Cases ***
 Open and click
     [Documentation]    Try to use locators
+    [Tags]  Standby Trank
     Open Browser        ${URL}        ${BROWSER}      alias=tab1
     Input Username      admin
     Submit Credentials
     Welcome Page Should Be Open
+    Sleep    15
+    Page Should Contain    Standby CE
 #    Sleep    20
 #    Test the iframes
     Sleep    5
 
-#Test Ping Finally
-#   Test side left
-#   Select Frame    name:main
-#   Current Frame Should Contain    main
-#   Sleep   5
-#   Input Text    //*[@id="ip_addr"]    192.168.0.4
-#   Sleep    5
-#   Click Button    Start
-#   Sleep    15
-#   Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
-#   Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
-#   Page Should Contain    Ping session completed.
+Test Ping Finally
+  Test side left
+  Select Frame    name:main
+  Current Frame Should Contain    main
+  Sleep   5
+  Input Text    //*[@id="ip_addr"]    192.168.0.4
+  Sleep    5
+  Click Button    Start
+  Sleep    15
+  Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
+  Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+  Page Should Contain    Ping session completed.
 
-#Test go to main page
-#    Maximize Browser Window
-#    Click on Main Page
-#    Sleep    10
-#    Title Should Be    kera1 - Connection Master
-#    Page Should Contain    Connection Master Carrier Ethernet
-#    Sleep    10
-#    Test the iframes
+Test go to main page
+   Maximize Browser Window
+   Click on Main Page
+   Sleep    10
+   Title Should Be    kera1 - Connection Master
+   Page Should Contain    Connection Master Carrier Ethernet
+   Sleep    10
+   Test the iframes
 
 Test parse Hw
-    Test the iframes
+    # Test the iframes
     Parse HW
     Sleep    15
+    Parse slots
+    Sleep    10
+
+Test finnaly Active
+    [Tags]   Active trank
+    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
+    Input Username      admin
+    Submit Credentials
+    Welcome Page Should Be Open
+    Sleep    5
+    Page Should Contain    Active CE
+    Sleep    20
+    Test the iframes
+    Sleep    5
+
