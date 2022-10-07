@@ -52,14 +52,15 @@ Click on Main Page
     Select Frame    name:top
     Current Frame Should Contain    top
     Element Should Be Visible   //*[@id="logotext"]
-    # Element Should Be Visible   //ul/li[3]
-    Element Should Be Focused   //ul/li[3]
-    Click Element   //ul/li[3]
-    #               /html/body/toprow/ul
-    #               //ul/li[3]
+    Element Should Be Visible   //ul/li[3]
+    Element Should Be Visible   //ul/li[3]/div/a[1]
+    Click Element   //ul/li[3]/div/a[1]
     Sleep    10
 
-#Parse HW
+Parse HW
+    Select Frame    name:main
+    Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
+    # //*[@id="unitTableContentTbody"]/tr/td[1]
 
 *** Test Cases ***
 Open and click
@@ -72,21 +73,28 @@ Open and click
     Test the iframes
     Sleep    5
 
-# Test Ping Finally
-#    Test side left
-#    Select Frame    name:main
-#    Current Frame Should Contain    main
-#    Sleep   5
-#    Input Text    //*[@id="ip_addr"]    192.168.0.4
-#    Sleep    5
-#    Click Button    Start
-#    Sleep    15
-#    Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
-#    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
-#    Page Should Contain    Ping session completed.
+Test Ping Finally
+   Test side left
+   Select Frame    name:main
+   Current Frame Should Contain    main
+   Sleep   5
+   Input Text    //*[@id="ip_addr"]    192.168.0.4
+   Sleep    5
+   Click Button    Start
+   Sleep    15
+   Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
+   Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+   Page Should Contain    Ping session completed.
 
 Test go to main page
+    Maximize Browser Window
     Click on Main Page
     Sleep    10
-    Welcome Page Should Be Open
+    Title Should Be    kera1 - Connection Master
     Page Should Contain    Connection Master Carrier Ethernet
+    Sleep    10
+    Test the iframes
+
+Test parse Hw
+    Parse HW
+    Sleep    15
