@@ -6,7 +6,7 @@ from Libs import probe_gui, test_scrapy
 
 if __name__ == '__main__':
 
-    p = 2
+    p = 1
     # p2 = os.system(r"robot -d Results .\Tests\new-lib.robot")
 
     # result_scra = test_scrapy.relax("http://192.168.0.3/index.htm")

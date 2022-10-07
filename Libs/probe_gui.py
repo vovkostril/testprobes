@@ -31,8 +31,14 @@ def first_view(site):
     driver.implicitly_wait(20)
     print("Find button?")
     # driver.find_element(By.CSS_SELECTOR, "#hwiButton > input[type=button]").click()
-    myImgBtn = driver.find_element(By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > a:nth-child(1)");
-    myImgBtn.click()
+    # myImgBtn = driver.find_element(By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > a:nth-child(1)");
+    # myImgBtn.click()
+    find_right_way = driver.find_element(By.CSS_SELECTOR, "body > toprow > ul > li:nth-child(3) > div > a:nth-child("
+                                                          "1) > img")
+    sleep(15)
+    find_right_way.click()
+    sleep(15)
+    print(find_right_way)
     sleep(15)
     print("Yes?")
     # driver.find_element(By.XPATH, '//*[@id="hwiButton"]/input').click()
