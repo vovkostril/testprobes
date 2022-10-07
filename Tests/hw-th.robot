@@ -15,6 +15,10 @@ Open Browser To Login Page
     Open Browser        ${URL}        ${BROWSER}      alias=tab1
     Title Should Be    Login
 
+Open Browser To Login Page 2
+    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
+    Title Should Be    Login
+
 Input Username
     [Arguments]     ${username}
     Input Text    user    ${username}
@@ -68,7 +72,6 @@ Parse slots
     # //*[@id="slotTableContentTbody"]/tr[3]/td[2]
     # //*[@id="slotTableContentTbody"]/tr[3]/td[6]
     # //*[@id="slotTableContentTbody"]/tr[3]/td[3]
-    # Select Frame    name:main
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[2]
     ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
     Should Contain    ${card1}    CE8+
@@ -82,10 +85,13 @@ Parse slots
 *** Test Cases ***
 Open and click
     [Documentation]    Try to use locators
+    [Tags]  Standby Trank
     Open Browser        ${URL}        ${BROWSER}      alias=tab1
     Input Username      admin
     Submit Credentials
     Welcome Page Should Be Open
+    Sleep    15
+    Page Should Contain    Standby CE
 #    Sleep    20
 #    Test the iframes
     Sleep    5
@@ -118,3 +124,16 @@ Test parse Hw
     Sleep    15
     Parse slots
     Sleep    10
+
+Test finnaly Active
+    [Tags]   Active trank
+    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
+    Input Username      admin
+    Submit Credentials
+    Welcome Page Should Be Open
+    Sleep    5
+    Page Should Contain    Active CE
+    Sleep    20
+    Test the iframes
+    Sleep    5
+
