@@ -23,7 +23,8 @@ if __name__ == '__main__':
     if p:
         # p = os.system(r"robot -d Results .\Tests\th-mylib.robot")
         # p = os.system(r"robot -d Results .\Tests\button.robot")
-        p = os.system(r"robot -d Results .\Tests\hw-th.robot")
+        # p = os.system(r"robot -d Results .\Tests\hw-th.robot")
+        p = os.system(r"robot -d Results .\Tests\ptp.robot")
         print(p)
 
         parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
