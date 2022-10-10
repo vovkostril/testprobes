@@ -1,8 +1,10 @@
+# 2.5GigabitEthernet 4/1
 *** Settings ***
 Documentation       New test PTP by web
 Library             SeleniumLibrary
 Library    String
 # Library             ../Libs/probe_gui.py
+Library             ../Libs/shut_nocard.py
 Suite Teardown      Close Browser
 Test Timeout        2 minute
 
@@ -10,7 +12,8 @@ Test Timeout        2 minute
 ${URL}        http://192.168.0.3/index.htm
 ${URL2}        http://192.168.0.4/index.htm
 ${BROWSER}          Chrome
-
+${KERA}          COM3
+${PORt}          2.5GigabitEthernet 4/1
 
 *** Keywords ***
 Open Browser To Login Page
@@ -78,6 +81,16 @@ Parse PTP Rtm
     ${loc}        Get Text    //*[@id="CCDataSet_tbody"]/tr[2]/td[1]
     Should Contain    ${loc}    1
 
+Parse Port Shut
+    Select Frame    name:contents
+    Wait Until Element Is Visible   //*[@id="menu"]/tbody/tr[2]/td/ul/li[1]/details/summary
+    Click Element   //*[@id="menu"]/tbody/tr[2]/td/ul/li[1]/details/summary
+    Sleep    2
+    Click Element    //*[@id="ports.htm"]
+    Sleep    2
+    Page Should Contain    Port Configuration
+    Select Frame    name:main
+    Click Element    /html/body/div[1]/form/input
 
 *** Test Cases ***
 Open and click
@@ -100,3 +113,7 @@ Ptp Atributes
     Parse PTP time
     Sleep    10
     Parse PTP Rtm
+
+Ptp Shut Port
+    Test Shutdown Port    ${KERA}    ${PORt}
+    Parse Port Shut

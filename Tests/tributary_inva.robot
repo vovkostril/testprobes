@@ -11,7 +11,6 @@ ${URL}        http://192.168.0.3/index.htm
 ${URL2}        http://192.168.0.4/index.htm
 ${BROWSER}          Chrome
 
-
 *** Keywords ***
 Open Browser To Login Page
     Open Browser        ${URL}        ${BROWSER}      alias=tab1
@@ -56,27 +55,7 @@ Click on Main Page
     Click Element   //ul/li[3]/div/a[1]
     Sleep    10
 
-Click PTP instance
-    Sleep    10
-    Select Frame    name:main
-    Element Should Be Visible   //*[@id="ptpData"]/tr[3]/td[1]/a
-    Click Element   //*[@id="ptpData"]/tr[3]/td[1]/a
-    Sleep    10
 
-Parse PTP phase
-    Element Should Be Visible   //*[@id="CCDataSet_tbody"]/tr[2]/td[5]
-    ${loc}        Get Text    //*[@id="CCDataSet_tbody"]/tr[2]/td[5]
-    Should Contain    ${loc}    PHASE_LOCKED
-
-Parse PTP time
-    Element Should Be Visible   //*[@id="Lclock_tbody"]/tr/td[1]
-    ${loc}        Get Text   //*[@id="Lclock_tbody"]/tr/td[1]
-    Should Contain    ${loc}    1970
-
-Parse PTP Rtm
-    Element Should Be Visible   //*[@id="CCDataSet_tbody"]/tr[1]/th[1]
-    ${loc}        Get Text    //*[@id="CCDataSet_tbody"]/tr[2]/td[1]
-    Should Contain    ${loc}    1
 
 
 *** Test Cases ***
@@ -90,13 +69,3 @@ Open and click
     Sleep    15
     Page Should Contain    Active CE
     Sleep    5
-
-Ptp Go
-    Ptp monitor
-    Click PTP instance
-    Parse PTP Phase
-
-Ptp Atributes
-    Parse PTP time
-    Sleep    10
-    Parse PTP Rtm
