@@ -91,11 +91,14 @@ Parse Port Shut
     Sleep    2
     Page Should Contain    Port Configuration
     Unselect Frame
+
+Press Refresh
     Select Frame    name:main
     Sleep    5
     # Wait Until Element Is Visible    /html/body/div[1]
     Click Button    Refresh
     Sleep    5
+    Unselect Frame
 
 *** Test Cases ***
 Open and click
@@ -120,8 +123,13 @@ Ptp Atributes
     Parse PTP Rtm
 
 Ptp Shut Port
-    # Shut Down Port    ${KERA}    ${PORt}
-    Sleep    10
+    Shut Down Port    ${KERA}    ${PORt}
     Parse Port Shut
-    Sleep    10
-    # Up Down Port    ${KERA}    ${PORt}
+    Sleep    5
+    Press Refresh
+    Up Down Port    ${KERA}    ${PORt}
+    Sleep    5
+    Press Refresh
+    Ptp monitor
+    Click PTP instance
+    Parse PTP Phase
