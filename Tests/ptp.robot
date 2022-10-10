@@ -1,6 +1,7 @@
 *** Settings ***
 Documentation       New test PTP by web
 Library             SeleniumLibrary
+Library    String
 # Library             ../Libs/probe_gui.py
 Suite Teardown      Close Browser
 Test Timeout        2 minute
@@ -32,13 +33,13 @@ Submit Credentials
 
 Welcome Page Should Be Open
     # Title Should Be    Dyna Wiz
-    Title Should Be    Connection Master
+    Page Should Contain    Connection Master
     # Title Should Be    Stack Overflow - Where Developers Learn, Share, & Build Careers
 
 Ptp monitor
     Select Frame    name:contents
     Wait Until Element Is Visible   //*[@id="menu"]/tbody/tr[2]/td/ul/li[2]/details/summary
-    Click Element   //*[@id="menu"]/tbody/tr[2]/td/ul/li[2]/details/summary
+    # Click Element   //*[@id="menu"]/tbody/tr[2]/td/ul/li[2]/details/summary
     Sleep    5
     Click Element    //*[@id="ptp.htm"]
     Sleep    15
@@ -57,16 +58,24 @@ Click on Main Page
 Click PTP instance
     Sleep    10
     Select Frame    name:main
-    Current Frame Should Contain    main
     Element Should Be Visible   //*[@id="ptpData"]/tr[3]/td[1]/a
     Click Element   //*[@id="ptpData"]/tr[3]/td[1]/a
     Sleep    10
 
-Parse PTP
-    Select Frame    name:main
+Parse PTP phase
     Element Should Be Visible   //*[@id="CCDataSet_tbody"]/tr[2]/td[5]
     ${loc}        Get Text    //*[@id="CCDataSet_tbody"]/tr[2]/td[5]
     Should Contain    ${loc}    PHASE_LOCKED
+
+Parse PTP time
+    Element Should Be Visible   //*[@id="Lclock_tbody"]/tr/td[1]
+    ${loc}        Get Text   //*[@id="Lclock_tbody"]/tr/td[1]
+    Should Contain    ${loc}    1970
+
+Parse PTP Rtm
+    Element Should Be Visible   //*[@id="CCDataSet_tbody"]/tr[1]/th[1]
+    ${loc}        Get Text    //*[@id="CCDataSet_tbody"]/tr[2]/td[1]
+    Should Contain    ${loc}    1
 
 
 *** Test Cases ***
@@ -84,4 +93,9 @@ Open and click
 Ptp Go
     Ptp monitor
     Click PTP instance
-    Parse PTP
+    Parse PTP Phase
+
+Ptp Atributes
+    Parse PTP time
+    Sleep    10
+    Parse PTP Rtm
