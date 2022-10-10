@@ -74,7 +74,7 @@ Parse PTP phase
 Parse PTP time
     Element Should Be Visible   //*[@id="Lclock_tbody"]/tr/td[1]
     ${loc}        Get Text   //*[@id="Lclock_tbody"]/tr/td[1]
-    Should Contain    ${loc}    1970
+    Should Contain    ${loc}    2022
 
 Parse PTP Rtm
     Element Should Be Visible   //*[@id="CCDataSet_tbody"]/tr[1]/th[1]
@@ -82,6 +82,7 @@ Parse PTP Rtm
     Should Contain    ${loc}    1
 
 Parse Port Shut
+    Unselect Frame
     Select Frame    name:contents
     Wait Until Element Is Visible   //*[@id="menu"]/tbody/tr[2]/td/ul/li[1]/details/summary
     Click Element   //*[@id="menu"]/tbody/tr[2]/td/ul/li[1]/details/summary
@@ -89,8 +90,12 @@ Parse Port Shut
     Click Element    //*[@id="ports.htm"]
     Sleep    2
     Page Should Contain    Port Configuration
+    Unselect Frame
     Select Frame    name:main
-    Click Element    /html/body/div[1]/form/input
+    Sleep    5
+    # Wait Until Element Is Visible    /html/body/div[1]
+    Click Button    Refresh
+    Sleep    5
 
 *** Test Cases ***
 Open and click
@@ -115,5 +120,8 @@ Ptp Atributes
     Parse PTP Rtm
 
 Ptp Shut Port
-    Test Shutdown Port    ${KERA}    ${PORt}
+    # Shut Down Port    ${KERA}    ${PORt}
+    Sleep    10
     Parse Port Shut
+    Sleep    10
+    # Up Down Port    ${KERA}    ${PORt}
