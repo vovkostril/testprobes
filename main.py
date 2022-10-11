@@ -4,7 +4,7 @@ import shutil
 
 if __name__ == '__main__':
 
-    p = 2
+    p = 2  # TODO check statuses of PASS and return to gmail
 
     # test_parse.parser().time_check("COM3", "9")
     # test_parse.parser().parse("COM3", "9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational")
@@ -65,5 +65,5 @@ if __name__ == '__main__':
             print(file + " was moved to " + destination)
 
     # else:
-        # test_hw = tueth.sh_hw('COM3')
-        # print(test_hw)
+    # test_hw = tueth.sh_hw('COM3')
+    # print(test_hw)
