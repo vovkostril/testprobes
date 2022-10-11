@@ -3,6 +3,7 @@ Documentation       New test PTP by web
 Library             SeleniumLibrary
 Library    String
 # Library             ../Libs/probe_gui.py
+Library             ../Libs/card.py
 Suite Teardown      Close Browser
 Test Timeout        2 minute
 
@@ -10,6 +11,7 @@ Test Timeout        2 minute
 ${URL}        http://192.168.0.3/index.htm
 ${URL2}        http://192.168.0.4/index.htm
 ${BROWSER}          Chrome
+${COMPORT}          COM3
 
 *** Keywords ***
 Open Browser To Login Page
@@ -34,29 +36,41 @@ Submit Credentials
 Welcome Page Should Be Open
     # Title Should Be    Dyna Wiz
     Page Should Contain    Connection Master
-    # Title Should Be    Stack Overflow - Where Developers Learn, Share, & Build Careers
 
-Ptp monitor
-    Select Frame    name:contents
-    Wait Until Element Is Visible   //*[@id="menu"]/tbody/tr[2]/td/ul/li[2]/details/summary
-    # Click Element   //*[@id="menu"]/tbody/tr[2]/td/ul/li[2]/details/summary
+Go to HW
+    Select Frame    name:main
+    Current Frame Should Contain    main
+    Wait Until Element Is Visible    //*[@id="hwiButton"]/input
+    Click Element    //*[@id="hwiButton"]/input
+    Sleep    2
+    Page Should Contain    Hardware Inventory
+    Unselect Frame
+
+Get Slot Status
+    Select Frame    name:main
+    Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
+    ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
+    Should Contain    ${loc}    16 Slot Subrack
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    Should Contain    ${card1}    CE8+
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[3]
+    ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[3]
+    Should Contain    ${card2}    CE8+
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    Should Contain    ${card3}    Operational
+    Unselect Frame
+
+Refresh button
+    Select Frame    name:main
     Sleep    5
-    Click Element    //*[@id="ptp.htm"]
-    Sleep    15
-    Page Should Contain    PTP Clock Configuration
-
-Click on Main Page
-    Sleep    10
-    Select Frame    name:top
-    Current Frame Should Contain    top
-    Element Should Be Visible   //*[@id="logotext"]
-    Element Should Be Visible   //ul/li[3]
-    Element Should Be Visible   //ul/li[3]/div/a[1]
-    Click Element   //ul/li[3]/div/a[1]
-    Sleep    10
-
-
-
+    # Wait Until Element Is Visible    /html/body/div[1]
+    Click Button    Refresh
+    Sleep    5
+    Wait Until Element Is Visible    //*[@id="autorefresh"]
+    Click Element    //*[@id="autorefresh"]
+    Unselect Frame
 
 *** Test Cases ***
 Open and click
@@ -66,6 +80,21 @@ Open and click
     Input Username      admin
     Submit Credentials
     Welcome Page Should Be Open
-    Sleep    15
-    Page Should Contain    Active CE
     Sleep    5
+    Page Should Contain    Active CE
+
+Go to hardware
+    Go to HW
+    Sleep    5
+
+Test the card state
+    Get Slot Status
+    Sleep    5
+
+Test card no card
+    # Card    ${COMPORT}    10
+    Get Slot Status
+    Refresh button
+    Sleep    20
+
+

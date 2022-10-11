@@ -25,13 +25,14 @@ if __name__ == '__main__':
         # p = os.system(r"robot -d Results .\Tests\button.robot")
         # p = os.system(r"robot -d Results .\Tests\hw-th.robot")
         # p = os.system(r"robot -d Results .\Tests\ptp.robot")
-        p = os.system(r"robot -d Results .\Tests\shut_ptp.robot")
+        # p = os.system(r"robot -d Results .\Tests\shut_ptp.robot")
+        p = os.system(r"robot -d Results .\Tests\tributary_inva.robot")
         print(p)
 
         parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
 
         # new_one_dir = r"test-out" + str(random.randint(1, 2078)) + "/"
-        new_one_dir = r"test-ptp-web-" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"test-nocard-" + str(random.randint(1, 2078)) + "/"
 
         new_dir = os.path.join(parent_dir, new_one_dir)
 
