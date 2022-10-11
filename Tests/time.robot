@@ -83,6 +83,6 @@ Test card no card
     [Tags]  Check status
     Refresh button
     ${test1}      Time Check    ${COMPORT}    9
-    Should Contain    ${test1}    FIND
+    Should Contain    ${test1}    PASS
     Get Slot Status
     Sleep    20

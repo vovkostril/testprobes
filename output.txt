@@ -1,7 +1,9 @@
-2022-10-11 15:02:42.289450 configure terminal
+2022-10-11 15:55:49.668534 configure terminal
 kera2(config)#  do sh hw
 
+
 Connection Master Installation
+
 
 Unit                       Part Number       Serial Number
 ----------------------------------------------------------
@@ -13,12 +15,12 @@ Slot Card       Configured   Part Number    Serial Number   Oper State    Temp(C
  2                                                          Free           -      -     -    
  3   CE8+       CE8+         T33008.02...99 HP17516519      Operational    42     4     1    
  4   CE8+       CE8+         T33008.99      HP180561128     Operational *  38     4     1    
- 5   CEI RJ-45  CEI RJ-45    T33108.01...05 HP222970413     Operational    32     -     -    
+
+ 5   CEI RJ-45  CEI RJ-45    T33108.01...05 HP222970413     Operational    33     -     -    
  6                                                          Free           -      -     -    
  7   PWR 48VBE  PWR 48VBE    T32008.11...06 HP151961268     Operational *  30     4.A   -    
  8   PWR 48VBE  PWR 48VBE    T32008.11...06 HP153260010     Operational    31     4.A   -    
-
- 9   Ethernet                                               Free           43     0.0   -    
+ 9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational    43     17.D  -    
 10   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    38     17.D  -    
 11              Ethernet                                    Empty          -      -     -    
 12                                                          Free           -      -     -    
