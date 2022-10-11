@@ -27,17 +27,22 @@ class test_parse:
                 counter += 1
                 # print("Line{}: {}".format(counter, line.strip()))
                 if self.certainline in line:
-                    print("FIND")
                     if "Operational" in line:
+                        # print("FIND")
+                        return 1
                         # print("Line{}: {}".format(counter, line.strip()))
-                        break
+                        # break
             print("----------------------------------------------------------")
 
     def time_check(self, port, slot):
+        result = None
         st = time.time()
         card.card(port, slot)
         time.sleep(10)
-        self.parse(port)
+        if self.parse(port):
+            result = "PASS"
+        # self.parse(port)
         et = time.time()
         elapsed_time = et - st - 10
         print('Execution time:', elapsed_time, 'seconds')
+        return result
