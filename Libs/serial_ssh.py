@@ -80,5 +80,5 @@ def send_command(connection_master_comport, command_set):
     # console_cmd = connector().send_command(command, expect_string=r"#",
     #                                       read_timeout=20.0)
     console_cmd = connector(connection_master_comport).send_config_set(command_set, read_timeout=90.0)
-    print(console_cmd)
+    # print(console_cmd)
     return console_cmd

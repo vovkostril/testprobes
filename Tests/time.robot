@@ -3,7 +3,7 @@ Documentation       New test no card by web
 Library             SeleniumLibrary
 Library    String
 # Library             ../Libs/probe_gui.py
-Library             ../Libs/card.py
+Library             ../Libs/test_parse.py
 Suite Teardown      Close Browser
 Test Timeout        2 minute
 
@@ -12,25 +12,13 @@ ${URL}        http://192.168.0.3/index.htm
 ${URL2}        http://192.168.0.4/index.htm
 ${BROWSER}          Chrome
 ${COMPORT}          COM3
+${username}     admin
 
 *** Keywords ***
-Open Browser To Login Page
-    Open Browser        ${URL}        ${BROWSER}      alias=tab1
-    Title Should Be    Login
-
-Open Browser To Login Page 2
+Open Browser And Login
     Open Browser        ${URL2}        ${BROWSER}      alias=tab1
     Title Should Be    Login
-
-Input Username
-    [Arguments]     ${username}
     Input Text    user    ${username}
-
-Input Password
-    [Arguments]     ${password}
-    Input Text    pass    ${password}
-
-Submit Credentials
     Click Button    Login
 
 Welcome Page Should Be Open
@@ -51,12 +39,12 @@ Get Slot Status
     Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
     ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
     Should Contain    ${loc}    16 Slot Subrack
-    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[2]
-    ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
-    Should Contain    ${card1}    CE8+
-    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[3]
-    ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[3]
-    Should Contain    ${card2}    CE8+
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[2]
+    ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[2]
+    Should Contain    ${card1}    Ethernet
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[3]
+    ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
+    Should Contain    ${card2}    Ethernet
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[6]
     ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[6]
     Should Contain    ${card3}    Operational
@@ -65,7 +53,6 @@ Get Slot Status
 Refresh button
     Select Frame    name:main
     Sleep    5
-    # Wait Until Element Is Visible    /html/body/div[1]
     Click Button    Refresh
     Sleep    5
     Wait Until Element Is Visible    //*[@id="autorefresh"]
@@ -74,32 +61,28 @@ Refresh button
 
 *** Test Cases ***
 Open and click
-    [Documentation]    Test card state via WEB
-    [Tags]  Active no card
-    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
-    Input Username      admin
-    Submit Credentials
+    [Documentation]    Test NO card state via WEB
+    [Tags]  Open bro
+    Open Browser And Login
+    Sleep   10
     Welcome Page Should Be Open
     Sleep    5
     Page Should Contain    Active CE
 
 Go to hardware
+    [Tags]  Hardware check button
     Go to HW
     Sleep    2
 
 Test the card state
+    [Tags]  Slot status
     Get Slot Status
     Sleep    2
 
 Test card no card
-    Card    ${COMPORT}    10
+    [Tags]  Check status
     Refresh button
+    ${test1}      Time Check    ${COMPORT}    9
+    Should Contain    ${test1}    FIND
+    Get Slot Status
     Sleep    20
-
-Test card from cmd
-    Card    ${COMPORT}    10
-    From Cmd    ${COMPORT}
-    Refresh button
-    Sleep    20
-
-

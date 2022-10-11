@@ -1,12 +1,14 @@
 import random
 import os
 import shutil
-# import tueth
-from Libs import probe_gui, test_scrapy
 
 if __name__ == '__main__':
 
-    p = 1
+    p = 2
+
+    # test_parse.parser().time_check("COM3", "9")
+    # test_parse.parser().parse("COM3", "9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational")
+
     # p2 = os.system(r"robot -d Results .\Tests\new-lib.robot")
 
     # result_scra = test_scrapy.relax("http://192.168.0.3/index.htm")
@@ -26,13 +28,14 @@ if __name__ == '__main__':
         # p = os.system(r"robot -d Results .\Tests\hw-th.robot")
         # p = os.system(r"robot -d Results .\Tests\ptp.robot")
         # p = os.system(r"robot -d Results .\Tests\shut_ptp.robot")
-        p = os.system(r"robot -d Results .\Tests\tributary_inva.robot")
+        # p = os.system(r"robot -d Results .\Tests\tributary_inva.robot")
+        p = os.system(r"robot -d Results .\Tests\time.robot")
         print(p)
 
         parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
 
         # new_one_dir = r"test-out" + str(random.randint(1, 2078)) + "/"
-        new_one_dir = r"test-nocard-" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"time-" + str(random.randint(1, 2078)) + "/"
 
         new_dir = os.path.join(parent_dir, new_one_dir)
 
