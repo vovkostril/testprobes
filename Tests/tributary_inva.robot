@@ -85,15 +85,14 @@ Open and click
 
 Go to hardware
     Go to HW
-    Sleep    5
+    Sleep    2
 
 Test the card state
     Get Slot Status
-    Sleep    5
+    Sleep    2
 
 Test card no card
-    # Card    ${COMPORT}    10
-    Get Slot Status
+    Card    ${COMPORT}    10
     Refresh button
     Sleep    20
 
