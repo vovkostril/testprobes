@@ -28,7 +28,7 @@ class test_parse:
                 # print("Line{}: {}".format(counter, line.strip()))
                 if self.certainline in line:
                     if "Operational" in line:
-                        # print("FIND")
+                        print("OK")
                         return 1
                         # print("Line{}: {}".format(counter, line.strip()))
                         # break

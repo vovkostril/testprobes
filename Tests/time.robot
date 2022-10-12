@@ -82,7 +82,7 @@ Test the card state
 Test card no card
     [Tags]  Check status
     Refresh button
-    ${test1}      Time Check    ${COMPORT}    9
+    ${test1}      Time Check    ${COMPORT}    10
     Should Contain    ${test1}    PASS
     Get Slot Status
     Sleep    20
