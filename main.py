@@ -1,8 +1,12 @@
+----------------- was broken ------------------------------------------------------------------
+
+
+
 import random
 import os
 import shutil
 import sys
-from robotframework.api import ExecutionResult
+# from robotframework import ExecutionResult
 
 if __name__ == '__main__':
 
@@ -66,13 +70,13 @@ if __name__ == '__main__':
             print("------------------------------------------")
             print(file + " was moved to " + destination)
 
-        result = ExecutionResult(dest_folder + 'output.xml')
-        result.configure(stat_config={'suite_stat_level': 2,
-                                      'tag_stat_combine': 'tagANDanother'})
-        stats = result.statistics
-        print(stats.total.critical.failed)
-        print(stats.total.critical.passed)
-        print(stats.tags.combined[0].total)
+        # result = ExecutionResult(dest_folder + 'output.xml')
+        # result.configure(stat_config={'suite_stat_level': 2,
+        #                               'tag_stat_combine': 'tagANDanother'})
+        # stats = result.statistics
+        # print(stats.total.critical.failed)
+        # print(stats.total.critical.passed)
+        # print(stats.tags.combined[0].total)
 
     # else:
     # test_hw = tueth.sh_hw('COM3')
