@@ -28,7 +28,8 @@ class test_parse:
                 counter += 1
                 # print("Line{}: {}".format(counter, line.strip()))
                 if certainline in line and "Operational" in line:
-                    print("OK")
+                    print(line)
+                    print("\nOK")
                     return 1
                     # print("Line{}: {}".format(counter, line.strip()))
                     # break

@@ -21,6 +21,12 @@ Open Browser And Login
     Input Text    user    ${username}
     Click Button    Login
 
+Open Browser And Login 2
+    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
+    Title Should Be    Login
+    Input Text    user    ${username}
+    Click Button    Login
+
 Welcome Page Should Be Open
     # Title Should Be    Dyna Wiz
     Page Should Contain    Connection Master
@@ -76,7 +82,7 @@ Refresh button
     Unselect Frame
 
 *** Test Cases ***
-Open and click
+Test 1: Open and click
     [Documentation]    Test NO card state via WEB
     [Tags]  Open bro
     Open Browser And Login
@@ -85,30 +91,55 @@ Open and click
     Sleep    5
     Page Should Contain    Active CE
 
-Go to hardware
+Test 2: Go to hardware
     [Tags]  Hardware check button
     Go to HW
     Sleep    2
 
-Test the card state
+Test 3: Test the card state
     [Tags]  Slot status
     Get Slot Status 9
     Sleep    5
     Get Slot Status 10
     Sleep    5
 
-Test card no card 9
-    [Tags]  Check status
+Test 4: Test card no card 9
+    [Tags]  Check status card
     Refresh button
     ${test9}      Time Check    ${COMPORT}    9
     Should Contain    ${test9}    PASS
     Get Slot Status 9
     Sleep    20
 
-Test card no card 10
-    [Tags]  Check status
+Test 5: Test card no card 10
+    [Tags]  Check status card
     ${test10}      Time Check    ${COMPORT}    10
     Should Contain    ${test10}    PASS
     Get Slot Status 10
+    Sleep    20
+
+Test 6: card no card 9 from Standby
+    [Tags]  Check status card from Standby
+    Open Browser And Login 2
+    Sleep   10
+    Welcome Page Should Be Open
+    Sleep    5
+    Page Should Contain    Standby CE
+    Go to HW
+    Sleep    2
+    Refresh button
+    Select Frame    name:main
+    ${cardS1}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
+    ${cardS1}        Get Text    Ethernet
+    ${cardS2}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
+    ${cardS2}        Get Text    -
+    Sleep    20
+
+Test 7: Test card no card 10 from Standby
+    [Tags]  Check status card from Standby
+    ${cardS3}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    ${cardS3}        Get Text    Ethernet
+    ${cardS4}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
+    ${cardS4}        Get Text    -
     Sleep    20
 
