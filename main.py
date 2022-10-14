@@ -4,13 +4,12 @@ import shutil
 import sys
 
 # from robotframework import ExecutionResult
-from Libs import test_parse
 
 if __name__ == '__main__':
 
-    p = None  # TODO check statuses of PASS and return to gmail
+    p = 2  # TODO check statuses of PASS and return to gmail
 
-    test_parse.test_parse().time_check("COM3", "9")
+    # test_parse.test_parse().time_check("COM3", "9")
     # test_parse.parser().parse("COM3", "9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational")
 
     # p2 = os.system(r"robot -d Results .\Tests\new-lib.robot")

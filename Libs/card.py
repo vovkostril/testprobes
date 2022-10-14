@@ -1,4 +1,4 @@
-from Libs import serial_ssh
+import serial_ssh
 
 
 def card(comport, slot, ip, serial=True):

@@ -107,7 +107,6 @@ Test card no card 9
 
 Test card no card 10
     [Tags]  Check status
-    Refresh button
     ${test10}      Time Check    ${COMPORT}    10
     Should Contain    ${test10}    PASS
     Get Slot Status 10
