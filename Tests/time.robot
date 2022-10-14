@@ -106,15 +106,15 @@ Test 3: Test the card state
 Test 4: Test card no card 9
     [Tags]  Check status card
     Refresh button
-    ${test9}      Time Check    ${COMPORT}    9
-    Should Contain    ${test9}    PASS
+    # ${test9}      Time Check    ${COMPORT}    9
+    # Should Contain    ${test9}    PASS
     Get Slot Status 9
     Sleep    20
 
 Test 5: Test card no card 10
     [Tags]  Check status card
-    ${test10}      Time Check    ${COMPORT}    10
-    Should Contain    ${test10}    PASS
+    # ${test10}      Time Check    ${COMPORT}    10
+    # Should Contain    ${test10}    PASS
     Get Slot Status 10
     Sleep    20
 
@@ -129,17 +129,21 @@ Test 6: card no card 9 from Standby
     Sleep    2
     Refresh button
     Select Frame    name:main
-    ${cardS1}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
-    ${cardS1}        Get Text    Ethernet
-    ${cardS2}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
-    ${cardS2}        Get Text    -
+    ${cardS1}        Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
+    ${cardS1}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
+    Should Contain    ${cardS1}    Ethernet
+    ${cardS2}        Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
+    ${cardS2}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
+    Should Contain    ${cardS2}    -
     Sleep    20
 
 Test 7: Test card no card 10 from Standby
     [Tags]  Check status card from Standby
-    ${cardS3}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
-    ${cardS3}        Get Text    Ethernet
-    ${cardS4}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
-    ${cardS4}        Get Text    -
+    ${cardS3}        Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    ${cardS3}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    Should Contain    ${cardS3}    Ethernet
+    ${cardS4}        Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
+    ${cardS4}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
+    Should Contain    ${cardS4}    -
     Sleep    20
 
