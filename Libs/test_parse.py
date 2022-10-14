@@ -1,21 +1,18 @@
-import serial_ssh, card
+import time
 # from time import process_time
 from datetime import datetime
-import time
+import card
+import serial_ssh
 
 
 class test_parse:
     def __init__(self):
         self.cmd_set = ["do sh hw"]
         self.filefor = 'output.txt'
-        self.certainline = "9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational"
 
-    def parse(self, port):
+    def parse(self, port, slot):
         with open(self.filefor, 'w') as f:
-            # serial_ssh.send_command(port, self.cmd_set)
-            # f.close()
             f.write(str(datetime.now()) + serial_ssh.send_command(port, self.cmd_set))
-            # print(f.closed)
 
         counter = 0
 
@@ -23,23 +20,27 @@ class test_parse:
             print("----------------------------------------------------------")
             print(fp.readline())
             print("----------------------------------------------------------")
+            certainline = str(slot) + "   Ethernet   Ethernet"
+            # certainline = str(slot) + "   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    37 " \
+            #                            "    17.D  - "
+            print(certainline)
             for line in fp:
                 counter += 1
                 # print("Line{}: {}".format(counter, line.strip()))
-                if self.certainline in line:
-                    if "Operational" in line:
-                        print("OK")
-                        return 1
-                        # print("Line{}: {}".format(counter, line.strip()))
-                        # break
+                if certainline in line and "Operational" in line:
+                    print(line)
+                    print("\nOK")
+                    return 1
+                    # print("Line{}: {}".format(counter, line.strip()))
+                    # break
             print("----------------------------------------------------------")
 
     def time_check(self, port, slot):
         result = None
         st = time.time()
-        card.card(port, slot)
+        card.card(port, slot, serial=True, ip="192.168.0.4")
         time.sleep(10)
-        if self.parse(port):
+        if self.parse(port, slot):
             result = "PASS"
         # self.parse(port)
         et = time.time()

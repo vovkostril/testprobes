@@ -1,4 +1,3 @@
-# 2.5GigabitEthernet 4/1
 *** Settings ***
 Documentation       New test PTP by web
 Library             SeleniumLibrary

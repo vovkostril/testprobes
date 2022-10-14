@@ -1,7 +1,3 @@
-# ----------------- was broken ------------------------------------------------------------------
-#
-#
-#
 import random
 import os
 import shutil
@@ -13,7 +9,7 @@ if __name__ == '__main__':
 
     p = 2  # TODO check statuses of PASS and return to gmail
 
-    # test_parse.parser().time_check("COM3", "9")
+    # test_parse.test_parse().time_check("COM3", "9")
     # test_parse.parser().parse("COM3", "9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational")
 
     # p2 = os.system(r"robot -d Results .\Tests\new-lib.robot")
@@ -34,9 +30,9 @@ if __name__ == '__main__':
         # p = os.system(r"robot -d Results .\Tests\button.robot")
         # p = os.system(r"robot -d Results .\Tests\hw-th.robot")
         # p = os.system(r"robot -d Results .\Tests\ptp.robot")
-        p = os.system(r"robot -d Results .\Tests\shut_ptp.robot")
+        # p = os.system(r"robot -d Results .\Tests\shut_ptp.robot")
         # p = os.system(r"robot -d Results .\Tests\tributary_inva.robot")
-        # p = os.system(r"robot -d Results .\Tests\time.robot")
+        p = os.system(r"robot -d Results .\Tests\time.robot")
         print(p)
 
         parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"

@@ -16,6 +16,12 @@ ${username}     admin
 
 *** Keywords ***
 Open Browser And Login
+    Open Browser        ${URL}        ${BROWSER}      alias=tab1
+    Title Should Be    Login
+    Input Text    user    ${username}
+    Click Button    Login
+
+Open Browser And Login 2
     Open Browser        ${URL2}        ${BROWSER}      alias=tab1
     Title Should Be    Login
     Input Text    user    ${username}
@@ -34,7 +40,7 @@ Go to HW
     Page Should Contain    Hardware Inventory
     Unselect Frame
 
-Get Slot Status
+Get Slot Status 9
     Select Frame    name:main
     Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
     ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
@@ -45,8 +51,24 @@ Get Slot Status
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     Should Contain    ${card2}    Ethernet
-    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[6]
-    ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[6]
+    ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[6]
+    Should Contain    ${card3}    Operational
+    Unselect Frame
+
+Get Slot Status 10
+    Select Frame    name:main
+    Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
+    ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
+    Should Contain    ${loc}    16 Slot Subrack
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[2]
+    ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[2]
+    Should Contain    ${card1}    Ethernet
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    Should Contain    ${card2}    Ethernet
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[6]
+    ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[6]
     Should Contain    ${card3}    Operational
     Unselect Frame
 
@@ -60,7 +82,7 @@ Refresh button
     Unselect Frame
 
 *** Test Cases ***
-Open and click
+Test 1: Open and click
     [Documentation]    Test NO card state via WEB
     [Tags]  Open bro
     Open Browser And Login
@@ -69,20 +91,55 @@ Open and click
     Sleep    5
     Page Should Contain    Active CE
 
-Go to hardware
+Test 2: Go to hardware
     [Tags]  Hardware check button
     Go to HW
     Sleep    2
 
-Test the card state
+Test 3: Test the card state
     [Tags]  Slot status
-    Get Slot Status
-    Sleep    2
+    Get Slot Status 9
+    Sleep    5
+    Get Slot Status 10
+    Sleep    5
 
-Test card no card
-    [Tags]  Check status
+Test 4: Test card no card 9
+    [Tags]  Check status card
     Refresh button
-    ${test1}      Time Check    ${COMPORT}    10
-    Should Contain    ${test1}    PASS
-    Get Slot Status
+    ${test9}      Time Check    ${COMPORT}    9
+    Should Contain    ${test9}    PASS
+    Get Slot Status 9
     Sleep    20
+
+Test 5: Test card no card 10
+    [Tags]  Check status card
+    ${test10}      Time Check    ${COMPORT}    10
+    Should Contain    ${test10}    PASS
+    Get Slot Status 10
+    Sleep    20
+
+Test 6: card no card 9 from Standby
+    [Tags]  Check status card from Standby
+    Open Browser And Login 2
+    Sleep   10
+    Welcome Page Should Be Open
+    Sleep    5
+    Page Should Contain    Standby CE
+    Go to HW
+    Sleep    2
+    Refresh button
+    Select Frame    name:main
+    ${cardS1}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
+    ${cardS1}        Get Text    Ethernet
+    ${cardS2}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
+    ${cardS2}        Get Text    -
+    Sleep    20
+
+Test 7: Test card no card 10 from Standby
+    [Tags]  Check status card from Standby
+    ${cardS3}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    ${cardS3}        Get Text    Ethernet
+    ${cardS4}        Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
+    ${cardS4}        Get Text    -
+    Sleep    20
+
