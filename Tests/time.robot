@@ -16,7 +16,7 @@ ${username}     admin
 
 *** Keywords ***
 Open Browser And Login
-    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
+    Open Browser        ${URL}        ${BROWSER}      alias=tab1
     Title Should Be    Login
     Input Text    user    ${username}
     Click Button    Login
@@ -34,7 +34,7 @@ Go to HW
     Page Should Contain    Hardware Inventory
     Unselect Frame
 
-Get Slot Status
+Get Slot Status 9
     Select Frame    name:main
     Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
     ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
@@ -45,8 +45,24 @@ Get Slot Status
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     Should Contain    ${card2}    Ethernet
-    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[3]/td[6]
-    ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[6]
+    ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[6]
+    Should Contain    ${card3}    Operational
+    Unselect Frame
+
+Get Slot Status 10
+    Select Frame    name:main
+    Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
+    ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
+    Should Contain    ${loc}    16 Slot Subrack
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[2]
+    ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[2]
+    Should Contain    ${card1}    Ethernet
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    Should Contain    ${card2}    Ethernet
+    Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[6]
+    ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[6]
     Should Contain    ${card3}    Operational
     Unselect Frame
 
@@ -76,13 +92,24 @@ Go to hardware
 
 Test the card state
     [Tags]  Slot status
-    Get Slot Status
-    Sleep    2
+    Get Slot Status 9
+    Sleep    5
+    Get Slot Status 10
+    Sleep    5
 
-Test card no card
+Test card no card 9
     [Tags]  Check status
     Refresh button
-    ${test1}      Time Check    ${COMPORT}    10
-    Should Contain    ${test1}    PASS
-    Get Slot Status
+    ${test9}      Time Check    ${COMPORT}    9
+    Should Contain    ${test9}    PASS
+    Get Slot Status 9
     Sleep    20
+
+Test card no card 10
+    [Tags]  Check status
+    Refresh button
+    ${test10}      Time Check    ${COMPORT}    10
+    Should Contain    ${test10}    PASS
+    Get Slot Status 10
+    Sleep    20
+
