@@ -103,7 +103,7 @@ Test 3: Test the card state
     Get Slot Status 10
     Sleep    5
 
-Test 4: Test card no card 9
+Test 4: Test card no card 9 from Active
     [Tags]  Check status card
     Refresh button
     # ${test9}      Time Check    ${COMPORT}    9
@@ -111,7 +111,7 @@ Test 4: Test card no card 9
     Get Slot Status 9
     Sleep    20
 
-Test 5: Test card no card 10
+Test 5: Test card no card 10 from Active
     [Tags]  Check status card
     # ${test10}      Time Check    ${COMPORT}    10
     # Should Contain    ${test10}    PASS
