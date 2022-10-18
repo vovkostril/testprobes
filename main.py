@@ -38,7 +38,7 @@ if __name__ == '__main__':
         parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
 
         # new_one_dir = r"test-out" + str(random.randint(1, 2078)) + "/"
-        new_one_dir = r"time-" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"a-s-results-" + str(random.randint(1, 2078)) + "/"
 
         new_dir = os.path.join(parent_dir, new_one_dir)
 
