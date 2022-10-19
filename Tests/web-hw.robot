@@ -129,20 +129,21 @@ Test 6: card no card 9 from Standby
     Sleep    2
     Refresh button
     Select Frame    name:main
-    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
+    Sleep    2
+    Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     ${cardS1}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     Should Contain    ${cardS1}    Ethernet
-    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
+    Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
     ${cardS2}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
     Should Contain    ${cardS2}    -
     Sleep    20
 
 Test 7: Test card no card 10 from Standby
     [Tags]  Check status card from Standby
-    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
+    Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
     ${cardS3}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
     Should Contain    ${cardS3}    Ethernet
-    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
+    Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
     ${cardS4}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
     Should Contain    ${cardS4}    -
     Sleep    20

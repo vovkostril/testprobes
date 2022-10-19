@@ -32,7 +32,7 @@ if __name__ == '__main__':
         # p = os.system(r"robot -d Results .\Tests\ptp.robot")
         # p = os.system(r"robot -d Results .\Tests\shut_ptp.robot")
         # p = os.system(r"robot -d Results .\Tests\tributary_inva.robot")
-        p = os.system(r"robot -d Results .\Tests\time.robot")
+        p = os.system(r"robot -d Results .\Tests\web-hw.robot")
         print(p)
 
         parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
