@@ -80,6 +80,7 @@ Refresh button
     Wait Until Element Is Visible    //*[@id="autorefresh"]
     Click Element    //*[@id="autorefresh"]
     Unselect Frame
+    Sleep    5
 
 *** Test Cases ***
 Test 1: Open and click
