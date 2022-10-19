@@ -11,6 +11,7 @@ import datetime
 if __name__ == '__main__':
 
     p = None  # TODO check statuses of PASS and return to gmail
+    d = 1
     parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
     dst_path_copy = r"C:/Users/anastasiia/PycharmProjects/TestResults/"
@@ -65,6 +66,37 @@ if __name__ == '__main__':
             print("------------------------------------------")
             print(counter)
 
+    if d:
+        p = os.system(r"robot -d Results .\Tests\pretest.robot")
+        print(p)
+
+        new_one_dir = r"retest-" + str(random.randint(1, 2078)) + "/"
+        new_dir = os.path.join(parent_dir, new_one_dir)
+        if not os.path.exists(new_dir):
+            os.mkdir(new_dir)
+
+        # print("Moved everything ones, please, delete or comment this code!")
+        # for fila_name in os.listdir(parent_dir):
+        #     s = parent_dir + fila_name
+        #     d = new_dir + fila_name
+
+        #     if os.path.isfile(s):
+        #         shutil.move(s, d)
+        #         print("Moved! --- " + s)
+        # TODO new location for screenshots
+        old_locations = ["log.html",
+                         "output.xml",
+                         "report.html"]
+
+        dest_folder = new_dir
+
+        for file in old_locations:
+            souse = parent_dir + file
+            destination = dest_folder + file
+            shutil.move(souse, destination)
+            print("------------------------------------------")
+            print(file + " was moved to " + destination)
+
     e = datetime.datetime.now()
     new_zip = str(random.randint(5809, 9078)) + "-latest-" + str(e.year) + "-" + str(e.month) + "-" + str(e.day)
     dir2 = "C:/Users/anastasiia/PycharmProjects/tributary/" + new_zip + ".zip"
@@ -81,10 +113,10 @@ if __name__ == '__main__':
     shutil.rmtree(parent_dir)
     print("DONE!")
 
-        # result = ExecutionResult(dest_folder + 'output.xml')
-        # result.configure(stat_config={'suite_stat_level': 2,
-        #                               'tag_stat_combine': 'tagANDanother'})
-        # stats = result.statistics
-        # print(stats.total.critical.failed)
-        # print(stats.total.critical.passed)
-        # print(stats.tags.combined[0].total)
+    # result = ExecutionResult(dest_folder + 'output.xml')
+    # result.configure(stat_config={'suite_stat_level': 2,
+    #                               'tag_stat_combine': 'tagANDanother'})
+    # stats = result.statistics
+    # print(stats.total.critical.failed)
+    # print(stats.total.critical.passed)
+    # print(stats.tags.combined[0].total)
