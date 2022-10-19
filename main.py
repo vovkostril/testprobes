@@ -9,9 +9,9 @@ from Libs import post_tests
 
 if __name__ == '__main__':
 
-    p = None  # TODO check statuses of PASS and return to gmail
+    p = 2  # TODO check statuses of PASS and return to gmail
 
-    post_tests.xml_output_counter(r".\Results\output.xml")
+    # post_tests.xml_output_counter(r".\Results\output.xml")
 
     # test_parse.test_parse().time_check("COM3", "9")
     # test_parse.parser().parse("COM3", "9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational")
@@ -38,6 +38,7 @@ if __name__ == '__main__':
         # p = os.system(r"robot -d Results .\Tests\shut_ptp.robot")
         # p = os.system(r"robot -d Results .\Tests\tributary_inva.robot")
         intel = 0
+        counter = 0
         folder_random = str(random.randint(2078, 5078))
         while intel < 5:
             print("Iteration: " + str(intel) + "\n")
@@ -65,6 +66,10 @@ if __name__ == '__main__':
             #         shutil.move(s, d)
             #         print("Moved! --- " + s)
             # TODO new location for screenshots
+            result_from = post_tests.xml_output_counter(r".\Results\output.xml")
+            if result_from == "7":
+                print("OK!")
+                counter = counter + 1
             old_locations = ["log.html",
                              "output.xml",
                              "report.html"]
@@ -78,6 +83,8 @@ if __name__ == '__main__':
                 print("------------------------------------------")
                 print(file + " was moved to " + destination)
 
+            print("------------------------------------------")
+            print(counter)
         # result = ExecutionResult(dest_folder + 'output.xml')
         # result.configure(stat_config={'suite_stat_level': 2,
         #                               'tag_stat_combine': 'tagANDanother'})

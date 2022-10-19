@@ -14,4 +14,4 @@ def xml_output_counter(xml_file):
                 # print("PASS: " + result.get('pass'))
                 # print("FAIL: " + result.get('fail'))
                 break
-    return print(result_pass)
+    return result_pass
