@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation       pretest before no card
+Documentation       Pretest before no card
 Library             SeleniumLibrary
 Library    String
 Suite Teardown      Close Browser
@@ -57,13 +57,42 @@ Open info about FPGA
     Sleep    5
     Click Element    //*[@id="sys.htm"]
     Sleep    5
+    Unselect Frame
 
 *** Test Cases ***
 Test 1: Go to info and get FPGA and version ACTIVE
-    [Documentation]    Test NO card state via WEB
-    [Tags]  Open bro
+    [Documentation]    Pre test before do thu cards
+    [Tags]  Open and find info on Active by web
     Open Browser And Login
     Sleep   10
     Welcome Page Should Be Open
     Sleep    5
     Page Should Contain    Active CE
+    Open info about FPGA
+    Select Frame      name:main
+    Wait Until Element Is Visible    //*[@id="sys_fpga2_vers"]
+    ${test1}     Get Text    //*[@id="sys_fpga2_vers"]
+    Should Contain    ${test1}    ${fpga}
+    Wait Until Element Is Visible    //*[@id="sys_code_rev"]
+    ${test2}     Get Text    //*[@id="sys_code_rev"]
+    Should Contain    ${test2}    ${version}
+    Sleep    5
+    Unselect Frame
+
+Test 2: Go to info and get FPGA and version Standby
+    [Tags]  Open and find info on Standby by web
+    Open Browser And Login 2
+    Sleep   10
+    Welcome Page Should Be Open
+    Sleep    5
+    Page Should Contain    Standby CE
+    Open info about FPGA
+    Select Frame      name:main
+    Wait Until Element Is Visible    //*[@id="sys_fpga2_vers"]
+    ${test1}     Get Text    //*[@id="sys_fpga2_vers"]
+    Should Contain    ${test1}    ${fpga}
+    Wait Until Element Is Visible    //*[@id="sys_code_rev"]
+    ${test2}     Get Text    //*[@id="sys_code_rev"]
+    Should Contain    ${test2}    ${version}
+    Sleep    5
+    Unselect Frame
