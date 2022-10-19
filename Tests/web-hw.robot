@@ -113,8 +113,8 @@ Test 4: Test card no card 9 from Active
 
 Test 5: Test card no card 10 from Active
     [Tags]  Check status card
-    # ${test10}      Time Check    ${COMPORT}    10
-    # Should Contain    ${test10}    PASS
+    ${test10}      Time Check    ${COMPORT}    10
+    Should Contain    ${test10}    PASS
     Get Slot Status 10
     Sleep    20
 
@@ -129,7 +129,6 @@ Test 6: card no card 9 from Standby
     Sleep    2
     Refresh button
     Select Frame    name:main
-    Sleep    2
     Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     ${cardS1}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     Should Contain    ${cardS1}    Ethernet
