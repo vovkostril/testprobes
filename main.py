@@ -3,7 +3,7 @@ import os
 import shutil
 import sys
 from time import sleep
-from Libs import post_tests
+from Libs import post_tests, serial_ssh, pyserial_test
 from Libs import pre_tests
 import datetime
 
@@ -15,8 +15,10 @@ if __name__ == '__main__':
     d = None
     c = None
 
-    result = pre_tests.pre_test().parse("COM3")
-    print(result)
+    # result = pre_tests.pre_test().parse("COM3")
+    # result = serial_ssh.send_command("COM3", ["do sh version"])
+    print("result: \n")
+    result = pyserial_test.serial_test("COM3", "sh version")
 
     parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
