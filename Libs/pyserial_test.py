@@ -3,6 +3,29 @@ import serial
 from time import sleep
 
 
+def serial_testof_test(comport):
+    serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=5)
+
+    if serial_connection.isOpen():
+        serial_connection.write(b'admin\r')
+        sleep(0.5)
+        serial_connection.write(b'\r')
+        sleep(0.5)
+        serial_connection.write(b'sh version\r')
+
+        print("processing request...")
+
+        while 1:
+            res = serial_connection.readline().decode()
+            print(res)
+            if len(res) > 0:
+                res.rstrip()
+            else:
+                break
+    print("close connection.")
+    serial_connection.close()
+
+
 def serial_test(comport, command=None):
     filever = 'versionser.txt'
     serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=5)

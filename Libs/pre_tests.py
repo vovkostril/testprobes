@@ -19,14 +19,19 @@ class pre_test:
             print("----------------------------------------------------------")
             check_lines = ["Software Version : CM Native CE R4.4", "Code Revision    : 2744", "FPGA2 Version    : 1"]
             certainline = check_lines[0]
-            print(certainline)
             for line in fp:
                 counter += 1
                 # print("Line{}: {}".format(counter, line.strip()))
                 if certainline in line:
                     print(line)
                     print("\nOK")
-                    return 1
+                if check_lines[1] in line:
+                    print(line)
+                    print("\n2 OK")
+                if check_lines[2] in line:
+                    print(line)
+                    print("\n3 OK")
+
                     # print("Line{}: {}".format(counter, line.strip()))
                     # break
             print("----------------------------------------------------------")
