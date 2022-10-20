@@ -7,12 +7,29 @@ from time import sleep
 class pre_test:
     def __init__(self):
         self.cmd_set = "sh version"
-        self.filever = 'version.txt'
+        self.filever = 'versionser.txt'
+        self.port = "COM3"
 
-    def parse(self, port):
-        # result = serial_ssh.send_command(port, self.cmd_set)
-        with open(self.filever, 'w') as f:
-            f.write(str(datetime.now()) + str(pyserial_test.serial_test(port)))
+    def parse(self):
+        counter = 0
+        pyserial_test.serial_test(self.port)
+        with open(self.filever, 'r') as fp:
+            print("----------------------------------------------------------")
+            print(fp.readline())
+            print("----------------------------------------------------------")
+            check_lines = ["Software Version : CM Native CE R4.4", "Code Revision    : 2744", "FPGA2 Version    : 1"]
+            certainline = check_lines[0]
+            print(certainline)
+            for line in fp:
+                counter += 1
+                # print("Line{}: {}".format(counter, line.strip()))
+                if certainline in line:
+                    print(line)
+                    print("\nOK")
+                    return 1
+                    # print("Line{}: {}".format(counter, line.strip()))
+                    # break
+            print("----------------------------------------------------------")
 
 
 """
