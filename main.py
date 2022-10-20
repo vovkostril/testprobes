@@ -4,6 +4,7 @@ import shutil
 import sys
 from time import sleep
 from Libs import post_tests
+from Libs import pre_tests
 import datetime
 
 # from robotframework import ExecutionResult
@@ -11,7 +12,12 @@ import datetime
 if __name__ == '__main__':
 
     p = None  # TODO check statuses of PASS and return to gmail
-    d = 1
+    d = None
+    c = None
+
+    result = pre_tests.pre_test().parse("COM3")
+    print(result)
+
     parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
     dst_path_copy = r"C:/Users/anastasiia/PycharmProjects/TestResults/"
@@ -97,21 +103,22 @@ if __name__ == '__main__':
             print("------------------------------------------")
             print(file + " was moved to " + destination)
 
-    e = datetime.datetime.now()
-    new_zip = str(random.randint(5809, 9078)) + "-latest-" + str(e.year) + "-" + str(e.month) + "-" + str(e.day)
-    dir2 = "C:/Users/anastasiia/PycharmProjects/tributary/" + new_zip + ".zip"
+    if c:
+        e = datetime.datetime.now()
+        new_zip = str(random.randint(5809, 9078)) + "-latest-" + str(e.year) + "-" + str(e.month) + "-" + str(e.day)
+        dir2 = "C:/Users/anastasiia/PycharmProjects/tributary/" + new_zip + ".zip"
 
-    shutil.make_archive(new_zip, "zip", parent_dir)
+        shutil.make_archive(new_zip, "zip", parent_dir)
 
-    if os.path.isfile(dir2):
-        print("ZIP OK")
-    else:
-        print("ZIP NOT OK!")
+        if os.path.isfile(dir2):
+            print("ZIP OK")
+        else:
+            print("ZIP NOT OK!")
 
-    shutil.move(dir2, dst_path_copy)
-    print('MOVED ZIP!')
-    shutil.rmtree(parent_dir)
-    print("DONE!")
+        shutil.move(dir2, dst_path_copy)
+        print('MOVED ZIP!')
+        shutil.rmtree(parent_dir)
+        print("DONE!")
 
     # result = ExecutionResult(dest_folder + 'output.xml')
     # result.configure(stat_config={'suite_stat_level': 2,
