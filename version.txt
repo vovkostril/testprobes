@@ -1,12 +1,1 @@
-2022-10-20 11:02:48.915077 configure terminal
-
-kera1(config)#  do sh ve        do sh version
-
-Previous Restart : Cold
-
-System Contact   : 
-System Name      : kera1 
-
-kera1(config)# end
-
-kera1# 
+2022-10-20 13:59:39.037111None

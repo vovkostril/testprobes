@@ -1,20 +1,21 @@
 # TODO ping - for test, fpga, active/standby - from CLI for comparing
-from Libs import serial_ssh
+from Libs import serial_ssh, pyserial_test
 from datetime import datetime
 from time import sleep
 
 
 class pre_test:
     def __init__(self):
-        self.cmd_set = ["do sh version"]
+        self.cmd_set = "sh version"
         self.filever = 'version.txt'
 
     def parse(self, port):
-        result = serial_ssh.send_command(port, self.cmd_set)
+        # result = serial_ssh.send_command(port, self.cmd_set)
         with open(self.filever, 'w') as f:
-            f.write(str(datetime.now()) + result)
-            sleep(5)
+            f.write(str(datetime.now()) + str(pyserial_test.serial_test(port)))
 
+
+"""
         counter = 0
         checker = 0
 
@@ -35,7 +36,7 @@ class pre_test:
             print("----------------------------------------------------------")
 
 
-"""
+
             for line in fp:
                 counter += 1
                 if check_lines[0] in line:
