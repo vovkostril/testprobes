@@ -7,6 +7,7 @@ class pre_tests:
     def __init__(self):
         self.cmd_set = "sh version"
         self.filever = 'versionser.txt'
+        self.fildo = 'reduconsole.txt'
         self.port = "COM3"
 
     def parse(self, port, swversion, code_revision, fpga):
@@ -41,6 +42,21 @@ class pre_tests:
                     # break
             print("----------------------------------------------------------")
             return str(checker)
+
+    def redu_test(self, port):
+        counter = 0
+        checker = 0
+        pyserial_test.serial_test(port)
+        with open(self.filever, 'r') as fp:
+            print("----------------------------------------------------------")
+            print(fp.readline())
+            print("----------------------------------------------------------")
+            for line in fp:
+                counter += 1
+
+
+                    # print("Line{}: {}".format(counter, line.strip()))
+                    # break
 
 
 """
