@@ -5,6 +5,7 @@ from time import sleep
 
 def serial_testof_test(comport):
     serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=5)
+    s = ''
 
     if serial_connection.isOpen():
         serial_connection.write(b'admin\r')
@@ -12,6 +13,7 @@ def serial_testof_test(comport):
         serial_connection.write(b'\r')
         sleep(0.5)
         serial_connection.write(b'sh version\r')
+        sleep(0.2)
 
         print("processing request...")
 
@@ -28,27 +30,37 @@ def serial_testof_test(comport):
 
 def serial_test(comport, command=None):
     filever = 'versionser2.txt'
-    serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=20)
+    serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=10)
 
     if serial_connection.isOpen():
+        serial_connection.set_buffer_size(rx_size=12800, tx_size=12800)
+        serial_connection.reset_input_buffer()
         serial_connection.write(b'admin\r')
         sleep(0.5)
         serial_connection.write(b'\r')
         sleep(0.5)
+        if "Wrong username or password!" in serial_connection.readline().decode():
+            print("You are in checking block.")
+            sleep(0.5)
+            serial_connection.write(b'\r')
+            serial_connection.write(b'admin\r')
+            sleep(0.5)
         serial_connection.write(b'sh version\r')
-
+        sleep(0.5)
         print("processing request...")
 
         with open(filever, 'w') as f:
             f.write(str(datetime.now()))
             while 1:
                 f.write(serial_connection.readline().decode())
+                sleep(0.2)
                 res = serial_connection.readline()
                 if len(res) > 0:
                     res.rstrip()
                 else:
                     break
     print("close connection.")
+    print("done.")
     serial_connection.close()
 
     # while 1:
