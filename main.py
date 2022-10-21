@@ -3,8 +3,8 @@ import os
 import shutil
 import sys
 from time import sleep
-from Libs import post_tests, serial_ssh, pyserial_test
-from Libs import pre_tests
+# from Libs import post_tests, serial_ssh, pyserial_test
+# from Libs import pre_tests
 import datetime
 
 # from robotframework import ExecutionResult
@@ -12,7 +12,7 @@ import datetime
 if __name__ == '__main__':
 
     p = None  # TODO check statuses of PASS and return to gmail
-    d = None
+    d = 1
     c = None
 
     # result = pre_tests.pre_test().parse("COM3")
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     # result = pyserial_test.serial_test("COM3")
     # result = pre_tests.pre_test().parse("COM3")
     # result = pre_tests.pre_test().parse()
-    result = pre_tests.pre_test().parse()
+    # result = pre_tests.pre_test().parse()
 
     parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
@@ -35,13 +35,14 @@ if __name__ == '__main__':
         counter = 0
         while intel < 2:
             print("Iteration: " + str(intel) + "\n")
-            p = os.system(r"robot -d Results .\Tests\web-hw.robot")
+            p = os.system(r"robot -d Results .\Tests\console_pretest.robot")
             intel = intel + 1
             print(p)
             sleep(10)
 
             # new_one_dir = r"test-out" + str(random.randint(1, 2078)) + "/"
-            new_one_dir = r"results-" + folder_random + "-" + "iteration-" + str(intel) + "/"
+            # new_one_dir = r"pretest-" + folder_random + "-" + "iteration-" + str(intel) + "/"
+            new_one_dir = r"pretest-" + folder_random + "-" + "console-" + str(intel) + "/"
 
             new_dir = os.path.join(parent_dir, new_one_dir)
 
@@ -78,10 +79,10 @@ if __name__ == '__main__':
             print(counter)
 
     if d:
-        p = os.system(r"robot -d Results .\Tests\pretest.robot")
+        p = os.system(r"robot -d Results .\Tests\console_pretest.robot")
         print(p)
 
-        new_one_dir = r"retest-" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"Pretest-" + str(random.randint(1, 2078)) + "/"
         new_dir = os.path.join(parent_dir, new_one_dir)
         if not os.path.exists(new_dir):
             os.mkdir(new_dir)

@@ -3,22 +3,23 @@
 import pyserial_test
 
 
-class pre_test:
+class pre_tests:
     def __init__(self):
         self.cmd_set = "sh version"
         self.filever = 'versionser.txt'
         self.port = "COM3"
 
-    def parse(self, swversion, code_revision, fpga):
+    def parse(self, port, swversion, code_revision, fpga):
         counter = 0
         checker = 0
-        pyserial_test.serial_test(self.port)
+        pyserial_test.serial_test(port)
         with open(self.filever, 'r') as fp:
             print("----------------------------------------------------------")
             print(fp.readline())
             print("----------------------------------------------------------")
             # check_lines = ["Software Version : CM Native CE R4.4", "Code Revision    : 2744", "FPGA2 Version    : 1"]
-            check_lines = ["Software Version : " + swversion, "Code Revision    : " + code_revision, "FPGA2 Version    : " + fpga]
+            check_lines = ["Software Version : " + swversion, "Code Revision    : " + code_revision, "FPGA2 Version   "
+                                                                                                     " : " + fpga]
             certainline = check_lines[0]
             for line in fp:
                 counter += 1
@@ -39,7 +40,7 @@ class pre_test:
                     # print("Line{}: {}".format(counter, line.strip()))
                     # break
             print("----------------------------------------------------------")
-            return checker
+            return str(checker)
 
 
 """
