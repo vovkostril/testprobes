@@ -1,7 +1,6 @@
 # TODO ping - for test, fpga, active/standby - from CLI for comparing
-from Libs import serial_ssh, pyserial_test
-from datetime import datetime
-from time import sleep
+# from Libs \
+import pyserial_test
 
 
 class pre_test:
