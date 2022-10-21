@@ -1,0 +1,30 @@
+2022-10-21 14:06:02.332115admin
+% Invalid word detected at '^' marker.
+kera2# 
+
+
+System Name      : kera2
+System Time      : 1970-02-24T09:19:00+00:00
+
+Bootloader
+Image            : RedBoot (bootloader)
+Date             : 09:36:03, Feb 23 2018
+Active Image
+Image            : linux (primary)
+Date             : 2022-10-06T14:31:52+03:00
+
+------------
+Version          : 
+Upload filename  : ce_dnwp_jr2_2n_release_R4_4_r2709.mfi
+------------------
+------------------
+Software Version : CM Native CE R4.4
+Code Revision    : 2744
+
+FPGA 
+FPGA1 Version    : 4
+
+ID EEPROM data 
+MAC Address      : 00-01-c1-40-23-11
+Serial Number    : HP180561128
+
