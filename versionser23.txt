@@ -1,4 +1,4 @@
-2022-10-21 15:56:23.871278       ^
+2022-10-21 15:43:40.594737       ^
 % Invalid word detected at '^' marker.
 
 kera1# 
@@ -9,8 +9,8 @@ Previous Restart : Cold
 System Contact   : 
 System Name      : kera1
 System Location  : 
-System Time      : 1970-02-15T00:21:32+00:00
-System Uptime    : 4d 17:00:54
+System Time      : 1970-02-15T00:08:49+00:00
+System Uptime    : 4d 16:48:11
 
 
 Bootloader
