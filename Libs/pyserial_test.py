@@ -29,7 +29,7 @@ def serial_testof_test(comport):
 
 
 def serial_test(comport, command=None):
-    filever = 'versionser2.txt'
+    filever = 'versionser.txt'
     serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=10)
 
     if serial_connection.isOpen():
@@ -52,11 +52,12 @@ def serial_test(comport, command=None):
         with open(filever, 'w') as f:
             f.write(str(datetime.now()))
             while 1:
-                f.write(serial_connection.readline().decode())
+                r = serial_connection.readline().decode()
+                print(r)
+                f.write(r)
                 sleep(0.2)
-                res = serial_connection.readline()
-                if len(res) > 0:
-                    res.rstrip()
+                if len(r) > 0:
+                    r.rstrip()
                 else:
                     break
     print("close connection.")
