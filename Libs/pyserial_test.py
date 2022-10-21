@@ -27,8 +27,8 @@ def serial_testof_test(comport):
 
 
 def serial_test(comport, command=None):
-    filever = 'versionser.txt'
-    serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=5)
+    filever = 'versionser2.txt'
+    serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=20)
 
     if serial_connection.isOpen():
         serial_connection.write(b'admin\r')

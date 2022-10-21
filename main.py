@@ -18,7 +18,7 @@ if __name__ == '__main__':
     # result = pre_tests.pre_test().parse("COM3")
     # result = serial_ssh.send_command("COM3", ["do sh version"])
     print("result: \n")
-    result = pyserial_test.serial_testof_test("COM3")
+    result = pyserial_test.serial_test("COM3")
     # result = pre_tests.pre_test().parse("COM3")
     # result = pre_tests.pre_test().parse()
     # result = pre_tests.pre_test().parse()
