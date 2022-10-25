@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
     p = None  # TODO check statuses of PASS and return to gmail
     d = 1
-    t = 1
+    t = None
     c = None
 
     # result = pre_tests.pre_test().parse("COM3")
@@ -99,6 +99,12 @@ if __name__ == '__main__':
         #         shutil.move(s, d)
         #         print("Moved! --- " + s)
         # TODO new location for screenshots
+
+        result_from = post_tests.xml_output_counter(r".\Results\output.xml")
+
+        if result_from == "7":
+            print("OK!")
+
         old_locations = ["log.html",
                          "output.xml",
                          "report.html"]

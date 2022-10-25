@@ -23,6 +23,8 @@ class pre_tests:
                                                                                                      " : " + fpga]
             certainline = check_lines[0]
             for line in fp:
+                if counter == 0:
+                    print("DAY TIME" + line)
                 counter += 1
                 # print("Line{}: {}".format(counter, line.strip()))
                 if certainline in line:
@@ -37,10 +39,10 @@ class pre_tests:
                     print(line)
                     print("\n3 OK")
                     checker += 1
-
                     # print("Line{}: {}".format(counter, line.strip()))
                     # break
             print("----------------------------------------------------------")
+
             return str(checker)
 
     def redu_test(self, port):
@@ -54,9 +56,8 @@ class pre_tests:
             for line in fp:
                 counter += 1
 
-
-                    # print("Line{}: {}".format(counter, line.strip()))
-                    # break
+                # print("Line{}: {}".format(counter, line.strip()))
+                # break
 
 
 """

@@ -4,6 +4,7 @@ Library             SeleniumLibrary
 Library    String
 # Library             ../Libs/probe_gui.py
 Library             ../Libs/test_parse.py
+Library             ../Libs/pre_tests.py
 Suite Teardown      Close Browser
 Test Timeout        2 minute
 
@@ -12,7 +13,11 @@ ${URL}        http://192.168.0.3/index.htm
 ${URL2}        http://192.168.0.4/index.htm
 ${BROWSER}          Chrome
 ${COMPORT}          COM3
+${PORT}        COM3
 ${username}     admin
+${FPGA2}        1
+${REVISION}     2744
+${SWVer}          CM Native CE R4.4
 
 *** Keywords ***
 Open Browser And Login
@@ -83,6 +88,11 @@ Refresh button
     Unselect Frame
 
 *** Test Cases ***
+Test 0: Check sh version
+    [Tags]  Check version
+    ${test1}      Parse    ${PORT}      ${SWVer}     ${REVISION}     ${FPGA2}
+    Should Contain    ${test1}    3
+
 Test 1: Open and click
     [Documentation]    Test NO card state via WEB
     [Tags]  Open bro
@@ -108,17 +118,17 @@ Test 4: Test card no card 9
     [Tags]  Check status card
     Refresh button
     Sleep    5
-    # ${test9}      Time Check    ${COMPORT}    9
-    # Should Contain    ${test9}    PASS
+    ${test9}      Time Check    ${COMPORT}    9
+    Should Contain    ${test9}    PASS
     Get Slot Status 9
-    Sleep    20
+    Sleep    5
 
 Test 5: Test card no card 10
     [Tags]  Check status card
-    # ${test10}      Time Check    ${COMPORT}    10
-    # Should Contain    ${test10}    PASS
+    ${test10}      Time Check    ${COMPORT}    10
+    Should Contain    ${test10}    PASS
     Get Slot Status 10
-    Sleep    20
+    Sleep    5
 
 Test 6: card no card 9 from Standby
     [Tags]  Check status card from Standby
