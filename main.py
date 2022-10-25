@@ -5,7 +5,7 @@ import sys
 from time import sleep
 # from Libs import post_tests, serial_ssh, pyserial_test
 # from Libs import pre_tests
-import datetime
+from datetime import datetime
 
 from Libs import post_tests
 
@@ -101,9 +101,6 @@ if __name__ == '__main__':
         # TODO new location for screenshots
 
         result_from = post_tests.xml_output_counter(r".\Results\output.xml")
-
-        if result_from == "7":
-            print("OK!")
 
         old_locations = ["log.html",
                          "output.xml",

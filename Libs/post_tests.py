@@ -1,4 +1,5 @@
 import xml.etree.ElementTree as ET
+from datetime import datetime
 
 
 def xml_output_counter(xml_file):
@@ -11,7 +12,9 @@ def xml_output_counter(xml_file):
             result = x.attrib
             result_pass = result.get('pass')
             if result.get('fail') == "0":
-                # print("PASS: " + result.get('pass'))
-                # print("FAIL: " + result.get('fail'))
+                print("PASS: " + result.get('pass'))
+                print("FAIL: " + result.get('fail'))
                 break
+    with open('results.txt', 'w') as f:
+        f.write(str(datetime.now()) + xml_output_counter(xml_file))
     return result_pass

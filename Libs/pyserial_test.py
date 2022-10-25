@@ -43,9 +43,6 @@ def serial_test(comport, command=None):
     if serial_connection.isOpen():
         serial_connection.set_buffer_size(rx_size=12800, tx_size=12800)
         serial_connection.reset_input_buffer()
-        serial_connection.close()
-        sleep(0.2)
-        serial.Serial(port=comport, baudrate=115200, timeout=10)
         serial_connection.write(b'admin\r')
         sleep(0.5)
         serial_connection.write(b'\r')
