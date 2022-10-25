@@ -120,8 +120,6 @@ if __name__ == '__main__':
                          "report.html"]
 
         print('\nNamed with wildcard ?:')
-        for files in glob.glob(parent_dir + '?.png'):
-            print(files)
 
         dest_folder = new_dir
 
@@ -131,6 +129,13 @@ if __name__ == '__main__':
             shutil.move(souse, destination)
             print("------------------------------------------")
             print(file + " was moved to " + destination)
+
+        print("test with scrinshotes: ")
+
+        for files in glob.glob(parent_dir + '*.png'):
+            if files:
+                print(files + " was moved to " + new_dir)
+                shutil.move(files, new_dir)
 
     if t:
         p = os.system(r"robot -d Results .\Tests\console_pretest.robot")

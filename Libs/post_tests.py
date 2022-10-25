@@ -18,5 +18,5 @@ def xml_output_counter(xml_file):
                 # print("FAIL: " + result.get('fail'))
                 break
     with open('results.txt', 'w') as f:
-        f.write(str(datetime.now()) + str(result))
+        f.write(str(datetime.now()) + '\n' + str(result))
     return result_pass
