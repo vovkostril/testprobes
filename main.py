@@ -119,6 +119,10 @@ if __name__ == '__main__':
                          "output.xml",
                          "report.html"]
 
+        print('\nNamed with wildcard ?:')
+        for files in glob.glob(parent_dir + '?.png'):
+            print(files)
+
         dest_folder = new_dir
 
         for file in old_locations:
