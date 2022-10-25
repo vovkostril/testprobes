@@ -7,12 +7,15 @@ from time import sleep
 # from Libs import pre_tests
 import datetime
 
+from Libs import post_tests
+
 # from robotframework import ExecutionResult
 
 if __name__ == '__main__':
 
     p = None  # TODO check statuses of PASS and return to gmail
     d = 1
+    t = 1
     c = None
 
     # result = pre_tests.pre_test().parse("COM3")
@@ -79,6 +82,37 @@ if __name__ == '__main__':
             print(counter)
 
     if d:
+        p = os.system(r"robot -d Results .\Tests\time.robot")
+        print(p)
+
+        new_one_dir = r"Web-" + str(random.randint(1, 2078)) + "/"
+        new_dir = os.path.join(parent_dir, new_one_dir)
+        if not os.path.exists(new_dir):
+            os.mkdir(new_dir)
+
+        # print("Moved everything ones, please, delete or comment this code!")
+        # for fila_name in os.listdir(parent_dir):
+        #     s = parent_dir + fila_name
+        #     d = new_dir + fila_name
+
+        #     if os.path.isfile(s):
+        #         shutil.move(s, d)
+        #         print("Moved! --- " + s)
+        # TODO new location for screenshots
+        old_locations = ["log.html",
+                         "output.xml",
+                         "report.html"]
+
+        dest_folder = new_dir
+
+        for file in old_locations:
+            souse = parent_dir + file
+            destination = dest_folder + file
+            shutil.move(souse, destination)
+            print("------------------------------------------")
+            print(file + " was moved to " + destination)
+
+    if t:
         p = os.system(r"robot -d Results .\Tests\console_pretest.robot")
         print(p)
 
