@@ -109,37 +109,46 @@ Go to main
     Unselect Frame
 
 *** Test Cases ***
-Test : Check sh version
+Test 1: Check sh version
     [Tags]  Check version
     ${test1}      Parse    ${PORT}      ${SWVer}     ${REVISION}     ${FPGA2}
     Should Contain    ${test1}    3
 
-Test : Open and click
+Test 2: Open and click
     Open Browser And Login
     Sleep   10
     Welcome Page Should Be Open
     Sleep    5
     Page Should Contain    Active CE
 
-Test : Check pings between Active/Standby
+Test 3: Check pings between Active/Standby
     Sleep    5
     Ping test
+    Select Frame    name:main
+    Input Text    //*[@id="ip_addr"]    192.168.0.4
+    Sleep    5
+    Click Button    Start
+    Sleep    15
+    Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
+    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+    Page Should Contain    Ping session completed.
+    Unselect Frame
     Sleep    5
     Go to main
 
-Test : Go to hardware
+Test 4: Go to hardware
     [Tags]  Hardware check button
     Go to HW
     Sleep    2
 
-Test : Test the card state
+Test 5: Test the card state
     [Tags]  Slot status
     Get Slot Status 9
     Sleep    5
     Get Slot Status 10
     Sleep    5
 
-Test : Test card no card 9
+Test 6: Test card no card 9
     [Tags]  Check status card
     Refresh button
     Sleep    5
@@ -148,20 +157,37 @@ Test : Test card no card 9
     Get Slot Status 9
     Sleep    5
 
-Test : Test card no card 10
+Test 7: Test card no card 10
     [Tags]  Check status card
     ${test10}      Time Check    ${COMPORT}    10
     Should Contain    ${test10}    PASS
     Get Slot Status 10
     Sleep    5
 
-Test : card no card 9 from Standby
+Test 8: card no card 9 from Standby
     [Tags]  Check status card from Standby
     Open Browser And Login 2
     Sleep   10
     Welcome Page Should Be Open
     Sleep    5
     Page Should Contain    Standby CE
+
+Test 9: Ping Active from Standby
+    Sleep    5
+    Ping test
+    Select Frame    name:main
+    Input Text    //*[@id="ip_addr"]    192.168.0.3
+    Sleep    5
+    Click Button    Start
+    Sleep    15
+    Page Should Contain    PING 192.168.0.3 (192.168.0.3): 56 data bytes
+    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+    Page Should Contain    Ping session completed.
+    Sleep    5
+    Unselect Frame
+    Go to main
+
+Test 10: Test card no card 9 from Standby
     Go to HW
     Sleep    2
     Refresh button
