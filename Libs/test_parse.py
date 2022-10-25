@@ -10,7 +10,7 @@ class test_parse:
         self.cmd_set = ["do sh hw"]
         self.filefor = 'output.txt'
 
-    def parse(self, port, slot):
+    def parse_noport(self, port, slot):
         with open(self.filefor, 'w') as f:
             f.write(str(datetime.now()) + serial_ssh.send_command(port, self.cmd_set))
 
@@ -40,7 +40,7 @@ class test_parse:
         st = time.time()
         card.card(port, slot, serial=True, ip="192.168.0.4")
         time.sleep(10)
-        if self.parse(port, slot):
+        if self.parse_noport(port, slot):
             result = "PASS"
         # self.parse(port)
         et = time.time()
