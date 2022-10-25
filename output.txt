@@ -1,7 +1,5 @@
-2022-10-25 14:14:48.952960 configure terminal
-
+2022-10-25 15:06:57.308565 configure terminal
 kera1(config)#  do sh hw
-
 
 Connection Master Installation
 
@@ -11,7 +9,6 @@ Unit                       Part Number       Serial Number
 
 Slot Card       Configured   Part Number    Serial Number   Oper State    Temp(C) FPGA1 FPGA2
 ---------------------------------------------------------------------------------------------
-
  1                                                          Free           -      -     -    
  2                                                          Free           -      -     -    
  3   CE8+       CE8+         T33008.02...99 HP17516519      Operational *  42     4     1    
@@ -20,13 +17,10 @@ Slot Card       Configured   Part Number    Serial Number   Oper State    Temp(C
  6                                                          Free           -      -     -    
 
  7   PWR 48VBE  PWR 48VBE    T32008.11...06 HP151961268     Operational *  30     4.A   -    
-
  8   PWR 48VBE  PWR 48VBE    T32008.11...06 HP153260010     Operational    30     4.A   -    
 
- 9   Ethernet   Ethernet                                    Operational    43     17.D  -    
-
+ 9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational    43     17.D  -    
 10   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    37     17.D  -    
-
 11              Ethernet                                    Empty          -      -     -    
 12                                                          Free           -      -     -    
 13                                                          Free           -      -     -    
@@ -41,4 +35,5 @@ Fan  Configured  Part Number     Serial Number  Oper State
 
  Port 1: dataplane to trunk pair via subrack
  Port 2: SFP
-kera1(config)
+kera1(config)#  end
+kera1# 

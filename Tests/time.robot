@@ -148,7 +148,7 @@ Test 6: card no card 9 from Standby
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
     ${cardS2}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[7]
     Should Contain    ${cardS2}    -
-    Sleep    20
+    Sleep    5
 
 Test 7: Test card no card 10 from Standby
     [Tags]  Check status card from Standby
@@ -158,5 +158,5 @@ Test 7: Test card no card 10 from Standby
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
     ${cardS4}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[7]
     Should Contain    ${cardS4}    -
-    Sleep    20
+    Sleep    5
 

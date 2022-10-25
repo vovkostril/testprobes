@@ -53,7 +53,7 @@ def serial_test(comport, command=None):
             serial_connection.write(b'\r')
             serial_connection.write(b'admin\r')
             sleep(0.5)
-        serial_connection.write(b'sh version\r')
+        serial_connection.write(b'do sh version\r')
         sleep(0.5)
         print("processing request...")
 
