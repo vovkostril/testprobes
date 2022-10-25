@@ -1,7 +1,9 @@
 import random
 import os
 import shutil
+from pathlib import Path
 import sys
+import glob
 from time import sleep
 # from Libs import post_tests, serial_ssh, pyserial_test
 # from Libs import pre_tests
@@ -62,12 +64,23 @@ if __name__ == '__main__':
             #         print("Moved! --- " + s)
             # TODO new location for screenshots
             result_from = post_tests.xml_output_counter(r".\Results\output.xml")
-            if result_from == "7":
-                print("OK!")
-                counter = counter + 1
+
+            # if result_from == "7":
+            #     print("OK!")
+            #     counter = counter + 1
+
+            if os.path.isfile('filename.txt'):
+                print("File exist")
+            else:
+                print("File not exist")
+
             old_locations = ["log.html",
                              "output.xml",
                              "report.html"]
+
+            print('\nNamed with wildcard ?:')
+            for files in glob.glob(parent_dir + '?.png'):
+                print(files)
 
             dest_folder = new_dir
 
@@ -147,7 +160,7 @@ if __name__ == '__main__':
             print(file + " was moved to " + destination)
 
     if c:
-        e = datetime.datetime.now()
+        e = datetime.now()
         new_zip = str(random.randint(5809, 9078)) + "-latest-" + str(e.year) + "-" + str(e.month) + "-" + str(e.day)
         dir2 = "C:/Users/anastasiia/PycharmProjects/tributary/" + new_zip + ".zip"
 

@@ -1,0 +1,7 @@
+1.	ValueError: Failed to enter configuration mode. – Netmiko.
+2.	Selenium timeout between refreshes and get element – Selenium + timeout betw active and standby
+3.	Pyserial open and wrong password + enter to continue
+4.	Check tests xml and scp
+5.	Ping problem
+6.	Jira + fresh results between Active and Standby
+7.	Config for tributary and dyna wiz
