@@ -109,37 +109,37 @@ Go to main
     Unselect Frame
 
 *** Test Cases ***
-Test 0: Check sh version
+Test : Check sh version
     [Tags]  Check version
     ${test1}      Parse    ${PORT}      ${SWVer}     ${REVISION}     ${FPGA2}
     Should Contain    ${test1}    3
 
-Test 1: Open and click
+Test : Open and click
     Open Browser And Login
     Sleep   10
     Welcome Page Should Be Open
     Sleep    5
     Page Should Contain    Active CE
 
-Test 2: Check pings between Active/Standby
+Test : Check pings between Active/Standby
     Sleep    5
     Ping test
     Sleep    5
     Go to main
 
-Test 3: Go to hardware
+Test : Go to hardware
     [Tags]  Hardware check button
     Go to HW
     Sleep    2
 
-Test 4: Test the card state
+Test : Test the card state
     [Tags]  Slot status
     Get Slot Status 9
     Sleep    5
     Get Slot Status 10
     Sleep    5
 
-Test 5: Test card no card 9
+Test : Test card no card 9
     [Tags]  Check status card
     Refresh button
     Sleep    5
@@ -148,14 +148,14 @@ Test 5: Test card no card 9
     Get Slot Status 9
     Sleep    5
 
-Test 6: Test card no card 10
+Test : Test card no card 10
     [Tags]  Check status card
     ${test10}      Time Check    ${COMPORT}    10
     Should Contain    ${test10}    PASS
     Get Slot Status 10
     Sleep    5
 
-Test 7: card no card 9 from Standby
+Test : card no card 9 from Standby
     [Tags]  Check status card from Standby
     Open Browser And Login 2
     Sleep   10
@@ -175,7 +175,7 @@ Test 7: card no card 9 from Standby
     Should Contain    ${cardS2}    -
     Sleep    5
 
-Test 8: Test card no card 10 from Standby
+Test : Test card no card 10 from Standby
     [Tags]  Check status card from Standby
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
     ${cardS3}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
