@@ -124,6 +124,13 @@ Test 2: Open and click
 Test 3: Check pings between Active/Standby
     Sleep    5
     Ping test
+    Input Text    //*[@id="ip_addr"]    192.168.0.4
+    Sleep    5
+    Click Button    Start
+    Sleep    15
+    Page Should Contain    PING 192.168.0.4 (192.168.0.4): 56 data bytes
+    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+    Page Should Contain    Ping session completed.
     Sleep    5
     Go to main
 
@@ -166,6 +173,13 @@ Test 8: card no card 9 from Standby
 Test 9: Ping Active from Standby
     Sleep    5
     Ping test
+    Input Text    //*[@id="ip_addr"]    192.168.0.3
+    Sleep    5
+    Click Button    Start
+    Sleep    15
+    Page Should Contain    PING 192.168.0.4 (192.168.0.3): 56 data bytes
+    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+    Page Should Contain    Ping session completed.
     Sleep    5
     Go to main
 
