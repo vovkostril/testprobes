@@ -21,23 +21,9 @@ if __name__ == '__main__':
     t = None
     c = None
 
-    file_scp = "C:/Users/anastasiia/.vscode/tri/tributary/resultscp2.txt"
-    ip = "192.168.10.31"
-    user = "anastasiia"
-    remoted_folder = "/home/anastasiia"
-    password = getpass()
-
-    if not os.path.exists(file_scp):
-        with open(file_scp, 'w') as f:
-            f.write(str(datetime.now()) + "Nastya Mowed.")
-            print("Was created the file.")
-    else:
-        print("File for scp exitst. Continue...")
-
     # result = pre_tests.pre_test().parse("COM3")
     # result = serial_ssh.send_command("COM3", ["do sh version"])
     print("result: \n")
-    result_scp = scp_moves.paramico_scp(file_scp, user, ip, password, remoted_folder)
     # result = pyserial_test.serial_test("COM3")
     # result = pre_tests.pre_test().parse("COM3")
     # result = pre_tests.pre_test().parse()
