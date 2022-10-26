@@ -151,6 +151,7 @@ if __name__ == '__main__':
                 shutil.move(files, new_dir)
 
         result_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/results.txt"
+        result_dir = r"C:/Users/anastasiia/PycharmProjects/tributary/"
         shutil.move(result_dir, dest_folder)
         print("Results also were moved!")
         print("Finish!")
