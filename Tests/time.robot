@@ -120,6 +120,22 @@ Test 2: Open and click
     Welcome Page Should Be Open
     Sleep    5
     Page Should Contain    Active CE
+    Sleep    5
+
+Test 2.1: Who Active card 
+    Go to HW
+    Sleep    5
+    Select Frame    name:main
+    Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    ${activecard}        Get Text        //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    Should Be Equal    ${activecard}    Operational*
+
+Test 2.2: Who Standby card
+    Sleep    5
+    Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[4]/td[6]
+    ${standbyecard}        Get Text        //*[@id="slotTableContentTbody"]/tr[4]/td[6]
+    Should Be Equal    ${standbyecard}    Operational
+    Unselect frame
 
 Test 3: Check pings between Active/Standby
     Sleep    5
@@ -164,7 +180,7 @@ Test 7: Test card no card 10
     Get Slot Status 10
     Sleep    5
 
-Test 8: card no card 9 from Standby
+Test 8: Open standby
     [Tags]  Check status card from Standby
     Open Browser And Login 2
     Sleep   10
@@ -201,7 +217,7 @@ Test 10: Test card no card 9 from Standby
     Should Contain    ${cardS2}    -
     Sleep    5
 
-Test : Test card no card 10 from Standby
+Test 11: Test card no card 10 from Standby
     [Tags]  Check status card from Standby
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
     ${cardS3}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
@@ -211,3 +227,9 @@ Test : Test card no card 10 from Standby
     Should Contain    ${cardS4}    -
     Sleep    5
 
+Test 12: Status card from Standby for testing standby web UI
+    Sleep    5
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    ${cardfromstandby}    Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    Should Be Empty    ${cardfromstandby}
+    Unselect Frame

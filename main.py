@@ -28,7 +28,7 @@ if __name__ == '__main__':
     # result = pre_tests.pre_test().parse()
     # result = pre_tests.pre_test().parse()
 
-    parent_dir = "C:/Users/anastasiia/PycharmProjects/tributary/Results/"
+    parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
     dst_path_copy = r"C:/Users/anastasiia/PycharmProjects/TestResults/"
     if not os.path.exists(parent_dir):
@@ -136,6 +136,11 @@ if __name__ == '__main__':
             if files:
                 print(files + " was moved to " + new_dir)
                 shutil.move(files, new_dir)
+
+        result_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/results.txt"
+        shutil.move(result_dir, dest_folder)
+        print("Results also were moved!")
+        print("Finish!")
 
     if t:
         p = os.system(r"robot -d Results .\Tests\console_pretest.robot")
