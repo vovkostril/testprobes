@@ -126,8 +126,10 @@ Test 2.1: Who Active card
     Go to HW
     Sleep    5
     Select Frame    name:main
-    Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
-    ${activecard}        Get Text        //*[@id="slotTableContentTbody"]/tr[3]/td[2]
+    Wait Until Element Is Visible    //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    ${activecard}        Get Text        //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    # //*[@id="slotTableContentTbody"]/tr[3]/td[6]
+    # //*[@id="slotTableContentTbody"]/tr[3]/td[2]
     Should Be Equal    ${activecard}    Operational*
 
 Test 2.2: Who Standby card

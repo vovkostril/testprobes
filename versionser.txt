@@ -1,4 +1,7 @@
-2022-10-26 13:22:00.100843Password: 
+2022-10-26 14:10:03.346842       ^
+% Invalid word detected at '^' marker.
+
+kera1# 
 kera1# do sh version
 
 Previous Restart : Cold
@@ -6,8 +9,8 @@ Previous Restart : Cold
 System Contact   : 
 System Name      : kera1
 System Location  : 
-System Time      : 1970-02-19T21:47:10+00:00
-System Uptime    : 21:58:54
+System Time      : 1970-02-19T22:35:13+00:00
+System Uptime    : 22:46:57
 
 
 Bootloader

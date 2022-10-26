@@ -8,21 +8,34 @@ from time import sleep
 # from Libs import post_tests, serial_ssh, pyserial_test
 # from Libs import pre_tests
 from datetime import datetime
-
+from Libs import scp_moves
 from Libs import post_tests
 
 # from robotframework import ExecutionResult
 
 if __name__ == '__main__':
-
+    
     p = None  # TODO check statuses of PASS and return to gmail
-    d = 1
+    d = None
     t = None
     c = None
+
+    file_scp = "C:/Users/anastasiia/.vscode/tri/tributary/resultscp.txt"
+    ip = "192.168.10.31"
+    user = "anastasiia"
+    remoted_folder = "/home/anastasiia"
+    password = "Voaydger2Whereyou"
+
+    if not os.path.exists(file_scp):
+        with open(file_scp, 'w') as f:
+            f.write(str(datetime.now()) + "Nastya Mowed.")
+    else:
+        print("File for scp exitst. Continue...")
 
     # result = pre_tests.pre_test().parse("COM3")
     # result = serial_ssh.send_command("COM3", ["do sh version"])
     print("result: \n")
+    result_scp = scp_moves.scp_move(file_scp, user, ip, remoted_folder)
     # result = pyserial_test.serial_test("COM3")
     # result = pre_tests.pre_test().parse("COM3")
     # result = pre_tests.pre_test().parse()
