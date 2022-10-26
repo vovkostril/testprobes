@@ -137,6 +137,11 @@ if __name__ == '__main__':
                 print(files + " was moved to " + new_dir)
                 shutil.move(files, new_dir)
 
+        result_dir = r"C:/Users/anastasiia/PycharmProjects/tributary/"
+        shutil.move(result_dir, dest_folder)
+        print("Results also were moved!")
+        print("Finish!")
+
     if t:
         p = os.system(r"robot -d Results .\Tests\console_pretest.robot")
         print(p)
