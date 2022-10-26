@@ -17,7 +17,7 @@ from getpass import getpass
 if __name__ == '__main__':
     
     p = None  # TODO check statuses of PASS and return to gmail
-    d = None
+    d = 1
     t = None
     c = None
 
@@ -112,7 +112,6 @@ if __name__ == '__main__':
         #     if os.path.isfile(s):
         #         shutil.move(s, d)
         #         print("Moved! --- " + s)
-        # TODO new location for screenshots
 
         result_from = post_tests.xml_output_counter(r".\Results\output.xml")
 
