@@ -23,7 +23,8 @@ if __name__ == '__main__':
 
     # result = pre_tests.pre_test().parse("COM3")
     # result = serial_ssh.send_command("COM3", ["do sh version"])
-    print("result: \n")
+    print("Result: ")
+    # post_tests.xml_output_counter("C:/Users/anastasiia/.vscode/tri/tributary/Results/Web-349/output.xml")
     # result = pyserial_test.serial_test("COM3")
     # result = pre_tests.pre_test().parse("COM3")
     # result = pre_tests.pre_test().parse()
@@ -108,7 +109,6 @@ if __name__ == '__main__':
         # for fila_name in os.listdir(parent_dir):
         #     s = parent_dir + fila_name
         #     d = new_dir + fila_name
-
         #     if os.path.isfile(s):
         #         shutil.move(s, d)
         #         print("Moved! --- " + s)
