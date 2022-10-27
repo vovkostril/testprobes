@@ -13,7 +13,7 @@ class pre_tests:
     def parse(self, port, swversion, code_revision, fpga):
         counter = 0
         checker = 0
-        pyserial_test.serial_test(port)
+        pyserial_test.serial_test(port, command=b'do sh version\r')
         with open(self.filever, 'r') as fp:
             print("----------------------------------------------------------")
             print(fp.readline())
