@@ -4,19 +4,17 @@ from datetime import datetime
 
 def xml_output_counter(xml_file):
     result = None
-    result_pass = None
     tree = ET.parse(xml_file)
     root = tree.getroot()
     root1 = root[1]
     for x in root1.iter():
-        if "Element 'stat' at" in str(x):
+        # print(str(x.attrib) + " + " + str(x.tag) + str(x))
+        if "Element 'stat' at " in str(x):
+            print("-------------------------------------")
             result = x.attrib
-            print(result)
-            result_pass = result.get('pass')
-            if result.get('fail') == "0":
-                # print("PASS: " + result.get('pass'))
-                # print("FAIL: " + result.get('fail'))
-                break
+            print("Here is the result of the test run: " + str(result))
+            print("-------------------------------------")
+            break
     with open('results.txt', 'w') as f:
-        f.write(str(datetime.now()) + '\n' + str(result))
-    return result_pass
+        f.write(str(datetime.now()) + '\n' + "Here is the result of the test run: " + str(result))
+    return result
