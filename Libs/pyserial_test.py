@@ -49,13 +49,14 @@ def serial_test(comport, command=None):
         sleep(0.5)
         serial_connection.write(b'\r')
         sleep(0.5)
+        version = b'do sh version\r'
         if "Wrong username or password!" in serial_connection.readline().decode():
             print("You are in checking block.")
             sleep(0.5)
             serial_connection.write(b'\r')
             serial_connection.write(b'admin\r')
             sleep(0.5)
-        serial_connection.write(b'do sh version\r')
+        serial_connection.write(command)
         sleep(0.5)
         print("processing request...")
 
