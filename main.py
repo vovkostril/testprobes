@@ -97,7 +97,7 @@ if __name__ == '__main__':
             print(counter)
 
     if d:
-        p = os.system(r"robot -d Results .\Tests\probes.robot")
+        p = os.system(r"robot -d Results .\Tests\time.robot")
         print(p)
 
         new_one_dir = r"Web-" + str(random.randint(1, 2078)) + "/"
