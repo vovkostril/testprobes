@@ -1,7 +1,7 @@
 # TODO ping - for test, fpga, active/standby - from CLI for comparing
 # from Libs \
 import pyserial_test
-
+import serial_ssh
 
 class pre_tests:
     def __init__(self):
@@ -42,6 +42,8 @@ class pre_tests:
                     # print("Line{}: {}".format(counter, line.strip()))
                     # break
             print("----------------------------------------------------------")
+
+        
 
             return str(checker)
 
