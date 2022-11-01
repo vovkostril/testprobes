@@ -108,3 +108,39 @@ Test 0: Check login and ping Active
     Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
     Page Should Contain    Ping session completed.
     Go to main
+    Sleep    5
+
+Test 1: Check login and ping Standby
+    Open Browser And Login 2
+    Sleep   10
+    Welcome Page Should Be Open
+    Sleep    5
+    Page Should Contain    Standby CE
+    Sleep    5
+    Ping
+    Select Frame    name:main
+    Input Text    //*[@id="ip_addr"]    ${IPB}
+    Sleep    5
+    Click Button    Start
+    Sleep    15
+    Unselect Frame
+    Page Should Contain    PING ${IPB}  (${IPB}): 56 data bytes
+    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+    Page Should Contain    Ping session completed.
+    Sleep    5
+    Select Frame    name:main
+    # Current Frame Should Contain    main
+    # Element Should Be Visible    body > form > input[type=submit]
+    Click Button     ${SPACE}New Ping${SPACE}
+    Sleep    5
+    Input Text    //*[@id="ip_addr"]    ${IPA}
+    Sleep    5
+    Click Button    Start
+    Sleep    15
+    Unselect Frame
+    Page Should Contain    PING ${IPA}  (${IPA}): 56 data bytes
+    Page Should Contain    5 packets transmitted, 5 packets received, 0% packet loss
+    Page Should Contain    Ping session completed.
+    Go to main
+    Sleep    5
+
