@@ -1,4 +1,4 @@
-2022-10-28 13:45:13.241661
+2022-11-01 09:28:37.841672
 Username: admin
 Password: 
 kera1# do sh version
@@ -8,8 +8,8 @@ Previous Restart : Cold
 System Contact   : 
 System Name      : kera1
 System Location  : 
-System Time      : 1970-02-21T22:10:22+00:00
-System Uptime    : 2d 22:22:07
+System Time      : 1970-02-25T18:53:46+00:00
+System Uptime    : 6d 19:05:31
 
 
 Bootloader
