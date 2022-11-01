@@ -100,7 +100,7 @@ if __name__ == '__main__':
         p = os.system(r"robot -d Results .\Tests\power_cards.robot")
         print(p)
 
-        new_one_dir = r"Power-" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"PingWeb-" + str(random.randint(1, 2078)) + "/"
         new_dir = os.path.join(parent_dir, new_one_dir)
         if not os.path.exists(new_dir):
             os.mkdir(new_dir)

@@ -95,7 +95,9 @@ Test 0: Check login and ping Active
     Page Should Contain    Ping session completed.
     Sleep    5
     Select Frame    name:main
-    Click Button    New Ping
+    # Current Frame Should Contain    main
+    # Element Should Be Visible    body > form > input[type=submit]
+    Click Button     ${SPACE}New Ping${SPACE}
     Sleep    5
     Input Text    //*[@id="ip_addr"]    ${IPB}
     Sleep    5
