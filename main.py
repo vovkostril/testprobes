@@ -21,14 +21,7 @@ if __name__ == '__main__':
     t = None
     c = None
 
-    # result = pre_tests.pre_test().parse("COM3")
-    # result = serial_ssh.send_command("COM3", ["do sh version"])
     print("Result: ")
-    # post_tests.xml_output_counter("C:/Users/anastasiia/.vscode/tri/tributary/Results/Web-349/output.xml")
-    # result = pyserial_test.serial_test("COM3")
-    # result = pre_tests.pre_test().parse("COM3")
-    # result = pre_tests.pre_test().parse()
-    # result = pre_tests.pre_test().parse()
 
     parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
@@ -64,12 +57,8 @@ if __name__ == '__main__':
             #     if os.path.isfile(s):
             #         shutil.move(s, d)
             #         print("Moved! --- " + s)
-            # TODO new location for screenshots
             result_from = post_tests.xml_output_counter(r".\Results\output.xml")
 
-            # if result_from == "7":
-            #     print("OK!")
-            #     counter = counter + 1
 
             if os.path.isfile('filename.txt'):
                 print("File exist")
@@ -104,14 +93,6 @@ if __name__ == '__main__':
         new_dir = os.path.join(parent_dir, new_one_dir)
         if not os.path.exists(new_dir):
             os.mkdir(new_dir)
-
-        # print("Moved everything ones, please, delete or comment this code!")
-        # for fila_name in os.listdir(parent_dir):
-        #     s = parent_dir + fila_name
-        #     d = new_dir + fila_name
-        #     if os.path.isfile(s):
-        #         shutil.move(s, d)
-        #         print("Moved! --- " + s)
 
         result_from = post_tests.xml_output_counter(r".\Results\output.xml")
 
@@ -157,15 +138,6 @@ if __name__ == '__main__':
         if not os.path.exists(new_dir):
             os.mkdir(new_dir)
 
-        # print("Moved everything ones, please, delete or comment this code!")
-        # for fila_name in os.listdir(parent_dir):
-        #     s = parent_dir + fila_name
-        #     d = new_dir + fila_name
-
-        #     if os.path.isfile(s):
-        #         shutil.move(s, d)
-        #         print("Moved! --- " + s)
-        # TODO new location for screenshots
         old_locations = ["log.html",
                          "output.xml",
                          "report.html"]
