@@ -18,14 +18,64 @@ if __name__ == '__main__':
     t = None
     c = None
 
-    print("Result: ")
-    
     parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
     dst_path_copy = r"C:/Users/anastasiia/PycharmProjects/TestResults/"
 
     if not os.path.exists(parent_dir):
         os.mkdir(parent_dir)
+
+    print("Result: ")
+
+    # start testing
+
+    if d:
+        p = os.system(r"robot -d Results .\Tests\power_cards.robot")
+        print(p)
+
+        new_one_dir = r"Power-" + str(random.randint(1, 2078)) + "/"
+        new_dir = os.path.join(parent_dir, new_one_dir)
+        if not os.path.exists(new_dir):
+            os.mkdir(new_dir)
+
+        result_from = post_tests.xml_output_counter(r".\Results\output.xml")
+
+        old_locations = ["log.html",
+                         "output.xml",
+                         "report.html"]
+
+        print('\nNamed with wildcard ?:')
+
+        dest_folder = new_dir
+
+        for file in old_locations:
+            souse = parent_dir + file
+            destination = dest_folder + file
+            shutil.move(souse, destination)
+            print("------------------------------------------")
+            print(file + " was moved to " + destination)
+
+        print("test with scrinshotes: ")
+
+        for files in glob.glob(parent_dir + '*.png'):
+            if files:
+                print(files + " was moved to " + new_dir)
+                shutil.move(files, new_dir)
+
+        result_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/results.txt"
+        # result_dir = r"C:/Users/anastasiia/PycharmProjects/tributary/"
+        shutil.move(result_dir, dest_folder)
+        print(result_dir + " was moved to " + dest_folder)
+        print("Results also were moved!")
+        pw_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/pw.txt"
+        pwssh_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/sshpower.txt"
+        shutil.move(pw_dir, dest_folder)
+        shutil.move(pwssh_dir, dest_folder)
+        print(pw_dir + " was moved to " + dest_folder)
+        print(pwssh_dir + " was moved to " + dest_folder)
+        print("Pw CLI also was moved!")
+        print("Finish!")    
+
 
     if p:
         print("------------------ Tests Start ------------------\n")
@@ -82,50 +132,6 @@ if __name__ == '__main__':
 
             print("------------------------------------------")
             print(counter)
-
-    if d:
-        p = os.system(r"robot -d Results .\Tests\power_cards.robot")
-        print(p)
-
-        new_one_dir = r"Power-" + str(random.randint(1, 2078)) + "/"
-        new_dir = os.path.join(parent_dir, new_one_dir)
-        if not os.path.exists(new_dir):
-            os.mkdir(new_dir)
-
-        result_from = post_tests.xml_output_counter(r".\Results\output.xml")
-
-        old_locations = ["log.html",
-                         "output.xml",
-                         "report.html"]
-
-        print('\nNamed with wildcard ?:')
-
-        dest_folder = new_dir
-
-        for file in old_locations:
-            souse = parent_dir + file
-            destination = dest_folder + file
-            shutil.move(souse, destination)
-            print("------------------------------------------")
-            print(file + " was moved to " + destination)
-
-        print("test with scrinshotes: ")
-
-        for files in glob.glob(parent_dir + '*.png'):
-            if files:
-                print(files + " was moved to " + new_dir)
-                shutil.move(files, new_dir)
-
-        result_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/results.txt"
-        # result_dir = r"C:/Users/anastasiia/PycharmProjects/tributary/"
-        shutil.move(result_dir, dest_folder)
-        print(result_dir + " was moved to " + dest_folder)
-        print("Results also were moved!")
-        pw_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/pw.txt"
-        shutil.move(pw_dir, dest_folder)
-        print(pw_dir + " was moved to " + dest_folder)
-        print("Pw CLI also was moved!")
-        print("Finish!")
 
     if t:
         p = os.system(r"robot -d Results .\Tests\console_pretest.robot")
