@@ -37,9 +37,10 @@ if __name__ == '__main__':
         print(p)
 
         result_from = post_tests.xml_output_counter(r".\Results\output.xml")
-        zip_move_scp.move_move(parent_dir, origin_dir)
+        result1 = zip_move_scp.move_move(parent_dir, origin_dir)
+        print(result1)
         sleep(5)
-        zip_move_scp.zip_zip(parent_dir, dst_path_copy)
+        zip_move_scp.zip_zip(result1, dst_path_copy)
         # scp!
 
     if d:
