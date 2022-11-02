@@ -75,7 +75,7 @@ class test_parse:
                         test_active = 1
                     print(line)
                     print("\nOK")
-                    return 1 + test_active
+                    return str(1 + test_active)
                     # print("Line{}: {}".format(counter, line.strip()))
                     # break
             print("----------------------------------------------------------")

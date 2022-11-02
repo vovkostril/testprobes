@@ -154,8 +154,8 @@ Test 2: Check power card from cli
     ${testpower1}    Power Card Check    ${COMPORT}    ${activepw}
     Should Be Equal    ${testpower1}    2
     Sleep    10
-    Power Card Check    ${COMPORT}    ${standbypw}
-    Should Be Equal    ${standbypw}    1
+    ${testpower2}    Power Card Check    ${COMPORT}    ${standbypw}
+    Should Be Equal    ${testpower2}    1
 
 Test 3: Active PW Web Status on Active CE
 # TODO: create IF
@@ -175,6 +175,7 @@ Test 3: Active PW Web Status on Active CE
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[7]/td[6]
     ${test4}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[6]
     Should Be Equal    ${test4}    Operational*
+    Sleep    5
 
 Test 4: Standby PW Status on Standby CE
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
@@ -189,5 +190,6 @@ Test 4: Standby PW Status on Standby CE
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[6]
     ${test44}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[6]
     Should Be Equal    ${test44}    Operational
+    Sleep    5
 
 # Test 6: Active PW Web Status on Standby CE
