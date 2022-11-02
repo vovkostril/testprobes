@@ -61,7 +61,7 @@ def zip_zip(parent_dir, dst_path_copy):
 
     e = datetime.now()
     new_zip = str(random.randint(5809, 9078)) + "-latest-" + str(e.year) + "-" + str(e.month) + "-" + str(e.day)
-    dir2 = "C:/Users/anastasiia/.vscode/tri/tributary/Results/" + new_zip + ".zip"
+    dir2 = "C:/Users/anastasiia/.vscode/tri/tributary/" + new_zip + ".zip"
 
     shutil.make_archive(new_zip, "zip", parent_dir)
 
