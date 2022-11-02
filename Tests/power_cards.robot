@@ -192,4 +192,44 @@ Test 4: Standby PW Status on Standby CE
     Should Be Equal    ${test44}    Operational
     Sleep    5
 
-# Test 6: Active PW Web Status on Standby CE
+Test 5: Active PW Web Status on Standby CE
+    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
+    Go to HW
+    Sleep    5
+    Select Frame    name:main
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[7]/td[1]
+    ${test31}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[1]
+    Should Be Equal    ${test31}    ${activepw}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[7]/td[2]  
+    ${test32}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[2]
+    Should Be Empty    ${test32}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[7]/td[3]  
+    ${test33}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[3]
+    Should Be Equal    ${test33}    PWR 48VBE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[7]/td[7]
+    ${test34}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[7]
+    Should Be Equal    ${test34}    -
+    Sleep    5
+
+Test 6: Standby PW Web Status on Standby CE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
+    ${test41}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
+    Should Be Equal    ${test41}    ${standbypw}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[8]/td[2]  
+    ${test42}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[2]
+    Should Be Empty    ${test42}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[8]/td[3]  
+    ${test43}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[3]
+    Should Be Equal    ${test43}    PWR 48VBE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[7]
+    ${test44}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[7]
+    Should Be Equal    ${test44}    -
+    Sleep    5
+    Unselect Frame
+
+Test 7: Test Standby HW 
+    ${test7}    Ssh Card Status    ${IPB}    7    False
+    Should Be Equal    ${test7}    1
+    Sleep    5
+    ${test8}    Ssh Card Status    ${IPB}    8    False
+    Should Be Equal    ${test8}    1
