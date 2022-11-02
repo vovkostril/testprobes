@@ -5,24 +5,32 @@ from paramiko.client import AutoAddPolicy
 from paramiko.ssh_exception import AuthenticationException
 
 
-def ssh_connect(self, USERNAME="admin", password="", host=None):
+def ssh_connect(USERNAME="admin", password="", host=None, cmd=None):
     # global session
     try:
-        self.client = paramiko.SSHClient()
+        client = paramiko.SSHClient()
         # self.client.load_system_host_keys()
-        self.client.set_missing_host_key_policy(AutoAddPolicy())
-        self.client.connect(hostname=host,
+        client.set_missing_host_key_policy(AutoAddPolicy())
+        client.connect(hostname=host,
                             username=USERNAME,
                             password=password,
                             look_for_keys=False,
                             allow_agent=False)
-        self.client.invoke_shell()
+        deffi = client.invoke_shell()
+        deffi.sendall("conf t" + "\n")
+        time.sleep(5)
+        deffi.sendall(cmd + "\n")
+        time.sleep(0.5)
+        deffi.sendall("\g")
+        time.sleep(5)
         print("Interactive SSH session established ", host)
+        output = deffi.recv(4096).decode("utf-8")
+        print("Output" + output)
         time.sleep(2)
     except AuthenticationException as error:
         print('Authentication Failed: Please check your network/ssh key')
     finally:
-        return self.client
+        return output
 
 
 def disconnect(self):
@@ -39,7 +47,8 @@ def execute_cmd(self, command, host=None):
     #    var = self.client == self.ssh_connect()
 
     print('started...')
-    ssh = self.ssh_connect(host=host)  # .invoke_shell()
+    ssh = ssh_connect(host=host)
+    # ssh = ssh_connect(host=host)  # .invoke_shell()
     deffi = ssh.invoke_shell()
     conf_t = "conf t"
     deffi.sendall(conf_t + "\n")
@@ -51,7 +60,7 @@ def execute_cmd(self, command, host=None):
     # print(output)
 
     print("ssh successful. Closing connection")
-    self.client.close()
+    ssh.close()
     print('Connection closed')
 
     return output

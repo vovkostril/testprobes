@@ -192,4 +192,40 @@ Test 4: Standby PW Status on Standby CE
     Should Be Equal    ${test44}    Operational
     Sleep    5
 
-# Test 6: Active PW Web Status on Standby CE
+Test 6: Active PW Web Status on Standby CE
+    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
+    Go to HW
+    Sleep    5
+    Select Frame    name:main
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[7]/td[1]
+    ${test31}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[1]
+    Should Be Equal    ${test31}    ${activepw}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[7]/td[2]  
+    ${test32}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[2]
+    Should Be Empty    ${test32}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[7]/td[3]  
+    ${test33}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[3]
+    Should Be Equal    ${test33}    PWR 48VBE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[7]/td[6]
+    ${test34}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[6]
+    Should Be Equal    ${test34}    -
+    Sleep    5
+
+Test 7: Standby PW Web Status on Standby CE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
+    ${test41}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
+    Should Be Equal    ${test41}    ${standbypw}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[8]/td[2]  
+    ${test42}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[2]
+    Should Be Empty    ${test42}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[8]/td[3]  
+    ${test43}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[3]
+    Should Be Equal    ${test43}    PWR 48VBE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[6]
+    ${test44}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[6]
+    Should Be Equal    ${test44}    -
+    Sleep    5
+    Unselect Frame
+
+Test 8: Test Standby HW 
+    Ssh Card Status    ${IPB}

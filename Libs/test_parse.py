@@ -1,9 +1,7 @@
 import time
 # from time import process_time
 from datetime import datetime
-import card
-import serial_ssh
-import pyserial_test
+import card, serial_ssh, pyserial_test
 
 
 class test_parse:
@@ -79,3 +77,10 @@ class test_parse:
                     # print("Line{}: {}".format(counter, line.strip()))
                     # break
             print("----------------------------------------------------------")
+
+    def ssh_card_status(self, ip, slot=None):
+        with open(self.filepower, 'w') as f:
+            # f.write(str(datetime.now()) + serial_ssh.send_command(port, self.cmd_set))
+            # f.write(str(datetime.now()) + serial_ssh.execute_cmd(self.cmd_set[0], ip))
+            f.write(str(datetime.now()) + str(serial_ssh.ssh_connect(host=ip, cmd=self.cmd_set[0])))
+

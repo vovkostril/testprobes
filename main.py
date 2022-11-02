@@ -5,13 +5,10 @@ from pathlib import Path
 import sys
 import glob
 from time import sleep
-# from Libs import post_tests, serial_ssh, pyserial_test
-# from Libs import pre_tests
 from datetime import datetime
 from Libs import scp_moves
 from Libs import post_tests
 from getpass import getpass
-
 # from robotframework import ExecutionResult
 
 if __name__ == '__main__':
@@ -22,10 +19,11 @@ if __name__ == '__main__':
     c = None
 
     print("Result: ")
-
+    
     parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
     dst_path_copy = r"C:/Users/anastasiia/PycharmProjects/TestResults/"
+
     if not os.path.exists(parent_dir):
         os.mkdir(parent_dir)
 
