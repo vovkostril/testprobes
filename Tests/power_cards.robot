@@ -3,6 +3,8 @@ Documentation       Check power cards
 Library             SeleniumLibrary
 Library    String
 # Library             ../Libs/probe_gui.py
+Library        ../Libs/test_parse.py
+Library    XML
 Suite Teardown      Close Browser
 Test Timeout        2 minute
 
@@ -18,6 +20,8 @@ ${username}     admin
 ${FPGA2}        1
 ${REVISION}     2744
 ${SWVer}          CM Native CE R4.4
+${activepw}          7
+${standbypw}          8
 
 *** Keywords ***
 Open Browser And Login
@@ -143,4 +147,49 @@ Test 1: Check login and ping Standby
     Page Should Contain    Ping session completed.
     Go to main
     Sleep    5
+    # Close Browser
+    # Click Element    locator
 
+Test 2: Check power card from cli
+    ${testpower1}    Power Card Check    ${COMPORT}    ${activepw}
+    Should Be Equal    ${testpower1}    2
+    Sleep    10
+    ${testpower2}    Power Card Check    ${COMPORT}    ${standbypw}
+    Should Be Equal    ${testpower2}    1
+
+Test 3: Active PW Web Status on Active CE
+# TODO: create IF
+    Open Browser        ${URL}        ${BROWSER}      alias=tab1
+    Go to HW
+    Sleep    5
+    Select Frame    name:main
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[7]/td[1]
+    ${test1}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[1]
+    Should Be Equal    ${test1}    ${activepw}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[7]/td[2]  
+    ${test2}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[2]
+    Should Be Equal    ${test2}    PWR 48VBE
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[7]/td[3]  
+    ${test3}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[3]
+    Should Be Equal    ${test3}    PWR 48VBE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[7]/td[6]
+    ${test4}    Get Text    //*[@id="slotTableContentTbody"]/tr[7]/td[6]
+    Should Be Equal    ${test4}    Operational*
+    Sleep    5
+
+Test 4: Standby PW Status on Standby CE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
+    ${test11}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
+    Should Be Equal    ${test11}    ${standbypw}
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[8]/td[2]  
+    ${test22}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[2]
+    Should Be Equal    ${test22}    PWR 48VBE
+    Element Should Be Visible  //*[@id="slotTableContentTbody"]/tr[8]/td[3]  
+    ${test33}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[3]
+    Should Be Equal    ${test33}    PWR 48VBE
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[6]
+    ${test44}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[6]
+    Should Be Equal    ${test44}    Operational
+    Sleep    5
+
+# Test 6: Active PW Web Status on Standby CE
