@@ -12,7 +12,6 @@ def scp_move(file, user, ip, remote_folder):
     os.waitpid(p.pid, 0)
 
 def paramico_scp(file, user, ip, password, remote_folder):
-    # print("start the process of transfering!...")
     ssh = SSHClient()
     # ssh.load_system_host_keys()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
@@ -20,9 +19,9 @@ def paramico_scp(file, user, ip, password, remote_folder):
     scp = SCPClient(ssh.get_transport())
     scp.put(file, remote_folder)
     
-def scp_transfer(file, user, ip, password, remote_folder):
+def scp_transfer(path_file, file, user, ip, password, remote_folder):
     
-    file_scp = "C:/Users/anastasiia/.vscode/tri/tributary/" + file
+    file_scp = path_file + file
 
     if not os.path.exists(file_scp):
         with open(file_scp, 'w') as f:
@@ -32,5 +31,5 @@ def scp_transfer(file, user, ip, password, remote_folder):
         print("File for scp exitst. Continue...")
     
     print("------------------------- Start transfering -------------------------")
-    result_scp = paramico_scp(file_scp, user, ip, password, remote_folder)
+    paramico_scp(file_scp, user, ip, password, remote_folder)
     print("------------------------- Stop transfering -------------------------")

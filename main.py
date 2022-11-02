@@ -9,15 +9,18 @@ from datetime import datetime
 from Libs import scp_moves
 from Libs import post_tests
 from getpass import getpass
+from Libs import zip_move_scp
 # from robotframework import ExecutionResult
 
 if __name__ == '__main__':
     
     p = None  # TODO check statuses of PASS and return to gmail
-    d = 1
+    d = None
     t = None
     c = None
+    r = 15
 
+    origin_dir  = "C:/Users/anastasiia/.vscode/tri/tributary/"
     parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Results/"
     folder_random = str(random.randint(2078, 5078))
     dst_path_copy = r"C:/Users/anastasiia/PycharmProjects/TestResults/"
@@ -28,6 +31,16 @@ if __name__ == '__main__':
     print("Result: ")
 
     # start testing
+
+    if r:
+        p = os.system(r"robot -d Results .\Tests\power_cards.robot")
+        print(p)
+
+        result_from = post_tests.xml_output_counter(r".\Results\output.xml")
+        zip_move_scp.move_move(parent_dir, origin_dir)
+        sleep(5)
+        zip_move_scp.zip_zip(parent_dir, dst_path_copy)
+        # scp!
 
     if d:
         p = os.system(r"robot -d Results .\Tests\power_cards.robot")
@@ -133,44 +146,6 @@ if __name__ == '__main__':
             print("------------------------------------------")
             print(counter)
 
-    if t:
-        p = os.system(r"robot -d Results .\Tests\console_pretest.robot")
-        print(p)
-
-        new_one_dir = r"Pretest-" + str(random.randint(1, 2078)) + "/"
-        new_dir = os.path.join(parent_dir, new_one_dir)
-        if not os.path.exists(new_dir):
-            os.mkdir(new_dir)
-
-        old_locations = ["log.html",
-                         "output.xml",
-                         "report.html"]
-
-        dest_folder = new_dir
-
-        for file in old_locations:
-            souse = parent_dir + file
-            destination = dest_folder + file
-            shutil.move(souse, destination)
-            print("------------------------------------------")
-            print(file + " was moved to " + destination)
-
-    if c:
-        e = datetime.now()
-        new_zip = str(random.randint(5809, 9078)) + "-latest-" + str(e.year) + "-" + str(e.month) + "-" + str(e.day)
-        dir2 = "C:/Users/anastasiia/PycharmProjects/tributary/" + new_zip + ".zip"
-
-        shutil.make_archive(new_zip, "zip", parent_dir)
-
-        if os.path.isfile(dir2):
-            print("ZIP OK")
-        else:
-            print("ZIP NOT OK!")
-
-        shutil.move(dir2, dst_path_copy)
-        print('MOVED ZIP!')
-        shutil.rmtree(parent_dir)
-        print("DONE!")
 
     # result = ExecutionResult(dest_folder + 'output.xml')
     # result.configure(stat_config={'suite_stat_level': 2,
