@@ -3,12 +3,14 @@ import time
 from datetime import datetime
 import card
 import serial_ssh
+import pyserial_test
 
 
 class test_parse:
     def __init__(self):
         self.cmd_set = ["do sh hw"]
         self.filefor = 'output.txt'
+        self.filepower = 'pw.txt'
 
     def parse_noport(self, port, slot):
         with open(self.filefor, 'w') as f:
@@ -47,3 +49,33 @@ class test_parse:
         elapsed_time = et - st - 10
         print('Execution time:', elapsed_time, 'seconds')
         return result
+
+    def power_card_check(self, port, slot):
+        with open(self.filepower, 'w') as f:
+            # f.write(str(datetime.now()) + serial_ssh.send_command(port, self.cmd_set))
+            f.write(str(datetime.now()) + serial_ssh.send_command(port, self.cmd_set))
+
+        counter = 0
+
+        with open(self.filepower, 'r') as fp:
+            print("----------------------------------------------------------")
+            print(fp.readline())
+            print("----------------------------------------------------------")
+            certainline = str(slot) + "   PWR 48VBE  PWR 48VBE"
+            # certainline = str(slot) + "   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    37 " \
+            #                            "    17.D  - "
+            print(certainline)
+            for line in fp:
+                counter += 1
+                test_active = 0
+                # print("Line{}: {}".format(counter, line.strip()))
+                if certainline in line and "Operational" in line:
+                    if certainline in line and "Operational *" in line:
+                        print("Active!")
+                        test_active = 1
+                    print(line)
+                    print("\nOK")
+                    return 1 + test_active
+                    # print("Line{}: {}".format(counter, line.strip()))
+                    # break
+            print("----------------------------------------------------------")

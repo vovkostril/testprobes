@@ -100,7 +100,7 @@ if __name__ == '__main__':
         p = os.system(r"robot -d Results .\Tests\power_cards.robot")
         print(p)
 
-        new_one_dir = r"PingWeb-" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"Power-" + str(random.randint(1, 2078)) + "/"
         new_dir = os.path.join(parent_dir, new_one_dir)
         if not os.path.exists(new_dir):
             os.mkdir(new_dir)
@@ -140,7 +140,12 @@ if __name__ == '__main__':
         result_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/results.txt"
         # result_dir = r"C:/Users/anastasiia/PycharmProjects/tributary/"
         shutil.move(result_dir, dest_folder)
+        print(result_dir + " was moved to " + dest_folder)
         print("Results also were moved!")
+        pw_dir = r"C:/Users/anastasiia/.vscode/tri/tributary/pw.txt"
+        shutil.move(pw_dir, dest_folder)
+        print(pw_dir + " was moved to " + dest_folder)
+        print("Pw CLI also was moved!")
         print("Finish!")
 
     if t:
