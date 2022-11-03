@@ -15,6 +15,8 @@ ${URL2}        http://192.168.0.4/index.htm
 ${IPA}        192.168.0.3
 ${IPB}        192.168.0.4
 ${BROWSER}          Chrome
+${COMPORT}          COM3
+${PORT}        COM3
 ${username}     admin
 ${FPGA2}        1
 ${REVISION}     2744
