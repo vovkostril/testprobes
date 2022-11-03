@@ -38,7 +38,7 @@ if __name__ == '__main__':
     if r:
         # p = os.system(r"robot -d Results .\Tests\power_cards.robot")
         # p = os.system(r"robot -d Results .\Tests\power_cards_hw_cards.robot")
-        p = os.system(r"robot -d Results .\Tests\test_if.robot")
+        p = os.system(r"robot -d Results .\Tests\latest.robot")
         print(p)
 
         result_from = post_tests.xml_output_counter(r".\Results\output.xml")

@@ -74,7 +74,6 @@ Test 2: Open and click and HW
     Open Browser        ${URL}        ${BROWSER}      alias=tab1
     Sleep    5
     ${title}        Get Title
-    # IF    ${title} == ${titleLogin}
 
     IF    "${title}" == "${titleLogin}"
         Input Text    user    ${username}
