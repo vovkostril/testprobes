@@ -14,11 +14,14 @@ from Libs import zip_move_scp
 
 if __name__ == '__main__':
     
-    p = None  # TODO check statuses of PASS and return to gmail
+    pp = None  # TODO check statuses of PASS and return to gmail
     d = None
     t = None
     c = None
     r = 15
+
+    # result2 = "C:/Users/anastasiia/PycharmProjects/TestResults/6612-latest-2022-11-3.zip"
+    # result3 = zip_move_scp.scp_scp(result2, "anastasiia", ip="192.168.10.31", password=getpass(), remote_folder="/home/anastasiia")
 
     origin_dir  = "C:/Users/anastasiia/.vscode/tri/tributary/"
     parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Results/"
@@ -33,15 +36,18 @@ if __name__ == '__main__':
     # start testing
 
     if r:
-        p = os.system(r"robot -d Results .\Tests\power_cards.robot")
+        # p = os.system(r"robot -d Results .\Tests\power_cards.robot")
+        # p = os.system(r"robot -d Results .\Tests\power_cards_hw_cards.robot")
+        p = os.system(r"robot -d Results .\Tests\test_if.robot")
         print(p)
 
         result_from = post_tests.xml_output_counter(r".\Results\output.xml")
         result1 = zip_move_scp.move_move(parent_dir, origin_dir)
         print(result1)
-        sleep(5)
-        zip_move_scp.zip_zip(result1, dst_path_copy)
+        # sleep(5)
+        # result2 = zip_move_scp.zip_zip(result1, dst_path_copy)
         # scp!
+        # result3 = zip_move_scp.scp_scp(result2, "anastasiia", ip="192.168.10.31", password=getpass(), remote_folder="/home/anastasiia")
 
     if d:
         p = os.system(r"robot -d Results .\Tests\power_cards.robot")
@@ -91,7 +97,7 @@ if __name__ == '__main__':
         print("Finish!")    
 
 
-    if p:
+    if pp:
         print("------------------ Tests Start ------------------\n")
         intel = 0
         counter = 0
