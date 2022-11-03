@@ -357,14 +357,13 @@ Test 14: Test card no card 10
     ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[6]
     Should Contain    ${card3}    Operational
     Sleep    5
-    Unselect Frame
 
 Test 15: Test card no card 9 from Standby
-    Go to HW
-    Sleep    2
-    Refresh button
-    Sleep    5
-    Select Frame    name:main
+#     Go to HW
+#    Sleep    2
+#    Refresh button
+#    Sleep    5
+#    Select Frame    name:main
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     ${cardS1}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     Should Contain    ${cardS1}    Ethernet
