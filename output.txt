@@ -1,0 +1,38 @@
+2022-11-04 15:50:32.475012 configure terminal
+kera1(conf 
+kera1(config)# do sh hw
+
+Connection Master Installation
+
+Unit                       Part Number       Serial Number
+----------------------------------------------------------
+16 Slot subrack            T32009.04...00    HP152760960
+
+Slot Card       Configured   Part Number    Serial Number   Oper State    Temp(C) FPGA1 FPGA2
+---------------------------------------------------------------------------------------------
+ 1                                                          Free           -      -     -    
+ 2                                                          Free           -      -     -    
+ 3   CE8+       CE8+         T33008.02...99 HP17516519      Operational *  43     4     1    
+ 4   CE8+       CE8+         T33008.99      HP180561128     Operational    38     4     1    
+ 5   CEI RJ-45  CEI RJ-45    T33108.01...05 HP222970413     Operational    32     -     -    
+ 6                                                          Free           -      -     -    
+ 7   PWR 48VBE  PWR 48VBE    T32008.11...06 HP151961268     Operational *  30     4.A   -    
+ 8   PWR 48VBE  PWR 48VBE    T32008.11...06 HP153260010     Operational    31     4.A   -    
+ 9   Ethernet   Ethernet     T32002.01...AH HP210670147     Operational    44     17.D  -    
+10   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    38     17.D  -    
+11              Ethernet                                    Empty          -      -     -    
+12                                                          Free           -      -     -    
+13                                                          Free           -      -     -    
+14                                                          Free           -      -     -    
+15                                                          Free           -      -     -    
+16                                                          Free           -      -     -    
+
+Fan  Configured  Part Number     Serial Number  Oper State
+------------------------------------------------------------
+ 1   Yes         T32007.02...08  HP170760330    Operational
+ 2   No                                         Free     
+
+ Port 1: dataplane to trunk pair via subrack
+ Port 2: SFP
+kera1(config)#  end
+kera1# 

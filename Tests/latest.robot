@@ -359,11 +359,11 @@ Test 14: Test card no card 10
     Sleep    5
 
 Test 15: Test card no card 9 from Standby
-#     Go to HW
-#    Sleep    2
-#    Refresh button
-#    Sleep    5
-#    Select Frame    name:main
+    Open Browser And Login 2
+    Sleep    5
+    Go to HW
+    Sleep    5
+    Select Frame    name:main
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     ${cardS1}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     Should Contain    ${cardS1}    Ethernet
@@ -387,4 +387,3 @@ Test 17: Status card from Standby for testing standby web UI
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
     ${cardfromstandby}    Get Text    //*[@id="slotTableContentTbody"]/tr[3]/td[2]
     Should Be Empty    ${cardfromstandby}
-    Unselect Frame
