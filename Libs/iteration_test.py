@@ -20,14 +20,14 @@ def iteration_test(p, c, parent_dir, origin_dir):
     counter = 0
     while intel < c:
         print("Iteration: " + str(intel) + "\n")
-        p = os.system(p)
+        os.system(p)
         print(p)
         sleep(10)
         intel = intel + 1
 
-        post_tests.xml_output_counter(r"..\Results\output.xml")
+        post_tests.xml_output_counter(parent_dir + r"output.xml")
 
-        folder_random =  r"k-" + str(random.randint(1, 102078)) + "/"
+        folder_random =  r"k-" + str(random.randint(1, 102078))
 
         new_one_dir = r"iterationtests-" + folder_random + "-" + "console-" + str(intel) + "/"
 
@@ -37,9 +37,9 @@ def iteration_test(p, c, parent_dir, origin_dir):
             os.mkdir(new_dir)
 
 
-        old_locations = [parent_dir + "log.html",
-                         parent_dir + "output.xml",
-                         parent_dir + "report.html"]
+        old_locations = ["log.html",
+                         "output.xml",
+                         "report.html"]
 
         dest_folder = new_dir
 
