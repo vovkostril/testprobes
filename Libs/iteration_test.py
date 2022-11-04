@@ -25,7 +25,7 @@ def iteration_test(p, c, parent_dir, origin_dir):
         sleep(10)
         intel = intel + 1
 
-        post_tests.xml_output_counter(r"..\Results\output.xml")
+        post_tests.xml_output_counter(parent_dir + r"output.xml")
 
         folder_random =  r"k-" + str(random.randint(1, 102078)) + "/"
 
