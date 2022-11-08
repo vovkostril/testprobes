@@ -14,10 +14,10 @@ from Libs import zip_move_scp, iteration_test
 
 if __name__ == '__main__':
 
-    pp = None
+    pp = 15
     
     # p = r"robot -d Results .\Tests\iteration_test.robot"
-    p = r"robot -d Results .\Tests\bolvanka.robot"
+    # p = r"robot -d Results .\Tests\bolvanka.robot"
 
     # result2 = "C:/Users/anastasiia/PycharmProjects/TestResults/6612-latest-2022-11-3.zip"
     # result3 = zip_move_scp.scp_scp(result2, "anastasiia", ip="192.168.10.31", password=getpass(), remote_folder="/home/anastasiia")
@@ -32,14 +32,14 @@ if __name__ == '__main__':
 
     print("Result: ")
 
-    result = iteration_test.iteration_test(p=p, c=5, parent_dir=parent_dir, origin_dir=origin_dir)
+    # result = iteration_test.iteration_test(p=p, c=0, parent_dir=parent_dir, origin_dir=origin_dir)
 
     # start testing
 
     if pp:
         # p = os.system(r"robot -d Results .\Tests\power_cards.robot")
         # p = os.system(r"robot -d Results .\Tests\power_cards_hw_cards.robot")
-        p = os.system(r"robot -d Results .\Tests\latest.robot")
+        p = os.system(r"robot -d Results .\Tests\bolvanka.robot")
         print(p)
 
         result_from = post_tests.xml_output_counter(r".\Results\output.xml")

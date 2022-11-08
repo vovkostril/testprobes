@@ -108,3 +108,6 @@ class test_parse:
         elapsed_time = et - st - 10
         print('Execution time:', elapsed_time, 'seconds')
         return result
+
+    def reboot_after():
+        pyserial_test.serial_test(comport="COM3", command="reload cold", filever="reboot.txt",)
