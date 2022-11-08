@@ -1,0 +1,15 @@
+Test 8: Test card no card 10 from Standby                             | FAIL |
+StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=107.0.5304.88)
+Stacktrace:
+Backtrace:
+
+
+Test 6: Test card no card 10                                          | FAIL |
+StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
+  (Session info: chrome=107.0.5304.88)
+Stacktrace:
+
+----------------------------------------------------------------------------------------------
+test cases
+----------------------------------------------------------------------------------------------
