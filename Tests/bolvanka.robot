@@ -114,3 +114,17 @@ Test 1: Check sh version
     [Tags]  Check version
     ${test1}      Parse    ${PORT}      ${SWVer}     ${REVISION}     ${FPGA2}
     Should Contain    ${test1}    3
+
+Test 2: Test refresh problem
+    [Tags]  Fix problem with refreshing
+    Open Browser And Login
+    Sleep    5
+    Go to HW
+    Sleep    5
+    Refresh button
+    Sleep    5
+    ${x}=    Set Variable    ${0}
+    WHILE    ${x} < 8
+        Get Slot Status 9
+        ${x}=    Evaluate    ${x} + 1
+    END
