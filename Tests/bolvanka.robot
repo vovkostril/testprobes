@@ -59,6 +59,10 @@ Go to HW
 Get Slot Status 9
     Select Frame    name:main
     Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
+#    IF    StaleElementReferenceException
+#        Sleep    2
+#        Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
+#    END
     ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
     Should Contain    ${loc}    16 Slot Subrack
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[2]
@@ -122,7 +126,6 @@ Test 2: Test refresh problem
     Go to HW
     Sleep    5
     Refresh button
-    Sleep    5
     ${x}=    Set Variable    ${0}
     WHILE    ${x} < 8
         Get Slot Status 9
