@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     print("Result: ")
 
-    result = iteration_test.iteration_test(p=p, c=13, parent_dir=parent_dir, origin_dir=origin_dir)
+    result = iteration_test.iteration_test(p=p, c=5, parent_dir=parent_dir, origin_dir=origin_dir)
 
     # start testing
 

@@ -124,7 +124,7 @@ Test 2: Test refresh problem
     Refresh button
     ${x}=    Set Variable    ${0}
     WHILE    ${x} < 8
-        Wait Until Keyword Succeeds    1m    2s    Get Slot Status 9
-        Wait Until Keyword Succeeds    1m    2s    Get Slot Status 10
+        Wait Until Keyword Succeeds    30s    10s    Get Slot Status 9
+        Wait Until Keyword Succeeds    30s    10s    Get Slot Status 10
         ${x}=    Evaluate    ${x} + 1
     END
