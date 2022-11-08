@@ -110,10 +110,10 @@ Go to main
     Unselect Frame
 
 *** Test Cases ***
-Test 1: Check sh version
-    [Tags]  Check version
-    ${test1}      Parse    ${PORT}      ${SWVer}     ${REVISION}     ${FPGA2}
-    Should Contain    ${test1}    3
+# Test 1: Check sh version
+#     [Tags]  Check version
+#     ${test1}      Parse    ${PORT}      ${SWVer}     ${REVISION}     ${FPGA2}
+#     Should Contain    ${test1}    3
 
 Test 2: Test refresh problem
     [Tags]  Fix problem with refreshing
@@ -128,3 +128,13 @@ Test 2: Test refresh problem
         Wait Until Keyword Succeeds    30s    10s    Get Slot Status 10
         ${x}=    Evaluate    ${x} + 1
     END
+
+Test 3: Check Part Number
+    Sleep    5
+    Select Frame    name:main
+    Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[4]
+    ${num}=     Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[4]
+    IF    ${num} is Empty
+        Reboot After
+    END
+    # Should Not Be Empty    ${num}

@@ -1,7 +1,7 @@
 import time
 # from time import process_time
 from datetime import datetime
-import card, serial_ssh, pyserial_test
+import card, serial_ssh, pyserial_test, reboot
 
 
 class test_parse:
@@ -108,3 +108,7 @@ class test_parse:
         elapsed_time = et - st - 10
         print('Execution time:', elapsed_time, 'seconds')
         return result
+
+    def reboot_after():
+        reboot.clear_reboot()
+        
