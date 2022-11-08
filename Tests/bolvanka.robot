@@ -134,7 +134,7 @@ Test 3: Check Part Number
     Select Frame    name:main
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[9]/td[4]
     ${num}=     Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[4]
-    IF    ${num} is Empty
+    IF    "${num}" == ""
         Reboot After
     END
     # Should Not Be Empty    ${num}

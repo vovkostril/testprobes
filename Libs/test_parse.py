@@ -1,7 +1,7 @@
 import time
 # from time import process_time
 from datetime import datetime
-import card, serial_ssh, pyserial_test, reboot
+import card, serial_ssh, pyserial_test
 
 
 class test_parse:
@@ -110,5 +110,4 @@ class test_parse:
         return result
 
     def reboot_after():
-        reboot.clear_reboot()
-        
+        pyserial_test.serial_test(comport="COM3", command="reload cold", filever="reboot.txt",)
