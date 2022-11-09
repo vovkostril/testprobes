@@ -6,7 +6,6 @@ import sys
 import glob
 from time import sleep
 from datetime import datetime
-from Libs import scp_moves
 from Libs import post_tests
 from getpass import getpass
 from Libs import zip_move_scp
