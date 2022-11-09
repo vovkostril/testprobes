@@ -36,7 +36,6 @@ def ssh_connect(USERNAME="admin", password="", host=None, cmd=None):
 def disconnect(self):
     self.client.close()
 
-
 def execute_cmd(self, command, host=None):
     output_file = 't.txt'
     max_bytes = 65535
@@ -64,11 +63,6 @@ def execute_cmd(self, command, host=None):
     print('Connection closed')
 
     return output
-
-
-def load_config(self):
-    pass
-
 
 def connector(connection_master_comport):
     device = {
