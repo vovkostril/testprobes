@@ -131,7 +131,12 @@ Test 2: Go to info and get FPGA and version Standby
     Sleep    5
     Unselect Frame
 
-Test 3: Check login and ping Active
+Test 3: Check sh version
+    [Tags]  Check version
+    ${test1}      Parse    ${COMPORT}      ${SWVer}     ${version}     ${fpga}
+    Should Contain    ${test1}    3
+
+Test 4: Check login and ping Active
     Open Browser And Login
     Sleep    5
     Page Should Contain    Active CE
@@ -161,7 +166,7 @@ Test 3: Check login and ping Active
     Go to main
     Sleep    5
 
-Test 4: Check login and ping Standby
+Test 5: Check login and ping Standby
     Open Browser And Login 2
     Sleep    5
     Page Should Contain    Standby CE
@@ -191,14 +196,14 @@ Test 4: Check login and ping Standby
     Go to main
     Sleep    5
 
-Test 5: Check power card from cli
+Test 6: Check power card from cli
     ${testpower1}    Power Card Check    ${COMPORT}    ${activepw}
     Should Be Equal    ${testpower1}    2
     Sleep    10
     ${testpower2}    Power Card Check    ${COMPORT}    ${standbypw}
     Should Be Equal    ${testpower2}    1
 
-Test 6: Active PW Web Status on Active CE
+Test 7: Active PW Web Status on Active CE
     Open Browser And Login
     Sleep    5
     Go to HW
@@ -218,7 +223,7 @@ Test 6: Active PW Web Status on Active CE
     Should Be Equal    ${test4}    Operational*
     Sleep    5
 
-Test 7: Standby PW Status on Standby CE
+Test 8: Standby PW Status on Standby CE
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
     ${test11}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
     Should Be Equal    ${test11}    ${standbypw}
@@ -233,7 +238,7 @@ Test 7: Standby PW Status on Standby CE
     Should Be Equal    ${test44}    Operational
     Sleep    5
 
-Test 8: Active PW Web Status on Standby CE
+Test 9: Active PW Web Status on Standby CE
     Open Browser And Login 2
     Sleep    5
     Go to HW
@@ -253,7 +258,7 @@ Test 8: Active PW Web Status on Standby CE
     Should Be Equal    ${test34}    -
     Sleep    5
 
-Test 9: Standby PW Web Status on Standby CE
+Test 10: Standby PW Web Status on Standby CE
     Element Should Be Visible    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
     ${test41}    Get Text    //*[@id="slotTableContentTbody"]/tr[8]/td[1]
     Should Be Equal    ${test41}    ${standbypw}
@@ -270,17 +275,12 @@ Test 9: Standby PW Web Status on Standby CE
     Unselect Frame
     Close All Browsers
 
-Test 10: Test Standby HW 
+Test 11: Test Standby HW 
     ${test7}    Ssh Card Status    ${IPB}    7    False
     Should Be Equal    ${test7}    1
     Sleep    5
     ${test8}    Ssh Card Status    ${IPB}    8    False
     Should Be Equal    ${test8}    1
-
-Test 11: Check sh version
-    [Tags]  Check version
-    ${test1}      Parse    ${COMPORT}      ${SWVer}     ${version}     ${fpga}
-    Should Contain    ${test1}    3
 
 Test 12: Test the card state
     [Tags]  Slot status
