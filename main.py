@@ -14,9 +14,9 @@ from Libs import zip_move_scp, iteration_test
 
 if __name__ == '__main__':
 
-    pp = 15
+    pp = None
     
-    # p = r"robot -d Results .\Tests\iteration_test.robot"
+    p = r"robot -d Results .\Tests\iteration_test.robot"
     # p = r"robot -d Results .\Tests\bolvanka.robot"
 
     # result2 = "C:/Users/anastasiia/PycharmProjects/TestResults/6612-latest-2022-11-3.zip"
@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     print("Result: ")
 
-    # result = iteration_test.iteration_test(p=p, c=0, parent_dir=parent_dir, origin_dir=origin_dir)
+    result = iteration_test.iteration_test(p=p, c=10, parent_dir=parent_dir, origin_dir=origin_dir)
 
     # start testing
 

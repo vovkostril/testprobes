@@ -15,7 +15,7 @@ ${BROWSER}          Chrome
 ${PORT}        COM3
 ${username}     admin
 ${FPGA2}        1
-${REVISION}     2744
+${REVISION}     2835
 ${SWVer}          CM Native CE R4.4
 ${titleLogin}        Login
 
