@@ -22,18 +22,13 @@ class test_parse:
             print(fp.readline())
             print("----------------------------------------------------------")
             certainline = str(slot) + "   Ethernet   Ethernet"
-            # certainline = str(slot) + "   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    37 " \
-            #                            "    17.D  - "
             print(certainline)
             for line in fp:
                 counter += 1
-                # print("Line{}: {}".format(counter, line.strip()))
                 if certainline in line and "Operational" in line:
                     print(line)
                     print("\nOK")
                     return 1
-                    # print("Line{}: {}".format(counter, line.strip()))
-                    # break
             print("----------------------------------------------------------")
 
     def power_card_check(self, port, slot, active=True):

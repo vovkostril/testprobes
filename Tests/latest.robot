@@ -20,7 +20,7 @@ ${username}     admin
 ${SWVer}          CM Native CE R4.4
 ${activepw}          7
 ${standbypw}          8
-${version}     2744
+${version}     2835
 ${fpga}     1
 ${titleLogin}        Login
 

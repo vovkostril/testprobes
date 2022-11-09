@@ -13,9 +13,9 @@ from getpass import getpass
 from datetime import datetime
 
 # for moving results
-def move_move(parent_dir, origin_dir):
+def move_move(parent_dir, origin_dir, revision):
 
-        new_one_dir = r"K-" + str(random.randint(1, 2078)) + "/"
+        new_one_dir = r"THU-" + str(random.randint(1, 2078)) + "-" + "revision-" + revision + "/"
 
         new_dir = os.path.join(parent_dir, new_one_dir)
         if not os.path.exists(new_dir):

@@ -39,8 +39,6 @@ class pre_tests:
                     print(line)
                     print("\n3 OK")
                     checker += 1
-                    # print("Line{}: {}".format(counter, line.strip()))
-                    # break
             print("----------------------------------------------------------")
 
         
@@ -57,53 +55,3 @@ class pre_tests:
             print("----------------------------------------------------------")
             for line in fp:
                 counter += 1
-
-                # print("Line{}: {}".format(counter, line.strip()))
-                # break
-
-
-"""
-        counter = 0
-        checker = 0
-
-        with open(self.filever, 'r') as fp:
-            print("----------------------------------------------------------")
-            print(fp.readline())
-            print("----------------------------------------------------------")
-            check_lines = ["Software Version : CM Native CE R4.4", "Code Revision    : 2744", "FPGA2 Version    : 1"]
-            for line in fp:
-                counter += 1
-                print(line)
-            # for line in fp:
-            #     counter += 1
-            #     if check_lines[0] or check_lines[1] or check_lines[2] in line:
-            #         print(line)
-            #         print("\nOK")
-            #         checker += 1
-            print("----------------------------------------------------------")
-
-
-
-            for line in fp:
-                counter += 1
-                if check_lines[0] in line:
-                    print(line)
-                    print("OK")
-                    checker += 1
-                    break
-            for line in fp:
-                counter += 1
-                if check_lines[1] in line:
-                    print(line)
-                    print("OK")
-                    checker += 1
-                    break
-            for line in fp:
-                counter += 1
-                if check_lines[2] in line:
-                    print(line)
-                    print("OK")
-                    checker += 1
-                    break
-            return checker
-"""
