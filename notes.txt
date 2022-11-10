@@ -10,8 +10,11 @@ StaleElementReferenceException: Message: stale element reference: element is not
   (Session info: chrome=107.0.5304.88)
 Stacktrace:
 
-
-
+CM	2.5GigabitEthernet 3/1
+NODEC	to Cm 	2.5GigabitEthernet 1/2
+	to nodea	GigabitEthernet 1/5
+NODEA	2.5GigabitEthernet 1/2
+2.5GigabitEthernet 3/1 - cut line
 ----------------------------------------------------------------------------------------------
 test cases
 ----------------------------------------------------------------------------------------------
