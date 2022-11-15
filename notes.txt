@@ -29,6 +29,15 @@ interface 2.5GigabitEthernet 3/1
  ptp 0 ingress-latency 0
  ptp 0 egress-latency 0
 
+kera1(config)# ptp 0 mode ?
+    bcfrontend        Boundary Clock front end
+    boundary          Ordinary / Boundary clock
+    e2etransparent    End to end transparent clock
+    master            Master only clock
+    p2ptransparent    Peer to peer transparent clock
+    slave             Slave only clock
+kera1(config)# ptp 0 mode
+
 
 ----------------------------------------------------------------------------------------------
 test cases
