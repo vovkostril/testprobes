@@ -15,6 +15,21 @@ NODEC	to Cm 	2.5GigabitEthernet 1/2
 	to nodea	GigabitEthernet 1/5
 NODEA	2.5GigabitEthernet 1/2
 2.5GigabitEthernet 3/1 - cut line
+
+interface 2.5GigabitEthernet 3/1
+ switchport trunk allowed vlan 101,118
+ switchport mode trunk
+ switchport forbidden vlan add 4095
+ ptp 0
+ ptp 0 announce interval -3 timeout 3
+ ptp 0 sync-interval -4
+ ptp 0 delay-mechanism e2e
+ ptp 0 delay-req interval -4
+ ptp 0 delay-asymmetry 0
+ ptp 0 ingress-latency 0
+ ptp 0 egress-latency 0
+
+
 ----------------------------------------------------------------------------------------------
 test cases
 ----------------------------------------------------------------------------------------------
