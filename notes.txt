@@ -4,6 +4,16 @@ StaleElementReferenceException: Message: stale element reference: element is not
 Stacktrace:
 Backtrace:
 
+kera1# sh clock
+System Time     : 2022-11-17T10:44:54+00:00
+
+kera1# sh ptp 0 local-clock
+PTP Time (0)    : 2022-11-17T11:44:57+00:00 211,311,387
+Clock Adjustment method: Internal Timer
+kera1#
+
+2022-11-16 10:25:46.395483
+
 
 Test 6: Test card no card 10                                          | FAIL |
 StaleElementReferenceException: Message: stale element reference: element is not attached to the page document
