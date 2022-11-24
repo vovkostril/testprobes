@@ -1,0 +1,52 @@
+<span>System</span>
+
+ptp ext  auto
+ptp 0 mode boundary onestep ethernet twoway id 00:01:c1:ff:fe:01:c6:08 vid 129 0 profile g8275.1
+ ptp 0 filter-type aci-basic-phase-low
+ptp 1 mode p2ptransparent onestep ethernet twoway id 00:01:c1:ff:fe:01:c6:09 vid 1 0 profile g8275.1
+ ptp 1 filter-type aci-basic-phase-low
+mpls tp
+ global-id 0
+ router-id 0.0.0.0
+ icc-carrier-code NONE
+!
+interface vlan 1
+
+E api_ail/l3 15:28:55 58/route_add#2450: Error: route_add: route {network = 192.168.0.16/32, destination = 192.168.0.16} allready exists
+Version      : CM Native CE R4.4
+Build Date   : 2022-11-16T15:27:00+02:00
+Code Revision: 2852
+Sched policy = 0
+Ticks/sec    = 100
+ID  Name                             State Prio         OS Val 1sec Load 10sec Load utime      stime
+--- -------------------------------- ----- ------------ ------ --------- ---------- ---------- ----------
+  - <Idle task>                      -     -                 -       N/A        N/A          -          -
+  - <Other processes/interrupts>     -     -                 -       N/A        N/A          -          -
+ 58 IP2.os                           R     Normal            0       N/A        N/A       2367       1199*
+[bt]: (0) /usr/bin/switch_app(misc_thread_status_print+0x380) [0xd1c558]
+[bt]: (1) /usr/bin/switch_app(_Z18vtss_trace_vprintfiiiPKcjS0_Pv+0x460) [0x1138198]
+[bt]: (2) /lib/libvsc7468_dnwp_2n.so(vtss_callout_trace_printf+0x54) [0x77ac4334]
+[bt]: (3) /lib/libvsc7468_dnwp_2n.so(+0x4eb9c) [0x779f0b9c]
+[bt]: (4) /lib/libvsc7468_dnwp_2n.so(vtss_l3_route_add+0x150) [0x779f7420]
+[bt]: (5) /usr/bin/switch_app() [0xa770cc]
+[bt]: (6) /usr/bin/switch_app() [0xa5e89c]
+[bt]: (7) /usr/bin/switch_app() [0xa62460]
+[bt]: (8) /usr/bin/switch_app() [0xa670fc]
+[bt]: (9) /usr/bin/switch_app() [0x1142f9c]
+[bt]: (10) /lib/libpthread.so.0(+0x6ca0) [0x77cb4ca0]
+
+
+Rebooting system...
+W dnwp_hwmon 11:49:40 161/update_present_unit#1347: Warning: Tributary ua: 6 SPI issue, KA: ERR, Serdes: ERR
+W dnwp_hwmon 11:49:40 161/update_present_unit#1347: Warning: Tributary ua: 7 SPI issue, KA: ERR, Serdes: ERR
+W dnwp_hwmon 11:49:40 161/update_present_unit#1347: Warning: Tributary ua: 6 SPI issue, KA: ERR, Serdes: ERR
+W dnwp_hwmon 11:49:40 161/update_present_unit#1347: Warning: Tributary ua: 7 SPI issue, KA: ERR, Serdes: ERR
+Replication thread requested to stop
+W dnwp_hwmon 11:49:40 161/update_present_unit#1347: Warning: Tributary ua: 6 SPI issue, KA: ERR, Serdes: ERR
+W dnwp_hwmon 11:49:40 161/update_present_unit#1347: Warning: Tributary ua: 7 SPI issue, KA: ERR, Serdes: ERR
+
+kera1(config)# ptp 0 mode
+bcfrontend      boundary        e2etransparent  master          p2ptransparent  slave
+kera1(config)# ptp 0 mode
+E2eTransp
+P2pTransp
