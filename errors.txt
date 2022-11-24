@@ -50,3 +50,24 @@ bcfrontend      boundary        e2etransparent  master          p2ptransparent  
 kera1(config)# ptp 0 mode
 E2eTransp
 P2pTransp
+
+kera1(config)# ptp 0 ?
+    afi-announce         Enable PTP Announce automatic frame injection
+    afi-sync             Enable PTP Sync automatic frame injection
+    clk                  Set PTP slave clock options
+    domain               Clock domain for PTP
+    filter-type          Set the filter-type used by PTP
+    localpriority        Local priority for  G8275.1 BMC algorithm (1 is highest priority)
+    log                  Set the PTP debug mode
+    mode                 Enable a PTP instance
+    path-trace-enable    Enable path trace option (i.e. Add Path Trace to Announce messages)
+    power-profile        Set C37.238-2017 Power Profile specific details
+    priority1            Clock priority 1 for PTP BMC algorithm (0 is highest priority)
+    priority2            Clock priority 2 for PTP BMC algorithm (0 is highest priority)
+    servo                Set Servo parameters
+    slave-cfg            Set PTP clock Slave Configuration
+    time-property        Set time properties
+    uni                  Set a Unicast Slave configuration entry
+    virtual-port
+kera1(config)# ptp 0
+<input type="button" value=" Synchronize to System Clock " name="/config/ptp_clock_config?clock_inst=0&amp;bool=true">
