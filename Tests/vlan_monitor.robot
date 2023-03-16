@@ -59,6 +59,17 @@ Vlan Monitor Probe To Open
     Click Element    //*[@id="vlan_port_stat.htm"]
     Unselect Frame
 
+Vlan Config Page Open
+    Select Frame    name:contents
+    Wait Until Element Is Visible   //*[@id="Configuration_menu"]/details/summary/span
+    Click Element    //*[@id="Configuration_menu"]/details/summary/span
+    Sleep    5
+    Element Should Be Visible    //*[@id="Configuration_menu"]/details/ul/li[38]/details/summary/span
+    Click Element    //*[@id="Configuration_menu"]/details/ul/li[38]/details/summary/span
+    Sleep    5
+    Click Element    //*[@id="vlan.htm"]
+    Unselect Frame
+
 *** Test Cases ***
 Open and click
     [Documentation]    Test via WEB
@@ -74,6 +85,30 @@ Open and click
 # Ptp Go
 #     Ptp monitor
 Check the Vlan Monitor Posibility
+    Skip
     Vlan Monitor Probe To Open
 
-Click to Ports tab and check the field of 
+Click to Ports tab and check the field of vlans
+    Skip
+    Sleep    10
+    Page Should Contain    VLAN Port Status for Combined users
+    Sleep    5
+    Select Frame    name:main
+    Element Should Be Visible    //*[@id="port_table_body"]/tr[43]/td[1]
+    Element Should Be Visible    //*[@id="port_table_body"]/tr[43]/td[5]
+    ${r1}    Get Text    //*[@id="port_table_body"]/tr[43]/td[5]
+    Should Contain    ${r1}    1
+
+Config check the Vlan Port
+    Vlan Config Page Open
+    Sleep    5
+    Page Should Contain    Port VLAN Configuration
+    Select Frame    name:main
+    ${r1}    Get Value    //*[@id="vlans"]
+    Sleep    5
+    Element Should Be Visible    //*[@id="vlan_port_body"]/tr[41]/td[2]
+    ${r2}    Get Text    //*[@id="vlan_port_body"]/tr[41]/td[2]
+    ${r3}    Get Value    //*[@id="alw_vids_224"]
+    ${r4}    Get Value    //*[@id="mode_224"]
+    Unselect Frame
+
