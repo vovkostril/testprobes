@@ -39,7 +39,7 @@ Welcome Page Should Be Open
 
 Ptp monitor
     Select Frame    name:contents
-    Wait Until Element Is Visible   //*[@id="menu"]/tbody/tr[2]/td/ul/li[2]/details/summary
+    Wait Until Element Is Visible   //*[@id="ptp.htm"]
     # Click Element   //*[@id="menu"]/tbody/tr[2]/td/ul/li[2]/details/summary
     Sleep    5
     Click Element    //*[@id="ptp.htm"]
@@ -81,9 +81,9 @@ Parse PTP Rtm
 
 *** Test Cases ***
 Open and click
-    [Documentation]    Ptp test via WEB
-    [Tags]  Active master ptp
-    Open Browser        ${URL2}        ${BROWSER}      alias=tab1
+    [Documentation]    Test via WEB
+    [Tags]  Active
+    Open Browser        ${URL}        ${BROWSER}      alias=tab1
     Input Username      admin
     Submit Credentials
     Welcome Page Should Be Open
@@ -93,10 +93,3 @@ Open and click
 
 Ptp Go
     Ptp monitor
-    Click PTP instance
-    Parse PTP Phase
-
-Ptp Atributes
-    Parse PTP time
-    Sleep    10
-    Parse PTP Rtm
