@@ -40,6 +40,6 @@ def test(revision, p, additional_text):
 # format robot file
 if __name__ == '__main__':
     #
-    test(revision=3060, p=os.system(r"robot -d Results .\Tests\ptp.robot"), additional_text="ptp")
+    test(revision=3060, p=os.system(r"robot -d Results .\Tests\vlan_monitor.robot"), additional_text="vlan")
 
 # add the mail sending process
