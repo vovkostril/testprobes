@@ -12,3 +12,5 @@ Playwright: Open a browser in headless mode
     Type Text    ${usename}    admin
     ${locator}=    Set Variable    xpath=/html/body/form/button
     Click    ${locator}
+    Sleep    5
+    Take Screenshot
