@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20230317 15:30:16.370" rpa="true" schemaversion="3">
+<suite id="s1" name="Playw" source="c:\Users\anastasiia\.vscode\tri\tributary\tests\playw.robot">
+<test id="s1-t1" name="Playwright: Open a browser in headless mode" line="6">
+<kw name="New Page" library="RPA.Browser.Playwright">
+<arg>url=http://192.168.0.3</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230317 15:30:18.794" level="INFO">Successfully initialized new page object and opened url: http://192.168.0.3</msg>
+<msg timestamp="20230317 15:30:18.798" level="INFO">No browser and context was open. New browser and context was automatically opened when page is created.</msg>
+<status status="PASS" starttime="20230317 15:30:18.185" endtime="20230317 15:30:18.799"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230317 15:30:20.814" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230317 15:30:18.802" endtime="20230317 15:30:20.817"/>
+</kw>
+<kw name="Take Screenshot" library="RPA.Browser.Playwright">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230317 15:30:20.940" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230317 15:30:20.824" endtime="20230317 15:30:20.940"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${usename}</var>
+<arg>xpath=/html/body/form/input[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230317 15:30:20.944" level="INFO">${usename} = xpath=/html/body/form/input[1]</msg>
+<status status="PASS" starttime="20230317 15:30:20.943" endtime="20230317 15:30:20.945"/>
+</kw>
+<kw name="Type Text" library="RPA.Browser.Playwright">
+<arg>${usename}</arg>
+<arg>admin</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230317 15:30:20.949" level="INFO">Types the text 'admin' in the given field.</msg>
+<status status="PASS" starttime="20230317 15:30:20.947" endtime="20230317 15:30:21.011"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator}</var>
+<arg>xpath=/html/body/form/button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230317 15:30:21.015" level="INFO">${locator} = xpath=/html/body/form/button</msg>
+<status status="PASS" starttime="20230317 15:30:21.013" endtime="20230317 15:30:21.015"/>
+</kw>
+<kw name="Click" library="RPA.Browser.Playwright">
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230317 15:30:21.018" endtime="20230317 15:30:22.117"/>
+</kw>
+<status status="PASS" starttime="20230317 15:30:18.176" endtime="20230317 15:30:22.120"/>
+</test>
+<status status="PASS" starttime="20230317 15:30:16.385" endtime="20230317 15:30:22.183"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Playw">Playw</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
