@@ -1,9 +1,14 @@
 *** Settings ***
-Library    Browser
+Library    RPA.Browser.Playwright
+# Library    RPA.Browser.Selenium
 
 *** Tasks ***
 Playwright: Open a browser in headless mode
-    New Page    http://192.168.0.3
+    # Open Browser
+    # Open Available Browser    http://192.168.0.3
+    # New Browser    
+    # New Page    http://192.168.0.3
+    New Browser    edge    headless=false
+    New Page       http://192.168.0.3
+    Get Title      ==    Browser
 
-
-    
