@@ -1,0 +1,36 @@
+{"level":30,"time":"2023-03-17T10:05:53.250Z","pid":11488,"hostname":"DNWP-045","msg":"Listening on 56350"}
+{"level":30,"time":"2023-03-17T10:05:53.396Z","pid":11488,"hostname":"DNWP-045","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-03-17T10:05:53.397Z","pid":11488,"hostname":"DNWP-045","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-03-17T10:05:53.405Z","pid":11488,"hostname":"DNWP-045","msg":"Start of node method getBrowserCatalog"}
+{"level":30,"time":"2023-03-17T10:05:53.405Z","pid":11488,"hostname":"DNWP-045","msg":"End of node method getBrowserCatalog"}
+{"level":30,"time":"2023-03-17T10:05:53.420Z","pid":11488,"hostname":"DNWP-045","msg":"Start of node method newPage"}
+{"level":30,"time":"2023-03-17T10:05:53.420Z","pid":11488,"hostname":"DNWP-045","msg":"currentBrowser: undefined"}
+{"level":30,"time":"2023-03-17T10:05:53.428Z","pid":11488,"hostname":"DNWP-045","msg":"Error of node method  newPage"}
+================= Original suppressed error =================
+browserType.launch: Executable doesn't exist at C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\node_modules\playwright-core\.local-browsers\chromium-1019\chrome-win\chrome.exe
+╔═════════════════════════════════════════════════════════════════════════╗
+║ Looks like Playwright Test or Playwright was just installed or updated. ║
+║ Please run the following command to download new browsers:              ║
+║                                                                         ║
+║     npx playwright install                                              ║
+║                                                                         ║
+║ <3 Playwright Team                                                      ║
+╚═════════════════════════════════════════════════════════════════════════╝
+    at _newBrowser (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\index.js:7865:49)
+    at PlaywrightState.getOrCreateActiveBrowser (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\index.js:7991:37)
+    at newPage (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\index.js:8185:43)
+    at PlaywrightServer.newPage (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\index.js:8484:34)
+    at handleUnary (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:688:13) {
+  name: 'Error'
+}
+=============================================================
+{"level":30,"time":"2023-03-17T10:05:53.435Z","pid":11488,"hostname":"DNWP-045","msg":"Start of node method takeScreenshot"}
+{"level":30,"time":"2023-03-17T10:05:53.436Z","pid":11488,"hostname":"DNWP-045","msg":"Error of node method  takeScreenshot"}
+================= Original suppressed error =================
+Error: Tried to take screenshot, but no page was open.
+    at exists (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\index.js:6857:11)
+    at takeScreenshot (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\index.js:6894:3)
+    at PlaywrightServer.takeScreenshot (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\index.js:8484:34)
+    at handleUnary (C:\Users\anastasiia\AppData\Local\Programs\Python\Python310\lib\site-packages\Browser\wrapper\node_modules\@grpc\grpc-js\build\src\server.js:688:13)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+=============================================================
