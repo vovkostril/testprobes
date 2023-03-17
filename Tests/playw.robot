@@ -8,7 +8,7 @@ Playwright: Open a browser in headless mode
     # Open Available Browser    http://192.168.0.3
     # New Browser    
     # New Page    http://192.168.0.3
-    New Browser    edge    headless=false
-    New Page       http://192.168.0.3
-    Get Title      ==    Browser
+    Open Browser    url=http://192.168.0.3    browser=chrome
+    # New Page       http://192.168.0.3
+    # Get Title      ==    Browser
 

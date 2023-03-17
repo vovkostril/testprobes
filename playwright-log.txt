@@ -1,5 +1,0 @@
-{"level":30,"time":"2023-03-17T11:57:27.793Z","pid":17332,"hostname":"DNWP-045","msg":"Listening on 57266"}
-{"level":30,"time":"2023-03-17T11:57:27.922Z","pid":17332,"hostname":"DNWP-045","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2023-03-17T11:57:27.923Z","pid":17332,"hostname":"DNWP-045","msg":"End of node method getBrowserCatalog"}
-{"level":30,"time":"2023-03-17T11:57:27.932Z","pid":17332,"hostname":"DNWP-045","msg":"Start of node method getBrowserCatalog"}
-{"level":30,"time":"2023-03-17T11:57:27.932Z","pid":17332,"hostname":"DNWP-045","msg":"End of node method getBrowserCatalog"}
