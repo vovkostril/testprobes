@@ -1,6 +1,5 @@
 *** Settings ***
 Library    RPA.Browser.Playwright
-# Library    RPA.Desktop
 # Library    RPA.Browser.Selenium
 
 *** Tasks ***
@@ -15,8 +14,6 @@ Playwright: Open a browser in headless mode
     Click    ${locator}
     Sleep    5
     Take Screenshot
-
-# Test 1: Check the vlans that were applied to thu port_table_body
     Sleep    5
     Set Browser Timeout    2m
     Click    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="hwiButton"]/input
@@ -29,13 +26,11 @@ Playwright: Open a browser in headless mode
     Click    html > frameset > frameset > frame:nth-child(1) >>> //*[@id="vlan.htm"]
     Sleep    2
     Take Screenshot
-    
-# Test 2: Check Monitor Value of VID for port
     Click    html > frameset > frameset > frame:nth-child(1) >>> #Monitor_menu > details > ul > li:nth-child(27) > details > summary > span
     Sleep    2
     Click    html > frameset > frameset > frame:nth-child(1) >>> //*[@id="vlan_port_stat.htm"]
     Sleep    2
-    # ${r1}    Get Text    //*[@id="port_table_body"]/tr[41]/td[1]
-    # ${r2}    Get Text    //*[@id="port_table_body"]/tr[41]/td[5]
+    ${r1} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="port_table_body"]/tr[41]/td[5]
+    ${r2} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> #port_table_body > tr:nth-child(41) > td:nth-child(1)
     Take Screenshot
 
