@@ -17,48 +17,25 @@ Playwright: Open a browser in headless mode
     Take Screenshot
 
 # Test 1: Check the vlans that were applied to thu port_table_body
-    ${test}    Set Variable    css:hwiButton
-    ${locator_configmenu}=    Set Variable    xpath=//*[@id="Configuration_menu"]/details/summary/span
-    ${locator_configmenuopen}=    Set Variable    xpath=//*[@id="vlan.htm"]
-    ${locator_configvlans}=    Set Variable    xpath=//*[@id="Configuration_menu"]/details/ul/li[38]/details/summary/span
-    # Take Screenshot
     Sleep    5
-    # Find Element 
-    # /html/frameset/frameset/frame[2]
-    # Click    name:contents >>> ${test}
     Set Browser Timeout    2m
     Click    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="hwiButton"]/input
     Sleep    5   
-    # Click    name:contents > ptp.htm
     Take Screenshot
-    # Page Should Contain    Global VLAN Configuration
-    # Page Should Contain    Port VLAN Configuration
-    # Unselect Frame
-    # Select Frame    name:main
-    # Element Should Be Visible    //*[@id="vlan_port_body"]/tr[41]/td[2]
-    # ${r1}    Get Text    //*[@id="vlan_port_body"]/tr[41]/td[2]
-    # Element Should Be Visible    //*[@id="pvid_176"]
-    # ${r2}    Get Value    //*[@id="pvid_176"]
-    # Take Screenshot
-    # Unselect Frame
+    Click    html > frameset > frameset > frame:nth-child(1) >>> #Configuration_menu > details > summary > span
+    Take Screenshot
+    Click    html > frameset > frameset > frame:nth-child(1) >>> #Configuration_menu > details > ul > li:nth-child(38) > details > summary > span
+    Take Screenshot
+    Click    html > frameset > frameset > frame:nth-child(1) >>> //*[@id="vlan.htm"]
+    Sleep    2
+    Take Screenshot
     
-Test 2: Check Monitor Value of VID for port
-    Skip
-    # Select Frame    name:contents
-    ${locator_monitor}=    Set Variable    //*[@id="Monitor_menu"]/details/ul/li[27]/details/summary/span
-    ${locator_monitorvlans}=    Set Variable    xpath=//*[@id="vlan_port_stat.htm"]
-    Click    ${locator_monitor}
+# Test 2: Check Monitor Value of VID for port
+    Click    html > frameset > frameset > frame:nth-child(1) >>> #Monitor_menu > details > ul > li:nth-child(27) > details > summary > span
     Sleep    2
-    Click    ${locator_monitorvlans}
-    # Take Screenshot
+    Click    html > frameset > frameset > frame:nth-child(1) >>> //*[@id="vlan_port_stat.htm"]
     Sleep    2
-    # Page Should Contain    VLAN Port Status for Combined users 
-    # Unselect Frame
-    # Select Frame    name:main
-    # Element Should Be Visible    //*[@id="port_table_body"]/tr[41]/td[1]
-    ${r1}    Get Text    //*[@id="port_table_body"]/tr[41]/td[1]
-    # Element Should Be Visible    //*[@id="port_table_body"]/tr[41]/td[5]
-    ${r2}    Get Text    //*[@id="port_table_body"]/tr[41]/td[5]
-    # Take Screenshot
-    # Unselect Frame
+    # ${r1}    Get Text    //*[@id="port_table_body"]/tr[41]/td[1]
+    # ${r2}    Get Text    //*[@id="port_table_body"]/tr[41]/td[5]
+    Take Screenshot
 
