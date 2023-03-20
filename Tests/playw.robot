@@ -1,5 +1,6 @@
 *** Settings ***
 Library    RPA.Browser.Playwright
+# Library    RPA.Desktop
 # Library    RPA.Browser.Selenium
 
 *** Tasks ***
@@ -15,19 +16,21 @@ Playwright: Open a browser in headless mode
     Sleep    5
     Take Screenshot
 
-Test 1: Check the vlans that were applied to thu port_table_body
+# Test 1: Check the vlans that were applied to thu port_table_body
     # Select Frame    name:contents
+    ${test}    Set Variable    xpath=//*[@id="ptp.htm"]
     ${locator_configmenu}=    Set Variable    xpath=//*[@id="Configuration_menu"]/details/summary/span
     ${locator_configmenuopen}=    Set Variable    xpath=//*[@id="vlan.htm"]
     ${locator_configvlans}=    Set Variable    xpath=//*[@id="Configuration_menu"]/details/ul/li[38]/details/summary/span
-    Click    name:contents >>> ${locator_configmenu}
-   #  Sleep    2
+    # Click    name:contents >>> ${locator_configmenu}
     # Click    ${locator_configvlans}
     # Sleep    2
     # Click    ${locator_configmenuopen}
     # Take Screenshot
-    Sleep    2
-    # Click    name:main >>> 
+    Sleep    12
+    # Find Element    
+    Click    name:contents > //*[@id="ptp.htm"]
+    Take Screenshot
     # Page Should Contain    Global VLAN Configuration
     # Page Should Contain    Port VLAN Configuration
     # Unselect Frame

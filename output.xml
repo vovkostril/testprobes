@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.10.8 on win32)" generated="20230320 13:26:42.890" rpa="true" schemaversion="3">
+<suite id="s1" name="Playw" source="c:\Users\anastasiia\.vscode\tri\tributary\Tests\playw.robot">
+<test id="s1-t1" name="Playwright: Open a browser in headless mode" line="7">
+<kw name="New Page" library="RPA.Browser.Playwright">
+<arg>url=http://192.168.0.3</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<msg timestamp="20230320 13:26:45.172" level="INFO">Successfully initialized new page object and opened url: http://192.168.0.3</msg>
+<msg timestamp="20230320 13:26:45.174" level="INFO">No browser and context was open. New browser and context was automatically opened when page is created.</msg>
+<status status="PASS" starttime="20230320 13:26:44.495" endtime="20230320 13:26:45.174"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230320 13:26:47.180" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230320 13:26:45.175" endtime="20230320 13:26:47.180"/>
+</kw>
+<kw name="Take Screenshot" library="RPA.Browser.Playwright">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230320 13:26:47.290" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230320 13:26:47.182" endtime="20230320 13:26:47.290"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${usename}</var>
+<arg>xpath=/html/body/form/input[1]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230320 13:26:47.293" level="INFO">${usename} = xpath=/html/body/form/input[1]</msg>
+<status status="PASS" starttime="20230320 13:26:47.291" endtime="20230320 13:26:47.293"/>
+</kw>
+<kw name="Type Text" library="RPA.Browser.Playwright">
+<arg>${usename}</arg>
+<arg>admin</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given ``txt`` into the text field found by ``selector``.</doc>
+<msg timestamp="20230320 13:26:47.294" level="INFO">Types the text 'admin' in the given field.</msg>
+<status status="PASS" starttime="20230320 13:26:47.294" endtime="20230320 13:26:47.355"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator}</var>
+<arg>xpath=/html/body/form/button</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230320 13:26:47.356" level="INFO">${locator} = xpath=/html/body/form/button</msg>
+<status status="PASS" starttime="20230320 13:26:47.356" endtime="20230320 13:26:47.357"/>
+</kw>
+<kw name="Click" library="RPA.Browser.Playwright">
+<arg>${locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" starttime="20230320 13:26:47.357" endtime="20230320 13:26:48.489"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>5</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230320 13:26:53.503" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230320 13:26:48.490" endtime="20230320 13:26:53.503"/>
+</kw>
+<kw name="Take Screenshot" library="RPA.Browser.Playwright">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<msg timestamp="20230320 13:26:53.609" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-2.png"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20230320 13:26:53.504" endtime="20230320 13:26:53.610"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${test}</var>
+<arg>xpath=//*[@id="ptp.htm"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230320 13:26:53.612" level="INFO">${test} = xpath=//*[@id="ptp.htm"]</msg>
+<status status="PASS" starttime="20230320 13:26:53.611" endtime="20230320 13:26:53.612"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator_configmenu}</var>
+<arg>xpath=//*[@id="Configuration_menu"]/details/summary/span</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230320 13:26:53.614" level="INFO">${locator_configmenu} = xpath=//*[@id="Configuration_menu"]/details/summary/span</msg>
+<status status="PASS" starttime="20230320 13:26:53.613" endtime="20230320 13:26:53.614"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator_configmenuopen}</var>
+<arg>xpath=//*[@id="vlan.htm"]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230320 13:26:53.617" level="INFO">${locator_configmenuopen} = xpath=//*[@id="vlan.htm"]</msg>
+<status status="PASS" starttime="20230320 13:26:53.616" endtime="20230320 13:26:53.617"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${locator_configvlans}</var>
+<arg>xpath=//*[@id="Configuration_menu"]/details/ul/li[38]/details/summary/span</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20230320 13:26:53.619" level="INFO">${locator_configvlans} = xpath=//*[@id="Configuration_menu"]/details/ul/li[38]/details/summary/span</msg>
+<status status="PASS" starttime="20230320 13:26:53.618" endtime="20230320 13:26:53.619"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>12</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230320 13:27:05.628" level="INFO">Slept 12 seconds</msg>
+<status status="PASS" starttime="20230320 13:26:53.620" endtime="20230320 13:27:05.629"/>
+</kw>
+<kw name="Click" library="RPA.Browser.Playwright">
+<arg>name:contents &gt; //*[@id="ptp.htm"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<msg timestamp="20230320 13:27:05.750" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230320 13:27:05.751" level="FAIL">Error: locator.click: Unexpected token "/" while parsing selector "name:contents &gt; //*[@id="ptp.htm"]"</msg>
+<status status="FAIL" starttime="20230320 13:27:05.633" endtime="20230320 13:27:05.756"/>
+</kw>
+<kw name="Take Screenshot" library="RPA.Browser.Playwright">
+<tag>PageContent</tag>
+<doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
+<status status="NOT RUN" starttime="20230320 13:27:05.758" endtime="20230320 13:27:05.758"/>
+</kw>
+<status status="FAIL" starttime="20230320 13:26:44.493" endtime="20230320 13:27:05.759">Error: locator.click: Unexpected token "/" while parsing selector "name:contents &gt; //*[@id="ptp.htm"]"</status>
+</test>
+<status status="FAIL" starttime="20230320 13:26:42.894" endtime="20230320 13:27:05.798"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tasks</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Playw">Playw</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
