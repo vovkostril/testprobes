@@ -17,7 +17,7 @@ Playwright: Open a browser in headless mode
     Take Screenshot
 
 # Test 1: Check the vlans that were applied to thu port_table_body
-    ${test}    Set Variable    xpath=//*[@id="hwiButton"]/input
+    ${test}    Set Variable    css:hwiButton
     ${locator_configmenu}=    Set Variable    xpath=//*[@id="Configuration_menu"]/details/summary/span
     ${locator_configmenuopen}=    Set Variable    xpath=//*[@id="vlan.htm"]
     ${locator_configvlans}=    Set Variable    xpath=//*[@id="Configuration_menu"]/details/ul/li[38]/details/summary/span
@@ -27,7 +27,7 @@ Playwright: Open a browser in headless mode
     # /html/frameset/frameset/frame[2]
     # Click    name:contents >>> ${test}
     Set Browser Timeout    2m
-    Click    name=main >>> ${test}
+    Click    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="hwiButton"]/input
     Sleep    5   
     # Click    name:contents > ptp.htm
     Take Screenshot
