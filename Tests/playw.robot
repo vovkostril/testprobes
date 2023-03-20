@@ -24,8 +24,10 @@ Playwright: Open a browser in headless mode
     # Take Screenshot
     Sleep    5
     # Find Element 
+    # /html/frameset/frameset/frame[2]
     # Click    name:contents >>> ${test}
-    Click    name=main >>> selector=${test}
+    Set Browser Timeout    2m
+    Click    name=main >>> ${test}
     Sleep    5   
     # Click    name:contents > ptp.htm
     Take Screenshot
