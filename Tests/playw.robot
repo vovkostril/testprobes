@@ -17,19 +17,17 @@ Playwright: Open a browser in headless mode
     Take Screenshot
 
 # Test 1: Check the vlans that were applied to thu port_table_body
-    # Select Frame    name:contents
-    ${test}    Set Variable    xpath=//*[@id="ptp.htm"]
+    ${test}    Set Variable    xpath=//*[@id="hwiButton"]/input
     ${locator_configmenu}=    Set Variable    xpath=//*[@id="Configuration_menu"]/details/summary/span
     ${locator_configmenuopen}=    Set Variable    xpath=//*[@id="vlan.htm"]
     ${locator_configvlans}=    Set Variable    xpath=//*[@id="Configuration_menu"]/details/ul/li[38]/details/summary/span
-    # Click    name:contents >>> ${locator_configmenu}
-    # Click    ${locator_configvlans}
-    # Sleep    2
-    # Click    ${locator_configmenuopen}
     # Take Screenshot
-    Sleep    12
-    # Find Element    
-    Click    name:contents > //*[@id="ptp.htm"]
+    Sleep    5
+    # Find Element 
+    # Click    name:contents >>> ${test}
+    Click    name=main >>> selector=${test}
+    Sleep    5   
+    # Click    name:contents > ptp.htm
     Take Screenshot
     # Page Should Contain    Global VLAN Configuration
     # Page Should Contain    Port VLAN Configuration
