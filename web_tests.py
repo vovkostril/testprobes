@@ -8,10 +8,7 @@ import webbrowser
 def web_test(revision, p):
     origin_dir  = "C:/Users/anastasiia/.vscode/tri/tributary/"
     parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Web/"
-    # C:\Users\anastasiia\.vscode\mac_table
     revision = str(revision)
-
-    # dst_path_copy = r"C:/Users/anastasiia/PycharmProjects/TestResults/"
 
     if not os.path.exists(parent_dir):
         os.mkdir(parent_dir)
@@ -28,3 +25,5 @@ def web_test(revision, p):
     webbrowser.open(result1+"log.html")
 
 web_test(revision=3060, p=os.system(r"robot -d Web .\Tests\playw.robot"))
+
+# 

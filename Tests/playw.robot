@@ -4,11 +4,13 @@ Library    RPA.Browser.Playwright
 
 *** Variables ***
 ${port}    176
-${vlan}    90
+${vlan}    91
+${slot}    12
+${url}    http://192.168.0.3
 
-*** Tasks ***
-Playwright: Open a browser in headless mode
-    New Page    url=http://192.168.0.3
+*** Keywords ***
+Open browser and login
+    New Page    url=${url}
     # Set Browser Timeout    2m
     Sleep    2
     Take Screenshot
@@ -20,6 +22,10 @@ Playwright: Open a browser in headless mode
     Take Screenshot
     Sleep    5
     Set Browser Timeout    2m
+
+*** Tasks ***
+Test 1 Playwright: Open a browser in headless mode
+    Open browser and login
     Click    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="hwiButton"]/input
     Sleep    5   
     Take Screenshot
@@ -31,8 +37,9 @@ Playwright: Open a browser in headless mode
     Sleep    2
     ${c1} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="vlans"]
     ${c2} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="vlan_port_body"]/tr[41]/td[1]
-    ${c3} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="mode_176"]
-    ${c4} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="pvid_176"]
+    #                                                                          //*[@id="vlan_port_body"]/tr[41]/td[1]
+    ${c3} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="mode_192"]
+    ${c4} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="pvid_192"]
     Take Screenshot
     Click    html > frameset > frameset > frame:nth-child(1) >>> #Monitor_menu > details > ul > li:nth-child(27) > details > summary > span
     Sleep    2
@@ -41,4 +48,32 @@ Playwright: Open a browser in headless mode
     ${m1} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="port_table_body"]/tr[41]/td[5]
     ${m2} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> #port_table_body > tr:nth-child(41) > td:nth-child(1)
     Take Screenshot
+    Close Browser
 
+Test 1: Check the card 
+    Open browser and login
+    Click    html > frameset > frameset > frame:nth-child(1) >>> //*[@id="main.htm"]
+    Sleep    2
+    Take Screenshot
+    Click    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="hwiButton"]/input
+    Sleep    2
+    Take Screenshot
+    ${m1} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}]/td[2]
+    ${m2} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}]/td[3]
+    ${m3} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}]/td[6]
+    ${m4} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}]/td[8]
+    ${m5} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[2]
+    ${m6} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[3]
+    ${m7} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[6]
+    ${m8} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[8]
+    Set Browser Timeout    3m
+    FOR    ${counter}    IN RANGE    1    16
+       ${counter}=     Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${counter}]/td[2]
+    END
+    # //*[@id="slotTableContentTbody"]/tr[12]/td[8]
+    # #slot_div > div:nth-child(12) > img
+    # //*[@id="slot_div"]/div[13]/img
+    # //*[@id="state_189"]
+    # #slot_div > div:nth-child(12) > img
+    # //*[@id="hwiButton"]/input
+    # //*[@id="slotTableContentTbody"]/tr[10]/td[1]
