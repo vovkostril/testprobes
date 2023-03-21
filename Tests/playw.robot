@@ -50,7 +50,7 @@ Test 1 Playwright: Open a browser in headless mode
     Take Screenshot
     Close Browser
 
-Test 1: Check the card 
+Test 2: Check the card 
     Open browser and login
     Click    html > frameset > frameset > frame:nth-child(1) >>> //*[@id="main.htm"]
     Sleep    2
@@ -67,14 +67,8 @@ Test 1: Check the card
     ${m7} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[6]
     ${m8} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[8]
     Set Browser Timeout    3m
-    # Create List  
+    # Create List  ?
     FOR    ${counter}    IN RANGE    1    16
-       Create List    ${counter}=     Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${counter}]/td[2]
+       "test" + ${counter}=     Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${counter}]/td[2]
     END
-    # //*[@id="slotTableContentTbody"]/tr[12]/td[8]
-    # #slot_div > div:nth-child(12) > img
-    # //*[@id="slot_div"]/div[13]/img
-    # //*[@id="state_189"]
-    # #slot_div > div:nth-child(12) > img
-    # //*[@id="hwiButton"]/input
-    # //*[@id="slotTableContentTbody"]/tr[10]/td[1]
+
