@@ -62,12 +62,13 @@ def move_move(parent_dir, origin_dir, revision, name):
             print(files + "---------------- was moved to ----------------" + new_dir)
             shutil.move(files, new_dir)
   
-    print("Done movement block!")
 
     if os.path.exists(parent_dir+"browser"):
         for files in glob.glob(parent_dir+"browser"):
             print(files + "---------------- was moved to ----------------" + new_dir)
             shutil.move(files, new_dir)
+        
+    print("Done movement block!")
 
     return dest_folder  
 

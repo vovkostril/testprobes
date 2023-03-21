@@ -3,7 +3,6 @@ import os
 import sys
 import serial_ssh
 
-
 class shut_nocard:
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 

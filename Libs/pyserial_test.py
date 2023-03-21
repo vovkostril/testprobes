@@ -41,37 +41,3 @@ def serial_test(comport, command=None, filever=None):
     print("done.")
     serial_connection.close()
 
-"""
-# def for step by step testing - will delete if this def doesn.t use for 2 weeks
-def serial_testof_test(comport):
-    serial_connection = serial.Serial(port=comport, baudrate=115200, timeout=5)
-    # s = ''
-    filever = 'versionser.txt'
-
-    if serial_connection.isOpen():
-        if "Wrong username or password!" in serial_connection.readline().decode():
-            print("Check.")
-            serial_connection.write(b'\r')
-        print("Check1.")
-        serial_connection.close()
-        print("Check2.")
-        serial.Serial(port=comport, baudrate=115200, timeout=5)
-        serial_connection.write(b'admin\r')
-        sleep(0.5)
-        serial_connection.write(b'\r')
-        sleep(0.5)
-        serial_connection.write(b'sh version\r')
-        sleep(0.2)
-
-        print("processing request...")
-
-        while 1:
-            res = serial_connection.readline().decode()
-            print(res)
-            if len(res) > 0:
-                res.rstrip()
-            else:
-                break
-    print("close connection.")
-    serial_connection.close()
-"""
