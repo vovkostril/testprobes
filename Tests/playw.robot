@@ -69,6 +69,6 @@ Test 2: Check the card
     Set Browser Timeout    3m
     # Create List  ?
     FOR    ${counter}    IN RANGE    1    16
-       "test" + ${counter}=     Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${counter}]/td[2]
+       @{ROBOTS}=     Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${counter}]/td[2]
     END
 
