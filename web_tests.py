@@ -6,8 +6,8 @@ from Libs import zip_move_scp
 import webbrowser
 
 def web_test(revision, p):
-    origin_dir  = "C:/Users/anastasiia/.vscode/tri/tributary/"
-    parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Web/"
+    origin_dir  = os.getcwd()
+    parent_dir = origin_dir + "/Web/"
     revision = str(revision)
 
     if not os.path.exists(parent_dir):
@@ -25,5 +25,7 @@ def web_test(revision, p):
     webbrowser.open(result1+"log.html")
 
 web_test(revision=3060, p=os.system(r"robot -d Web .\Tests\playw.robot"))
-
-# 
+directory = os.getcwd()
+print(directory)
+ 
+#

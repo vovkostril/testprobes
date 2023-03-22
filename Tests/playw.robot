@@ -47,6 +47,8 @@ Test 1 Playwright: Open a browser in headless mode
     Sleep    2
     ${m1} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="port_table_body"]/tr[41]/td[5]
     ${m2} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> #port_table_body > tr:nth-child(41) > td:nth-child(1)
+    Scroll To Element   html > frameset > frameset > frame:nth-child(2) >>> //*[@id="port_table_body"]/tr[51]/td[1]
+    Sleep    1
     Take Screenshot
     Close Browser
 
@@ -66,9 +68,11 @@ Test 2: Check the card
     ${m6} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[3]
     ${m7} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[6]
     ${m8} =    Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${slot}+1]/td[8]
-    Set Browser Timeout    3m
     # Create List  ?
-    FOR    ${counter}    IN RANGE    1    16
-       @{ROBOTS}=     Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${counter}]/td[2]
-    END
+    # FOR    ${counter}    IN RANGE    1    16
+    #     FOR    ${index}    ${element}    IN ENUMERATE    @{LIST}
+    #         ${element}=  Get Text    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="slotTableContentTbody"]/tr[${counter}]/td[2]
+    #         
+    #     END
+    # END
 
