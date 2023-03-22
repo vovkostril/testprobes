@@ -6,8 +6,8 @@ from Libs import zip_move_scp
 import webbrowser
 
 def web_test(revision, p):
-    origin_dir  = os.getcwd()
-    parent_dir = origin_dir + "/Web/"
+    origin_dir  = os.getcwd() + "/"
+    parent_dir = origin_dir + "Web/"
     revision = str(revision)
 
     if not os.path.exists(parent_dir):
