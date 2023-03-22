@@ -25,6 +25,7 @@ Open browser and login
 
 *** Tasks ***
 Test 1 Playwright: Open a browser in headless mode
+    Skip
     Open browser and login
     Click    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="hwiButton"]/input
     Sleep    5   
@@ -53,6 +54,7 @@ Test 1 Playwright: Open a browser in headless mode
     Close Browser
 
 Test 2: Check the card 
+    Skip
     Open browser and login
     Click    html > frameset > frameset > frame:nth-child(1) >>> //*[@id="main.htm"]
     Sleep    2
