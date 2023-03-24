@@ -54,3 +54,4 @@ Test 2: Check the PTP Status Monitor
     Click    html > frameset > frameset > frame:nth-child(2) >>> //*[@id="ptpData"]/tr[3]/td[1]/a
     Take Screenshot
     Close Browser
+    
