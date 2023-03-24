@@ -24,6 +24,6 @@ def web_test(revision, p):
     sleep(5)
     webbrowser.open(result1+"log.html")
 
-web_test(revision=3060, p=os.system(r"robot -d Web .\Tests\playw.robot"))
+web_test(revision=3060, p=os.system(r"robot -d Web .\Tests\ptp_play.robot"))
 
 #
