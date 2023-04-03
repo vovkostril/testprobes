@@ -7,3 +7,7 @@
 # https://hub.docker.com/_/node/
 # https://robotframework-browser.org/#examples 
 # and CONDA
+
+https://ww1.microchip.com/downloads/en/Appnotes/ENT-AN1078-4.3_VPPD-04445.pdf
+https://www.cisco.com/c/en/us/td/docs/switches/metro/me1200/ucs_controller/guide/b_ucs_controller_book/b_nid_controller_book_chapter_01111.pdf
+https://support.huawei.com/enterprise/en/doc/EDOC1000178168/846ee4fb/optional-configuring-association-between-erps-and-ethernet-cfm
