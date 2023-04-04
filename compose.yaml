@@ -8,13 +8,15 @@ services:
     # 
     #
     #image: 
-    command: 'mkdir -p WEB && robot -d WEB ptp_play.robot'
+    build: .
+    command: 'mkdir -p WEB && robot -d WEB /home/ptp_play.robot'
     volumes:
-      - te:/home/
+      - /home/te/:/home/
     restart: always
     # expose:
     #   - 8090
       
 volumes:
-  te:
+  /home/te/:
 # docker cp <containerId>:WEB /home/ -------> to the bash
+#

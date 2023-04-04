@@ -7,3 +7,6 @@ RUN apt-get update \
 RUN pip install robotframework-browser && rfbrowser init
 # volumes move the tests and return the zip with results 
 # https://robotframework-browser.org/
+# pip install rpaframework
+# npx playwright install-deps
+# robot /home/ptp_play.robot

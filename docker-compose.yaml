@@ -1,0 +1,7 @@
+services:
+  playw:
+    build: .
+    command: 'mkdir -p WEB && robot -d WEB /home/ptp_play.robot'
+    volumes:
+      - /home/aid/te/:/home/
+    restart: always
