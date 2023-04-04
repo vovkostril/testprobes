@@ -1,4 +1,6 @@
 #!/bin/bash
+# install docker and docker compose to auto server
+#
 docker ps
 docker compose down
 docker compose up -d --no-deps --build
