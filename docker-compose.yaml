@@ -1,0 +1,10 @@
+services:
+  playw:
+    build: .
+#    command: 'robot /home/ptp_play.robot'
+#    command: 'sleep 10000000'
+    volumes:
+      - /home/aid/te/:/home/
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
