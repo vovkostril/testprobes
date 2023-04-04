@@ -4,4 +4,6 @@ RUN apt-get update \
     apt-get --yes install  --no-install-recommends python3.9 nodejs \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
+RUN pip install robotframework-browser && rfbrowser init
 # volumes move the tests and return the zip with results 
+# https://robotframework-browser.org/
