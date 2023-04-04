@@ -1,7 +1,10 @@
 services:
   playw:
     build: .
-    command: 'mkdir -p WEB && robot -d WEB /home/ptp_play.robot'
+#    command: 'robot /home/ptp_play.robot'
+#    command: 'sleep 10000000'
     volumes:
       - /home/aid/te/:/home/
-    restart: always
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
