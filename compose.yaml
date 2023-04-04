@@ -1,0 +1,20 @@
+# docker compose up -d
+services:
+  web:
+  image: nginx:latest
+  ports:
+    - "8090:80"
+  playw:
+    # 
+    #
+    #image: 
+    command: 'mkdir -p WEB && robot -d WEB ptp_play.robot'
+    volumes:
+      - te:/home/
+    restart: always
+    # expose:
+    #   - 8090
+      
+volumes:
+  te:
+# docker cp <containerId>:WEB /home/ -------> to the bash
