@@ -8,7 +8,9 @@ docker exec -it robot-playw-1 node -v
 # docker exec -it robot-playw-1 robot /home/ptp_play.robot
 mkdir -p /home/anastasiia/robo_t_results && docker cp robot-playw-1:/home /home/anastasiia/robo_t_results
 #zip
+zip -r playw_result.zip  /home/anastasiia/robo_t_results/home
 docker ps
 # docker compose down
 # send results
+python3 m.py
 # move to trash
