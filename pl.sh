@@ -17,3 +17,5 @@ docker ps
 # send results
 python3 m.py
 # move to trash
+# /home/anastasiia/robot/tests
+# comport = "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AD0K0OE8-if00-port0"
