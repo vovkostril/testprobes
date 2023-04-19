@@ -16,3 +16,5 @@ sudo docker exec -it robot-playw-1 ls -la && pwd
 sudo docker exec -it robot-playw-1 ls -la results && pwd
 sudo docker exec -it robot-playw-1 robot -d results /home/ptp_play.robot
 sudo docker exec -it robot-playw-1 ls -la results && pwd
+#
+# structure of the volumes and algorithm how to zip the results 
