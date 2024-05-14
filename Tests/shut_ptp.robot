@@ -8,11 +8,8 @@ Suite Teardown      Close Browser
 Test Timeout        2 minute
 
 *** Variables ***
-${URL}        http://192.168.0.3/index.htm
-${URL2}        http://192.168.0.4/index.htm
 ${BROWSER}          Chrome
 ${KERA}          COM3
-${PORt}          2.5GigabitEthernet 4/1
 
 *** Keywords ***
 Open Browser To Login Page

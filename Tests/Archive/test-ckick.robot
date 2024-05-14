@@ -5,8 +5,8 @@ Suite Teardown      Close Browser
 Test Timeout        2 minute
 
 *** Variables ***
-${LOGIN URL}        http://192.168.0.3/
-${PING URL}         http://192.168.0.3/ping4.htm
+${LOGIN URL}        http://192.168.0.33/
+${PING URL}         http://192.168.0.34/ping4.htm
 ${BROWSER}          Chrome
 
 *** Keywords ***

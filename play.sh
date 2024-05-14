@@ -18,8 +18,4 @@ sudo docker exec -it robot-playw-1 robot -d results /home/ptp_play.robot
 sudo docker exec -it robot-playw-1 ls -la results && pwd
 #
 # structure of the volumes and algorithm how to zip the results 
-#  usb-FTDI_FT232R_USB_UART_AD0K0OE8-if00-port0 -> ../../ttyUSB0
-# /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AD0K0OE8-if00-port0
-# comport = "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_AD0K0OE8-if00-port0"
 # filever = "check"
-# cmd = "sh version\r"

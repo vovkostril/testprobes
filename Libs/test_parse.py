@@ -42,8 +42,7 @@ class test_parse:
             print("----------------------------------------------------------")
             print(fp.readline())
             print("----------------------------------------------------------")
-            certainline = str(slot) + "   PWR 48VBE  PWR 48VBE"
-            # certainline = str(slot) + "   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    37 " \
+            certainline = str(slot) + "   PWR"
             #                            "    17.D  - "
             print(certainline)
             for line in fp:
@@ -74,8 +73,6 @@ class test_parse:
             print(fp.readline())
             print("----------------------------------------------------------")
             certainline = str(slot) + "   PWR 48VBE  PWR 48VBE"
-            # certainline = str(slot) + "   Ethernet   Ethernet     T32002.01...AB HP154160239     Operational    37 " \
-            #                            "    17.D  - "
             print(certainline)
             for line in fp:
                 counter += 1
