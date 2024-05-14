@@ -6,8 +6,6 @@ Library    RPA.Browser.Playwright
 ${port}    176
 ${vlan}    91
 ${slot}    12
-${url_active}    http://192.168.0.3
-${url_standby}    http://192.168.0.4
 
 *** Keywords ***
 Open browser and login

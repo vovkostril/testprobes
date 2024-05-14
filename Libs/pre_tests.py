@@ -18,8 +18,7 @@ class pre_tests:
             print("----------------------------------------------------------")
             print(fp.readline())
             print("----------------------------------------------------------")
-            # check_lines = ["Software Version : CM Native CE R4.4", "Code Revision    : 2744", "FPGA2 Version    : 1"]
-            check_lines = ["Software Version : " + swversion, "Code Revision    : " + code_revision, "FPGA2 Version   "
+            check_lines = ["Version : " + swversion, "Revision    : " + code_revision, "FPGA Version   "
                                                                                                      " : " + fpga]
             certainline = check_lines[0]
             for line in fp:

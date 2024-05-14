@@ -6,9 +6,6 @@ from Libs import zip_move_scp
 import webbrowser
 # from robotframework import ExecutionResult
 #
-#origin_dir  = "C:/Users/anastasiia/.vscode/tri/tributary/"
-#parent_dir = "C:/Users/anastasiia/.vscode/tri/tributary/Results/"
-#
 #
 def test(revision, p, additional_text):
     origin_dir  = "C:/Users/anastasiia/.vscode/tri/tributary/"
@@ -24,8 +21,6 @@ def test(revision, p, additional_text):
     # start testing
     print("Result: ")
 
-    p = p
-
     print(p)
 
     post_tests.xml_output_counter(r".\Results\output.xml")
@@ -35,11 +30,9 @@ def test(revision, p, additional_text):
     sleep(5)
     webbrowser.open(result1+"log.html")
     #
-    # result2 = zip_move_scp.zip_zip(result1, dst_path_copy)
-
 # format robot file
 if __name__ == '__main__':
     #
-    test(revision=3060, p=os.system(r"robot -d Results .\Tests\playw.robot"), additional_text="vlan")
+    test(revision=1111, p=os.system(r"robot -d Results .\Tests\playw.robot"), additional_text="vlan")
 
 # add the mail sending process

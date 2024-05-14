@@ -10,18 +10,13 @@ Suite Teardown      Close Browser
 Test Timeout        2 minute
 
 *** Variables ***
-${URL}        http://192.168.0.3/index.htm
-${URL2}        http://192.168.0.4/index.htm
-${IPA}        192.168.0.3
-${IPB}        192.168.0.4
+${URL}        http://192.168.0.33/index.htm
+${URL2}        http://192.168.0.44/index.htm
+${IPA}        192.168.0.33
+${IPB}        192.168.0.44
 ${BROWSER}          Chrome
 ${COMPORT}          COM3
-${username}     admin
-${SWVer}          CM Native CE R4.4
-${activepw}          7
-${standbypw}          8
-${version}     2852
-${fpga}     1
+${fpga}     111
 ${titleLogin}        Login
 
 *** Keywords ***

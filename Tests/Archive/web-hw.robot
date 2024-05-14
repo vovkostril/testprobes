@@ -8,8 +8,8 @@ Suite Teardown      Close Browser
 Test Timeout        2 minute
 
 *** Variables ***
-${URL}        http://192.168.0.3/index.htm
-${URL2}        http://192.168.0.4/index.htm
+${URL}        http://192.168.0.33/index.htm
+${URL2}        http://192.168.0.44/index.htm
 ${BROWSER}          Chrome
 ${COMPORT}          COM3
 ${username}     admin

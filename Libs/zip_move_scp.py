@@ -118,7 +118,7 @@ def scp_scp(file_scp, user, ip, password, remote_folder):
 
     if not os.path.exists(file_scp):
         with open(file_scp, 'w') as f:
-            f.write(str(datetime.now()) + "Nastya Mowed.")
+            f.write(str(datetime.now()) + "Mowed.")
             print("Was created the file.")
     else:
         print("File for scp exitst. Continue...")

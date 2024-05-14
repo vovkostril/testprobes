@@ -2,7 +2,7 @@ import serial_ssh
 
 
 def card(comport, slot, ip, serial=True):
-    command = ["no hw slot " + slot]
+    command = ["" + slot]
     if serial:
         result = serial_ssh.send_command(comport, command)
     else:
@@ -11,7 +11,7 @@ def card(comport, slot, ip, serial=True):
 
 
 def from_cmd(comport, ip, serial=True):
-    command = ["do sh hw"]
+    command = [""]
     if serial:
         result = serial_ssh.send_command(comport, command)
     else:

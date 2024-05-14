@@ -5,7 +5,7 @@ from paramiko.client import AutoAddPolicy
 from paramiko.ssh_exception import AuthenticationException
 
 
-def ssh_connect(USERNAME="admin", password="", host=None, cmd=None):
+def ssh_connect(USERNAME="admin", password="___", host=None, cmd=None):
     # global session
     try:
         client = paramiko.SSHClient()

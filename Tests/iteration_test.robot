@@ -9,14 +9,11 @@ Suite Teardown      Close Browser
 Test Timeout        2 minute
 
 *** Variables ***
-${URL}        http://192.168.0.3/index.htm
-${URL2}        http://192.168.0.4/index.htm
+${URL}        http://192.168.0.33/index.htm
+${URL2}        http://192.168.0.144/index.htm
 ${BROWSER}          Chrome
 ${PORT}        COM3
-${username}     admin
-${FPGA2}        1
-${REVISION}     2835
-${SWVer}          CM Native CE R4.4
+${username}     
 ${titleLogin}        Login
 
 *** Keywords ***
@@ -53,39 +50,30 @@ Go to HW
     Wait Until Element Is Visible    //*[@id="hwiButton"]/input
     Click Element    //*[@id="hwiButton"]/input
     Sleep    2
-    Page Should Contain    Hardware Inventory
     Unselect Frame
 
 Get Slot Status 9
     Select Frame    name:main
     Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
     ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
-    Should Contain    ${loc}    16 Slot Subrack
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[2]
     ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[2]
-    Should Contain    ${card1}    Ethernet
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[3]
     ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[3]
-    Should Contain    ${card2}    Ethernet
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[9]/td[6]
     ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[9]/td[6]
-    Should Contain    ${card3}    Operational
     Unselect Frame
 
 Get Slot Status 10
     Select Frame    name:main
     Element Should Be Visible   //*[@id="unitTableContentTbody"]/tr/td[1]
     ${loc}        Get Text    //*[@id="unitTableContentTbody"]/tr/td[1]
-    Should Contain    ${loc}    16 Slot Subrack
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[2]
     ${card1}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[2]
-    Should Contain    ${card1}    Ethernet
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[3]
     ${card2}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[3]
-    Should Contain    ${card2}    Ethernet
     Element Should Be Visible   //*[@id="slotTableContentTbody"]/tr[10]/td[6]
     ${card3}        Get Text    //*[@id="slotTableContentTbody"]/tr[10]/td[6]
-    Should Contain    ${card3}    Operational
     Unselect Frame
 
 Refresh button
